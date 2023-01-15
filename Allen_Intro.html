@@ -1,0 +1,2526 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>A data science safari &#8212; Exploring cell types in the brain</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Sample title" href="mymarkdownfile.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Exploring cell types in the brain</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mymarkdownfile.html">
+   Sample title
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   A data science safari
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Allen_Intro.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAllen_Intro.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Allen_Intro.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   A data science safari
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libraries-and-apis">
+   Libraries, and APIs
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seaborn">
+     Seaborn
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     Numpy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#make-an-array-of-random-numbers">
+       1) make an array of random numbers
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
+       2. make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#take-slices-of-an-array">
+       3. take ‘slices’ of an array:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#find-locations-in-an-array-where-a-certain-condition-is-met">
+       4. find locations in an array where a certain condition is met
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-more-realistic-example">
+       5. A more realistic example
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-functions-to-generalize-a-procedure">
+       6. Using functions to generalize a procedure
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas">
+     Pandas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inspecting-the-distributions-of-individual-features">
+       1. Inspecting the distributions of individual features
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inspecting-relationships-between-pairs-of-features">
+       2. Inspecting relationships between pairs of features.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#breaking-up-data-into-groups">
+       3. Breaking up data into groups.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-allen-sdk">
+   The Allen SDK
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-you-should-take-away">
+   What you should take away:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handy-list-of-functions-you-encountered-today">
+   Handy list of functions you encountered today:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>A data science safari</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   A data science safari
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libraries-and-apis">
+   Libraries, and APIs
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seaborn">
+     Seaborn
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     Numpy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#make-an-array-of-random-numbers">
+       1) make an array of random numbers
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
+       2. make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#take-slices-of-an-array">
+       3. take ‘slices’ of an array:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#find-locations-in-an-array-where-a-certain-condition-is-met">
+       4. find locations in an array where a certain condition is met
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-more-realistic-example">
+       5. A more realistic example
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-functions-to-generalize-a-procedure">
+       6. Using functions to generalize a procedure
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas">
+     Pandas
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inspecting-the-distributions-of-individual-features">
+       1. Inspecting the distributions of individual features
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inspecting-relationships-between-pairs-of-features">
+       2. Inspecting relationships between pairs of features.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#breaking-up-data-into-groups">
+       3. Breaking up data into groups.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-allen-sdk">
+   The Allen SDK
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-you-should-take-away">
+   What you should take away:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handy-list-of-functions-you-encountered-today">
+   Handy list of functions you encountered today:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="a-data-science-safari">
+<h1>A data science safari<a class="headerlink" href="#a-data-science-safari" title="Permalink to this headline">#</a></h1>
+<p>The goal for today is, as the title suggests, to take a data science safari. In the spirit of a safari, you mostly want to focus on being an engaged observer. For today, we’ll keep our hands inside the vehicle. The idea here is not for you to soak up all the nuances of Python syntax. Instead, just focus on two things. Noting:</p>
+<ul class="simple">
+<li><p>You have a deep intuitive understanding of all the operations. What you lack is not understanding, just a grasp of syntax.</p></li>
+<li><p>Even though some of the code looks pretty ‘codey’, it’s not like we’re writing thousands of lines of code. Often, we’re making cool stuff happen, and pretty graphs appear with a line or two of code.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">allensdk</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: allensdk in /Applications/anaconda3/lib/python3.8/site-packages (2.13.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: semver in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.13.0)
+Requirement already satisfied: xarray&lt;0.16.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.15.1)
+Requirement already satisfied: sqlalchemy in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.4.39)
+Requirement already satisfied: simplejson&lt;4.0.0,&gt;=3.10.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.17.6)
+Requirement already satisfied: aiohttp==3.7.4 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.7.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting statsmodels&lt;=0.13.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading statsmodels-0.13.0-cp38-cp38-macosx_10_15_x86_64.whl (9.5 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.5 MB</span> <span class=" -Color -Color-Red">656.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:15</span>
+     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/9.5 MB</span> <span class=" -Color -Color-Red">1.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.4/9.5 MB</span> <span class=" -Color -Color-Red">2.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.7/9.5 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.2/9.5 MB</span> <span class=" -Color -Color-Red">2.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/9.5 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.7/9.5 MB</span> <span class=" -Color -Color-Red">3.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/9.5 MB</span> <span class=" -Color -Color-Red">3.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.3/9.5 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.7/9.5 MB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.5/9.5 MB</span> <span class=" -Color -Color-Red">6.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.4/9.5 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">7.0/9.5 MB</span> <span class=" -Color -Color-Red">7.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">7.3/9.5 MB</span> <span class=" -Color -Color-Red">7.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">8.0/9.5 MB</span> <span class=" -Color -Color-Red">8.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">8.4/9.5 MB</span> <span class=" -Color -Color-Red">8.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">9.2/9.5 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.4/9.5 MB</span> <span class=" -Color -Color-Red">7.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">9.5/9.5 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">9.5/9.5 MB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.5/9.5 MB</span> <span class=" -Color -Color-Red">7.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: requests-toolbelt&lt;1.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.10.1)
+Requirement already satisfied: pynwb in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.2.0)
+Requirement already satisfied: tables&lt;3.7.0,&gt;=3.6.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.6.1)
+Requirement already satisfied: requests&lt;3.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.28.1)
+Requirement already satisfied: argschema&lt;4.0.0,&gt;=3.0.1 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.0.4)
+Requirement already satisfied: nest-asyncio in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.5.5)
+Requirement already satisfied: numpy in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.21.5)
+Requirement already satisfied: glymur==0.8.19 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.8.19)
+Requirement already satisfied: hdmf&gt;=2.5.8 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.4.6)
+Requirement already satisfied: future&lt;1.0.0,&gt;=0.14.3 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.18.2)
+Requirement already satisfied: ndx-events&lt;=0.2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.2.0)
+Requirement already satisfied: psycopg2-binary&lt;3.0.0,&gt;=2.7 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.9.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-image&lt;0.17.0,&gt;=0.14.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached scikit_image-0.16.2-cp38-cp38-macosx_10_9_x86_64.whl (26.2 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas&gt;=1.1.5 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.4.4)
+Requirement already satisfied: seaborn&lt;1.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.12.1)
+Requirement already satisfied: jinja2&gt;=3.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.0.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib&lt;3.4.3,&gt;=1.4.3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading matplotlib-3.4.2-cp38-cp38-macosx_10_9_x86_64.whl (7.2 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/7.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.5/7.2 MB</span> <span class=" -Color -Color-Red">14.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/7.2 MB</span> <span class=" -Color -Color-Red">20.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/7.2 MB</span> <span class=" -Color -Color-Red">24.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.7/7.2 MB</span> <span class=" -Color -Color-Red">18.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/7.2 MB</span> <span class=" -Color -Color-Red">19.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.8/7.2 MB</span> <span class=" -Color -Color-Red">17.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.4/7.2 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.8/7.2 MB</span> <span class=" -Color -Color-Red">9.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">5.8/7.2 MB</span> <span class=" -Color -Color-Red">10.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">5.8/7.2 MB</span> <span class=" -Color -Color-Red">10.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">6.2/7.2 MB</span> <span class=" -Color -Color-Red">9.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">6.2/7.2 MB</span> <span class=" -Color -Color-Red">9.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">6.2/7.2 MB</span> <span class=" -Color -Color-Red">8.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">6.3/7.2 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">6.3/7.2 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">6.7/7.2 MB</span> <span class=" -Color -Color-Red">8.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.1/7.2 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.1/7.2 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.1/7.2 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.2/7.2 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.2/7.2 MB</span> <span class=" -Color -Color-Red">7.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: tqdm&gt;=4.27 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (4.64.1)
+Requirement already satisfied: scikit-build&lt;1.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.16.1)
+Requirement already satisfied: pynrrd&lt;1.0.0,&gt;=0.2.1 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.4.3)
+Requirement already satisfied: simpleitk&lt;3.0.0,&gt;=2.0.2 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.2.0)
+Requirement already satisfied: cachetools&lt;5.0.0,&gt;=4.2.1 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (4.2.4)
+Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.4.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.7.3)
+Requirement already satisfied: six&lt;2.0.0,&gt;=1.9.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.16.0)
+Requirement already satisfied: h5py in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.10.0)
+Requirement already satisfied: boto3==1.17.21 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.17.21)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (3.0.1)
+Requirement already satisfied: typing-extensions&gt;=3.6.5 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (4.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting chardet&lt;4.0,&gt;=2.0
+  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (1.8.1)
+Requirement already satisfied: attrs&gt;=17.3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (21.4.0)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (6.0.2)
+Requirement already satisfied: s3transfer&lt;0.4.0,&gt;=0.3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from boto3==1.17.21-&gt;allensdk) (0.3.7)
+Requirement already satisfied: jmespath&lt;1.0.0,&gt;=0.7.1 in /Applications/anaconda3/lib/python3.8/site-packages (from boto3==1.17.21-&gt;allensdk) (0.10.0)
+Requirement already satisfied: botocore&lt;1.21.0,&gt;=1.20.21 in /Applications/anaconda3/lib/python3.8/site-packages (from boto3==1.17.21-&gt;allensdk) (1.20.112)
+Requirement already satisfied: setuptools in /Applications/anaconda3/lib/python3.8/site-packages (from glymur==0.8.19-&gt;allensdk) (65.5.0)
+Requirement already satisfied: pyyaml in /Applications/anaconda3/lib/python3.8/site-packages (from argschema&lt;4.0.0,&gt;=3.0.1-&gt;allensdk) (6.0)
+Requirement already satisfied: marshmallow&lt;4.0,&gt;=3.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from argschema&lt;4.0.0,&gt;=3.0.1-&gt;allensdk) (3.18.0)
+Requirement already satisfied: ruamel.yaml&lt;1,&gt;=0.16 in /Applications/anaconda3/lib/python3.8/site-packages (from hdmf&gt;=2.5.8-&gt;allensdk) (0.17.21)
+Requirement already satisfied: jsonschema&lt;5,&gt;=2.6.0 in /Applications/anaconda3/lib/python3.8/site-packages (from hdmf&gt;=2.5.8-&gt;allensdk) (3.2.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from jinja2&gt;=3.0.0-&gt;allensdk) (2.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing&gt;=2.2.1 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (3.0.9)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (2.8.2)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (1.4.2)
+Requirement already satisfied: cycler&gt;=0.10 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (0.11.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (9.2.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /Applications/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;allensdk) (2022.1)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (2.0.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (3.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (1.26.13)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (2022.9.24)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: distro in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (1.8.0)
+Requirement already satisfied: packaging in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (21.3)
+Requirement already satisfied: wheel&gt;=0.32.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (0.37.1)
+Requirement already satisfied: PyWavelets&gt;=0.4.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-image&lt;0.17.0,&gt;=0.14.0-&gt;allensdk) (1.4.1)
+Requirement already satisfied: networkx&gt;=2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-image&lt;0.17.0,&gt;=0.14.0-&gt;allensdk) (2.8.4)
+Requirement already satisfied: imageio&gt;=2.3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-image&lt;0.17.0,&gt;=0.14.0-&gt;allensdk) (2.19.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: patsy&gt;=0.5.2 in /Applications/anaconda3/lib/python3.8/site-packages (from statsmodels&lt;=0.13.0-&gt;allensdk) (0.5.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numexpr&gt;=2.6.2 in /Applications/anaconda3/lib/python3.8/site-packages (from tables&lt;3.7.0,&gt;=3.6.0-&gt;allensdk) (2.8.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: greenlet!=0.4.17 in /Applications/anaconda3/lib/python3.8/site-packages (from sqlalchemy-&gt;allensdk) (2.0.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyrsistent&gt;=0.14.0 in /Applications/anaconda3/lib/python3.8/site-packages (from jsonschema&lt;5,&gt;=2.6.0-&gt;hdmf&gt;=2.5.8-&gt;allensdk) (0.18.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ruamel.yaml.clib&gt;=0.2.6 in /Applications/anaconda3/lib/python3.8/site-packages (from ruamel.yaml&lt;1,&gt;=0.16-&gt;hdmf&gt;=2.5.8-&gt;allensdk) (0.2.7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: chardet, matplotlib, statsmodels, scikit-image
+  Attempting uninstall: chardet
+    Found existing installation: chardet 4.0.0
+    Uninstalling chardet-4.0.0:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled chardet-4.0.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: matplotlib
+    Found existing installation: matplotlib 3.6.2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling matplotlib-3.6.2:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled matplotlib-3.6.2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: statsmodels
+    Found existing installation: statsmodels 0.13.2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling statsmodels-0.13.2:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled statsmodels-0.13.2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: scikit-image
+    Found existing installation: scikit-image 0.19.3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling scikit-image-0.19.3:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled scikit-image-0.19.3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">spyder 4.2.5 requires pyqt5&lt;5.13, which is not installed.</span>
+<span class=" -Color -Color-Red">spyder 4.2.5 requires pyqtwebengine&lt;5.13, which is not installed.</span>
+<span class=" -Color -Color-Red">pyrfume 0.17.5 requires dask[bag]&lt;3.0.0,&gt;=2.17.0, but you have dask 2022.2.1 which is incompatible.</span>
+Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsmodels-0.13.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s just start by doing something cool, and we’ll worry about how it works later.</p>
+<p>Say you’re a brain researcher interested in the relationship between a cell’s excitability, and its resting potential. Moreover, you want to know if this relationship is different between the left and right brain hemispheres and whether this also varies between humans and mice. Here’s how you would do that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.core.cell_types_cache</span> <span class="kn">import</span> <span class="n">CellTypesCache</span>
+
+<span class="n">ctc</span> <span class="o">=</span> <span class="n">CellTypesCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="s1">&#39;cell_types/manifest.json&#39;</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">(</span><span class="n">require_reconstruction</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">cell_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_cells</span><span class="p">())</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">features</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;number_branches&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">,</span> <span class="s1">&#39;total_volume&#39;</span><span class="p">]],</span> 
+              <span class="n">cell_metadata</span><span class="p">[[</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;structure_hemisphere&#39;</span><span class="p">]],</span> 
+              <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;structure_hemisphere&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Allen_Intro_3_0.png" src="_images/Allen_Intro_3_0.png" />
+</div>
+</div>
+<p>The code may look a little hairy and intimidating, but you should still find it pretty amazing that at the end of the day, there really doesn’t seem to be all that much to it! In a handful of lines of code, we’ve:</p>
+<ul class="simple">
+<li><p>gained access to a very large and rich dataset with information about cellular properties, collected from different hemispheres and different species, for hundreds of cells.</p></li>
+<li><p>organized the data in such a way that we can separate them out by conditions (species, and hemisphere)</p></li>
+<li><p>made scatterplots of the data, and fit a statistical models to them (lines w/ error bars)</p></li>
+</ul>
+<p>Let’s go line by line and explain what’s happening, so you can learn how to start slicing and dicing data like this.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="libraries-and-apis">
+<h1>Libraries, and APIs<a class="headerlink" href="#libraries-and-apis" title="Permalink to this headline">#</a></h1>
+<p>The first block of code looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.core.cell_types_cache</span> <span class="kn">import</span> <span class="n">CellTypesCache</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hopefully you have intuited that some stuff is being imported here. But what does that mean?</p>
+<p>Whenever we open a notebook like this one, we can start typing Python code and running it. We might want to just do some simple calculations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or maybe we want to use a simple mathematical function, like calculate the absolute value of a number. Recall that a function is something like a little machine that you feed an input (typically the input is put inside parentheses), and which spits back an output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>That example is perhaps a bit trivial, but it’s very easy to cook up examples that are less so. Say you wanted to know how to write the number 34291 in binary. The function ‘bin’ does exactly that. You feed it a base ten number, and it spits back that same number in binary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="mi">34291</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b1000010111110011&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="seaborn">
+<h2>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">#</a></h2>
+<p>But now say you wanted a function that you feed data from a table, and which aggregates the data into different user-specified groups, performs a linear regression on each group, and spits back a nicely formatted graph. That’s a tall order, and that functionality is not built into basic Python. It would actually be pretty weird if it were. Luckily for us though, someone <em>has</em> written exactly that function, has been generous enough to share it with us, and has made it very easy for us to access it. Not only that, they have actually written a whole <em>library</em> of related functions that we can access.</p>
+<p>That library is called ‘Seaborn’, and when we type the command</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>we are making Seaborn and all of its functions available to us. The ‘as sns’ is a way of letting Python know when we are trying to execute onf of the seaborn functions. For example, seaborn has a function named ‘heatmap’ that color-codes a data table so you can quickly spot relationships that are less obvious from just staring at a table of numbers. If we naively tried to call it like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">]])</span>
+
+<span class="ne">NameError</span>: name &#39;heatmap&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then python will yell at us. We need to be a bit more explicit, and let it know that we’re calling a function from seaborn. This is how we do it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
+</pre></div>
+</div>
+<img alt="_images/Allen_Intro_20_1.png" src="_images/Allen_Intro_20_1.png" />
+</div>
+</div>
+<p>We’re now in a position to make a bit more sense of this line of code, from above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;structure_hemisphere&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Allen_Intro_22_0.png" src="_images/Allen_Intro_22_0.png" />
+</div>
+</div>
+<p>We are executing a Seaborn function called lmplot (a ‘linear model’ plot), and unlike the other functions we’ve encountered above, you can see that we actually have to feed it not just one input (called a parameter), but several. These control the behavior of the function, and determine what exactly is calculated and shown. We won’t go into what these parameters are doing in detail here, because there are some other concepts we need to develop first. Just make sure you have internalized the big ideas:</p>
+<ul class="simple">
+<li><p>functions do useful things (calculate square roots, produce graphs, etc)</p></li>
+<li><p>python has some functions that are built in, but quite often we need to import them from other libraries</p></li>
+<li><p>functions take a variety of inputs that control their behavior.</p></li>
+</ul>
+</section>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h2>
+<p>You’ll notice that seaborn was just one of several libraries we imported. Also along for the ride were:</p>
+<ul class="simple">
+<li><p><strong>numpy:</strong> a library with powerful computing tools, and which is especially good for working with arrays (tables of numbers, for our purposes)</p></li>
+<li><p><strong>pandas:</strong> a library for the manipulation and analysis of tabular data (where each row is an object, and each column is a different measurement made of that object)</p></li>
+<li><p><strong>matplotlib:</strong> a library for making professional quality graphs and plots.</p></li>
+</ul>
+<p>After importing numpy (which we’ve done above, and won’t repeat here), we can create simple arrays as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 2, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not terribly exciting. But what’s cool is that we can call numpy functions directly on this new array, using a syntax like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we wanted to find the unique items in the array, we could do something like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy is a really extensive library, and we won’t be going that deep into it, but a few example will help give a bit of its flavor. We can do things like:</p>
+<section id="make-an-array-of-random-numbers">
+<h3>1) make an array of random numbers<a class="headerlink" href="#make-an-array-of-random-numbers" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">rnd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.13778182, 0.48626575, 0.08540665, 0.45892845, 0.9274585 ,
+        0.16077896, 0.17336873, 0.01512331, 0.27846253, 0.66425606]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that here, we couldn’t just call the function rand(). We had to call it as np.random.rand(). That’s because numpy is broken up into a number of different <em>modules</em>, of which rand is one. You can think of a module as a name for grouping related sets of functions. For example, there’s also np.linalg, which contains functions for doing linear algebra, and np.matlib, which has functions for a wide variety of matrix operations.</p>
+</section>
+<section id="make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
+<h3>2. make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.<a class="headerlink" href="#make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ones</span><span class="p">)</span>
+<span class="n">ones_reshaped</span> <span class="o">=</span> <span class="n">ones</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">ones_reshaped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
+
+ [[1. 1.]
+ [1. 1.]
+ [1. 1.]
+ [1. 1.]
+ [1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="take-slices-of-an-array">
+<h3>3. take ‘slices’ of an array:<a class="headerlink" href="#take-slices-of-an-array" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">arr_slice</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">arr_slice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;a&#39; &#39;b&#39; &#39;c&#39; &#39;d&#39;]
+ [&#39;e&#39; &#39;f&#39; &#39;g&#39; &#39;h&#39;]]
+
+ g
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, we’ve grabbed a single entry from the array named (uncreatively) ‘arr’. The ‘1’ indicates that we want the first <em>row</em>, and the ‘2’ indicates that we want the second <em>column</em>. You might be wondering “isn’t the item in the first row and second column ‘b’ and not ‘g’”? The answer is ‘yes’, but the indexing of rows and columns actually starts with zero, not one in python. ‘a’, for example, would be in the zeroth row, and the zeroth column.</p>
+<p>You might also be interested in grabbing subsets of an array, like all the columns at a particular row. Here, the colon (:) operator comes in handy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;], dtype=&#39;&lt;U1&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">notation</span> <span class="ow">is</span> <span class="n">just</span> <span class="n">saying</span> <span class="s2">&quot;grab me everything in row 1&quot;</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="find-locations-in-an-array-where-a-certain-condition-is-met">
+<h3>4. find locations in an array where a certain condition is met<a class="headerlink" href="#find-locations-in-an-array-where-a-certain-condition-is-met" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an array w/ 100 random numbers uniformly distributed between 0 and 1</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fine the indices where a certain condition is met</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr2</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">idx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([10, 12, 24, 30, 43, 44, 51, 52, 60, 65, 85]),)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99340462, 0.98708416, 0.92635883, 0.95902238, 0.95837603,
+       0.99989267, 0.94642556, 0.91902474, 0.99288174, 0.98322998,
+       0.954065  ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first blocks of code we made an array of 100 numbers, chosen from a uniform distribution between 0 an 1. In the second block of code, we ‘asked’ “find me the indices where the numbers from the array are greater than 0.9” (incidentally, we expect about 10 of these if each number is chosen at rantom from 0 to 1). Recall that the index values run from 0 to 99, not from 1 to 100. In the last block of code, we’re saying “give me the values of the array at those indices I specified above”.</p>
+</section>
+<section id="a-more-realistic-example">
+<h3>5. A more realistic example<a class="headerlink" href="#a-more-realistic-example" title="Permalink to this headline">#</a></h3>
+<p>To give a somewhat more realistic example of how you might use numpy, let’s ask a question about some real data. The data we imported at the very beginning was a big table of cells x features, and among the features were the surface area of the soma (called ‘soma_surface’ in the table), and the resting membrane potential (called ‘vrest’ in the table).</p>
+<p>Let’s make an array with those two measurements as the columns. Don’t worry too much about the syntax in this part:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr3</span> <span class="o">=</span> <span class="n">features</span><span class="p">[[</span><span class="s1">&#39;soma_surface&#39;</span><span class="p">,</span> <span class="s1">&#39;vrest&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">arr3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 444.24748417,  -73.5533905 ],
+       [1997.53430391,  -73.05659485],
+       [ 522.95235573,  -75.32037354],
+       ...,
+       [ 148.86659196,  -69.29812622],
+       [ 529.31181292,  -75.97226715],
+       [ 529.31181292,  -75.97226715]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The numbers in the left column look like reasonable surface areas (in square microns), and those in the right are reasonable resting potentials (in millivolts).</p>
+<p>I could easily calculate the mean resting potential across all of these cells with a command like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-71.70170455040163
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cool. Now let’s say our friend tells you that cells with a surface area between 400 and 600 have slightly higher than average resting potentials. We have the data and the tools to investigate this, and we just need to think clearly about what exactly our task is, and what steps are involved:</p>
+<ul class="simple">
+<li><p><strong>STEP 1:</strong> Find the index values of where a certain condition is met on column 0 (the surface areas).</p></li>
+<li><p><strong>STEP 2:</strong> Grab resting potential data from <em>those same indices</em> where the condition is met.</p></li>
+<li><p><strong>STEP 3:</strong> Compute the mean of that subset of the resting potential data we got from (2).</p></li>
+</ul>
+<p>Let’s turn these steps into code!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># STEP 1. Find the index values where our condition is met. </span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">arr3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">400</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arr3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">600</span><span class="p">))</span>
+<span class="n">idx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  0,   2,   6,  11,  12,  14,  16,  18,  24,  25,  38,  44,  46,
+         50,  61,  65,  72,  73,  75,  80,  87,  88, 101, 104, 109, 123,
+        131, 141, 143, 149, 153, 163, 177, 181, 183, 187, 191, 194, 199,
+        201, 203, 207, 208, 212, 215, 217, 239, 241, 243, 262, 263, 264,
+        266, 269, 270, 271, 275, 292, 303, 307, 316, 320, 331, 335, 337,
+        347, 357, 365, 366, 369, 374, 379, 384, 392, 393, 405, 406, 407,
+        411, 413, 415, 422, 425, 432, 434, 437, 439, 446, 449, 451, 452,
+        453, 458, 465, 468, 472, 473, 474, 478, 483, 486, 489, 501, 504,
+        517, 518, 528, 536, 539, 554, 562, 567, 568, 580, 593, 594, 609,
+        616, 619, 621, 622, 624, 628, 629, 632, 634, 638, 643, 645, 648,
+        651, 655, 657, 667, 669, 682, 684, 685, 691, 693, 695, 699, 700]),)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we’re using our .where() trick like before, but I’ve snuck a bit of extra syntax in here on you. The expression inside the parentheses is actually a combination of two conditions: both greater than 400, AND less than 600. The symbol ‘&amp;’ can literally be read as the familar ‘and’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># STEP 2. Find values of column 1 (the resting potentials) at those same indices: </span>
+<span class="n">voltages</span> <span class="o">=</span> <span class="n">arr3</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">voltages</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-73.5533905 , -75.32037354, -80.50551605, -71.82261658,
+        -80.40293121, -64.99478149, -76.3922348 , -72.38851166,
+        -76.20173645, -74.57707977, -73.15476227, -72.16624451,
+        -73.97957611, -77.62200928, -58.16283417, -75.26003265,
+        -69.46669006, -69.12715149, -71.71974182, -76.71603394,
+        -75.64860535, -75.77318573, -67.52542114, -83.07128906,
+        -74.23421478, -72.70735931, -72.15679932, -64.28223419,
+        -80.59257507, -74.09919739, -75.51889801, -73.39523315,
+        -69.40285492, -71.615448  , -68.47377777, -65.85975647,
+        -71.49372864, -72.67240906, -72.57830048, -70.40683746,
+        -77.1328125 , -63.13568115, -67.58250427, -69.900383  ,
+        -70.0072403 , -72.07157898, -60.46131897, -72.85210419,
+        -80.70819855, -66.16799164, -71.17376709, -73.03672028,
+        -74.17292786, -83.62197113, -71.32830048, -64.44219208,
+        -60.47087479, -72.23789978, -78.07501221, -72.20556641,
+        -72.7064743 , -69.91544342, -71.68332672, -79.32460785,
+        -59.36676788, -73.59332275, -77.91981506, -68.36675262,
+        -64.71183777, -77.13792419, -73.13037109, -73.83479309,
+        -73.24443054, -69.51996613, -69.54286194, -75.36092377,
+        -75.36092377, -73.35988617, -63.12169266, -71.72515869,
+        -76.52536774, -74.59506989, -73.38925934, -62.9210968 ,
+        -63.97817612, -60.34999084, -63.95281219, -72.86683655,
+        -74.45582581, -72.21971893, -62.69814682, -60.87068939,
+        -65.52477264, -79.44727325, -74.71096802, -76.68501282,
+        -75.12489319, -71.94685364, -72.10011292, -77.27454376,
+        -68.62188721, -71.3862915 , -78.18148804, -79.69064331,
+        -67.45191956, -65.84806824, -69.14163971, -68.20192719,
+        -64.60378265, -75.17481995, -77.31426239, -69.69233704,
+        -69.69233704, -73.96974945, -71.14360809, -74.78993225,
+        -71.71648407, -74.17525482, -70.90910339, -64.25099182,
+        -64.25099182, -74.23156738, -74.14987946, -74.14987946,
+        -71.57604218, -74.99486542, -73.28122711, -76.82647705,
+        -66.8507309 , -73.65872192, -69.01644135, -75.45542145,
+        -66.95246887, -74.70922089, -74.09431458, -72.54766083,
+        -71.27861023, -70.8589325 , -65.31122589, -72.37296295,
+        -74.63965607, -75.97226715, -75.97226715]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># STEP 3: Fine the mean of those values</span>
+<span class="n">voltages</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-71.8146886758871
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like your friend was wrong! A voltage of -71.814…. isn’t meaningfully different from -71.7017…</p>
+</section>
+<section id="using-functions-to-generalize-a-procedure">
+<h3>6. Using functions to generalize a procedure<a class="headerlink" href="#using-functions-to-generalize-a-procedure" title="Permalink to this headline">#</a></h3>
+<p>Say you wanted to re-run your procedure above, but now test whether resting potentials are different for soma sizes in the range of 1000 to 1400. It would be easy enough to go through the code, and tweak the some size ranges to run that particular query. But it would be even cooler if we could make <em>our own function</em> that allowed us to set arbitrary soma size ranges, and which spat back to us the mean resting potential of cells in that size range. In other words, we desire a syntax like:</p>
+<p>get_conditional_vrest(array, lower_size_limit, upper_size_limit)</p>
+<p>If such a function existed, we would expect that if we ran this:</p>
+<p>get_conditional_vrest(arr3, 400, 600)</p>
+<p>It should then spit back -71.8146886758871</p>
+<p>Here’s how you would make that thing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_conditional_vrest</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">lower_size_limit</span><span class="p">,</span> <span class="n">upper_size_limit</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">arr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lower_size_limit</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">upper_size_limit</span><span class="p">))</span>
+    <span class="n">voltages</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">mean_voltage</span> <span class="o">=</span> <span class="n">voltages</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">mean_voltage</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test its behavior:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_conditional_vrest</span><span class="p">(</span><span class="n">arr3</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-71.8146886758871
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cool! What’s nice is that we now have a flexible function that let’s us query the data, without having to laboriously tweak numbers inside blocks of code. This use case is naturally a little bit contrived, and honestly it wouldn’t be all <em>that</em> terrible to do these little tweaks. But hopefully you see the value in this, when problems scale up. Whenever possible, you should try to write functions that solve problems generically.</p>
+<p>A couple things are worth saying about the function we designed above.</p>
+<ol class="simple">
+<li><p>In the first line, we are <em>defining</em> a function, using the keyword ‘def’. The text you see in blue is the name of our function. After we make our function, we expect that we’ll be able to call it by that name, in the same way that we called abs(), bin(), etc, above.</p></li>
+<li><p>Inside the parenthesis on the first line are the <em>parameters</em> of the function. They are the things we expect a user will povide when they’re later using the function. Note that we are not putting any <em>particular</em> values in these parameters. arr can be any array, and lower_size_limit is user-defined.</p></li>
+</ol>
+</section>
+</section>
+<section id="pandas">
+<h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">#</a></h2>
+<p>The Pandas library is one of the true workhorses of data science. In this class you’ll be doing much more with Pandas than with numpy. We’ll have an ‘all-Pandas’ day where we explore this library in some detail, but for now let’s just take a tour of it.</p>
+<p>Just like the fundamental numpy object is the array, the fundamental pandas object is something called a dataframe. We actually created a dataframe in our opening example, with the line of code that looked like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">(</span><span class="n">require_reconstruction</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The only thing to pay attention to here is the part that goes: pd.DataFrame(). The rest is just some bells and whistles that are specific to the dataset we’re working with. When we run pd.DataFrame(), and put something into the parentheses, we’re saying “turn whatever I’ve just fed you into a dataframe.” “Or try your best to do so…”</p>
+<p>We can take a peek at the features dataframe with this command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>adaptation</th>
+      <th>avg_isi</th>
+      <th>electrode_0_pa</th>
+      <th>f_i_curve_slope</th>
+      <th>fast_trough_t_long_square</th>
+      <th>fast_trough_t_ramp</th>
+      <th>fast_trough_t_short_square</th>
+      <th>fast_trough_v_long_square</th>
+      <th>fast_trough_v_ramp</th>
+      <th>fast_trough_v_short_square</th>
+      <th>...</th>
+      <th>overall_width</th>
+      <th>scale_factor_x</th>
+      <th>scale_factor_y</th>
+      <th>scale_factor_z</th>
+      <th>soma_surface</th>
+      <th>superseded</th>
+      <th>tags</th>
+      <th>total_length</th>
+      <th>total_surface</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>134.700000</td>
+      <td>22.697498</td>
+      <td>8.335459e-02</td>
+      <td>1.18768</td>
+      <td>13.295200</td>
+      <td>1.025916</td>
+      <td>-56.375004</td>
+      <td>-57.385420</td>
+      <td>-57.431251</td>
+      <td>...</td>
+      <td>581.674568</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>444.247484</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>9995.218601</td>
+      <td>16666.213729</td>
+      <td>2355.765059</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-24.887498</td>
+      <td>-3.913630e-19</td>
+      <td>1.09984</td>
+      <td>20.650105</td>
+      <td>1.025460</td>
+      <td>-54.000000</td>
+      <td>-54.828129</td>
+      <td>-54.656254</td>
+      <td>...</td>
+      <td>391.393464</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>1997.534304</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>6533.385774</td>
+      <td>13173.179026</td>
+      <td>2962.024123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.044825</td>
+      <td>91.322222</td>
+      <td>-46.761876</td>
+      <td>2.238637e-01</td>
+      <td>1.19024</td>
+      <td>3.826338</td>
+      <td>1.025363</td>
+      <td>-44.937504</td>
+      <td>-43.635419</td>
+      <td>-47.395833</td>
+      <td>...</td>
+      <td>236.976305</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>522.952356</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>2067.805445</td>
+      <td>3180.344934</td>
+      <td>460.354199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.002303</td>
+      <td>8.756140</td>
+      <td>-33.787497</td>
+      <td>6.366711e-01</td>
+      <td>1.72910</td>
+      <td>16.728967</td>
+      <td>1.023988</td>
+      <td>-60.968754</td>
+      <td>-63.145835</td>
+      <td>-66.856253</td>
+      <td>...</td>
+      <td>332.948545</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>76.604264</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>3488.103438</td>
+      <td>2371.871389</td>
+      <td>129.985840</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.093492</td>
+      <td>112.245000</td>
+      <td>3.015000</td>
+      <td>1.500000e-01</td>
+      <td>1.10920</td>
+      <td>5.458287</td>
+      <td>1.025020</td>
+      <td>-51.062504</td>
+      <td>-57.916670</td>
+      <td>-56.531254</td>
+      <td>...</td>
+      <td>374.603996</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>77.936062</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>2977.161146</td>
+      <td>2703.134880</td>
+      <td>204.115177</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 85 columns</p>
+</div></div></div>
+</div>
+<p>Couple things to note here. First, this just sort of feels like a much more natural and familar object than a numpy array. If you squint and don’t ask too many questions, it probably reminds you of something like an excel spreadsheet that you might have seen (or even made) in other classes. Each row is a given neuron, numbered 0, 1, 2, .. in the <em>index</em>, and each column is some particular thing that was measured (the neuron’s average isi, it’s surface area, etc). Even though the number of columns looks pretty large above, we actually have far more than what’s shown. Let’s see how many there are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;adaptation&#39;, &#39;avg_isi&#39;, &#39;electrode_0_pa&#39;, &#39;f_i_curve_slope&#39;,
+       &#39;fast_trough_t_long_square&#39;, &#39;fast_trough_t_ramp&#39;,
+       &#39;fast_trough_t_short_square&#39;, &#39;fast_trough_v_long_square&#39;,
+       &#39;fast_trough_v_ramp&#39;, &#39;fast_trough_v_short_square&#39;, &#39;has_burst&#39;,
+       &#39;has_delay&#39;, &#39;has_pause&#39;, &#39;id_x&#39;, &#39;input_resistance_mohm&#39;, &#39;latency&#39;,
+       &#39;peak_t_long_square&#39;, &#39;peak_t_ramp&#39;, &#39;peak_t_short_square&#39;,
+       &#39;peak_v_long_square&#39;, &#39;peak_v_ramp&#39;, &#39;peak_v_short_square&#39;,
+       &#39;rheobase_sweep_id&#39;, &#39;rheobase_sweep_number&#39;, &#39;ri&#39;, &#39;sag&#39;, &#39;seal_gohm&#39;,
+       &#39;slow_trough_t_long_square&#39;, &#39;slow_trough_t_ramp&#39;,
+       &#39;slow_trough_t_short_square&#39;, &#39;slow_trough_v_long_square&#39;,
+       &#39;slow_trough_v_ramp&#39;, &#39;slow_trough_v_short_square&#39;, &#39;specimen_id&#39;,
+       &#39;tau&#39;, &#39;threshold_i_long_square&#39;, &#39;threshold_i_ramp&#39;,
+       &#39;threshold_i_short_square&#39;, &#39;threshold_t_long_square&#39;,
+       &#39;threshold_t_ramp&#39;, &#39;threshold_t_short_square&#39;,
+       &#39;threshold_v_long_square&#39;, &#39;threshold_v_ramp&#39;,
+       &#39;threshold_v_short_square&#39;, &#39;thumbnail_sweep_id&#39;,
+       &#39;trough_t_long_square&#39;, &#39;trough_t_ramp&#39;, &#39;trough_t_short_square&#39;,
+       &#39;trough_v_long_square&#39;, &#39;trough_v_ramp&#39;, &#39;trough_v_short_square&#39;,
+       &#39;upstroke_downstroke_ratio_long_square&#39;,
+       &#39;upstroke_downstroke_ratio_ramp&#39;,
+       &#39;upstroke_downstroke_ratio_short_square&#39;, &#39;vm_for_sag&#39;, &#39;vrest&#39;,
+       &#39;average_bifurcation_angle_local&#39;, &#39;average_bifurcation_angle_remote&#39;,
+       &#39;average_contraction&#39;, &#39;average_diameter&#39;, &#39;average_fragmentation&#39;,
+       &#39;average_parent_daughter_ratio&#39;, &#39;hausdorff_dimension&#39;, &#39;id_y&#39;,
+       &#39;max_branch_order&#39;, &#39;max_euclidean_distance&#39;, &#39;max_path_distance&#39;,
+       &#39;neuron_reconstruction_type&#39;, &#39;number_bifurcations&#39;, &#39;number_branches&#39;,
+       &#39;number_nodes&#39;, &#39;number_stems&#39;, &#39;number_tips&#39;, &#39;overall_depth&#39;,
+       &#39;overall_height&#39;, &#39;overall_width&#39;, &#39;scale_factor_x&#39;, &#39;scale_factor_y&#39;,
+       &#39;scale_factor_z&#39;, &#39;soma_surface&#39;, &#39;superseded&#39;, &#39;tags&#39;, &#39;total_length&#39;,
+       &#39;total_surface&#39;, &#39;total_volume&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yikes! That’s a lot of measurements. For our purposes, let’s pare this down to just a handful of measurements so things are a little easier on the eyes (and the brain!). We can make a new dataframe from this one, with just a few specific columns selected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">features</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;number_branches&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">,</span> <span class="s1">&#39;total_volume&#39;</span><span class="p">]]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vrest</th>
+      <th>number_branches</th>
+      <th>threshold_v_ramp</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-73.553391</td>
+      <td>119</td>
+      <td>-40.416669</td>
+      <td>2355.765059</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-73.056595</td>
+      <td>94</td>
+      <td>-39.500001</td>
+      <td>2962.024123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-75.320374</td>
+      <td>42</td>
+      <td>-35.208335</td>
+      <td>460.354199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-79.520042</td>
+      <td>53</td>
+      <td>-47.343751</td>
+      <td>129.985840</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-81.065971</td>
+      <td>49</td>
+      <td>-44.041670</td>
+      <td>204.115177</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>696</th>
+      <td>-78.721344</td>
+      <td>58</td>
+      <td>-34.812500</td>
+      <td>438.463505</td>
+    </tr>
+    <tr>
+      <th>697</th>
+      <td>-73.505409</td>
+      <td>29</td>
+      <td>-37.822920</td>
+      <td>38.494166</td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>-69.298126</td>
+      <td>56</td>
+      <td>-38.885419</td>
+      <td>257.901659</td>
+    </tr>
+    <tr>
+      <th>699</th>
+      <td>-75.972267</td>
+      <td>88</td>
+      <td>-33.729168</td>
+      <td>1262.798669</td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>-75.972267</td>
+      <td>88</td>
+      <td>-33.729168</td>
+      <td>1262.798767</td>
+    </tr>
+  </tbody>
+</table>
+<p>701 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>Pandas makes it very easy to size up your data, explore its different features, and see how different features relate to one another. When you first get your hands on a dataset, there’s usually a few basic kinds of analyses and visualizations you’re going to start with. We typically:</p>
+<ol class="simple">
+<li><p>Look at the distributions of <em>individual</em> features. We do this to get a sense of how spread out or bunched up the values are.</p></li>
+<li><p>Look at correlations and scatterplots <em>between</em> our features. This gives us a sense of whether there’s a systematic relationship between variables. For example, as the number of branches in a neuron goes up, does the total volume go up as well? (That would certainly seem sensible)</p></li>
+<li><p>Break up our data into groups on the basis of <strong>categorical variables</strong>, and see if any features vary systematically across groups. Categorical variables are basically data labels. There actually aren’t any categorical variables in the example above, but we’ll fix that soon!</p></li>
+</ol>
+<p>Let’s see some simple examples of doing each of these things in practice.</p>
+<section id="inspecting-the-distributions-of-individual-features">
+<h3>1. Inspecting the distributions of individual features<a class="headerlink" href="#inspecting-the-distributions-of-individual-features" title="Permalink to this headline">#</a></h3>
+<p>It’s pretty straightforward to get a distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_branches&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Allen_Intro_75_1.png" src="_images/Allen_Intro_75_1.png" />
+</div>
+</div>
+<p>This quickly gives you some information about the number of branches. Most of the cells have about 50 branches, but the tail of the distribution looks like it extends pretty far to the right. It certainly doesn’t look centered and symmetric like a classical normal (‘bell shaped’) curve. You can (and should!) look at distributions for the other three features in the data frame.</p>
+</section>
+<section id="inspecting-relationships-between-pairs-of-features">
+<h3>2. Inspecting relationships between pairs of features.<a class="headerlink" href="#inspecting-relationships-between-pairs-of-features" title="Permalink to this headline">#</a></h3>
+<p>Looking at individual distributions will often tell you a lot, but they won’t tell you about how your variables are related to one another. Is it the case that a larger resting potential implies a higher threshold? Do cells with more branches typically tend to have more surface area?</p>
+<p>A scatterplot is an intuitive way to size up the relationship between two variables. Here’s how you make one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;number_branches&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_volume&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;number_branches&#39;, ylabel=&#39;total_volume&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Allen_Intro_79_1.png" src="_images/Allen_Intro_79_1.png" />
+</div>
+</div>
+<p>Perhaps there’s a trend there. It might not be super strong, but I think most of us would intuit some kind of relationship. We could imagine making scatter plots like this for every pair of features (branches vs. volume, branches vs. v_rest, v_rest vs. surface area, etc, etc….). Pandas has a handy function for plotting these all in one shot, rather than requiring us to write a separate line of code of each pair.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Allen_Intro_81_0.png" src="_images/Allen_Intro_81_0.png" />
+</div>
+</div>
+<p>The labels are a little ugly and bunched up here, but we’re not going to worry too much about that for now. The important thing is what this matrix is telling us. Basically, everywhere we see a diffuse circular cloud, we suspect there’s not a systematic relationship between the variables in question. Everywhere we see the points running along the diagonal, we hypothesize a potential relationship.</p>
+<p>What might be nice is if we could just put a single number in each box above that’s representative of the overall relationship. That’s exactly what we get when we compute a correlation matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vrest</th>
+      <th>number_branches</th>
+      <th>threshold_v_ramp</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>vrest</th>
+      <td>1.000000</td>
+      <td>-0.083288</td>
+      <td>-0.119154</td>
+      <td>0.060118</td>
+    </tr>
+    <tr>
+      <th>number_branches</th>
+      <td>-0.083288</td>
+      <td>1.000000</td>
+      <td>-0.265659</td>
+      <td>0.546804</td>
+    </tr>
+    <tr>
+      <th>threshold_v_ramp</th>
+      <td>-0.119154</td>
+      <td>-0.265659</td>
+      <td>1.000000</td>
+      <td>-0.297691</td>
+    </tr>
+    <tr>
+      <th>total_volume</th>
+      <td>0.060118</td>
+      <td>0.546804</td>
+      <td>-0.297691</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here, values equal to 1 indicate perfect correlation. Every variable is perfectly correlated with itself, which is perhaps not terribly surprising. The number of branches and total volume also seem to be strongly correlated (0.54), which seems quite sensible.</p>
+</section>
+<section id="breaking-up-data-into-groups">
+<h3>3. Breaking up data into groups.<a class="headerlink" href="#breaking-up-data-into-groups" title="Permalink to this headline">#</a></h3>
+<p>Often, our data fall into natural groups, either by accident, or on purpose through experimental design. We might measure the heights of 100 trees, and know that each measurement corresponds to one of three types (say: elm, pine, oak). It’s a natural enough question to ask: “does average height vary by type of tree?” In our neuron dataset, we might be intrested in knowing whether resting potential is different between mouse neurons vs. human neurons. Any time we’re <em>grouping</em> our data, or sorting it on the basis of <em>kinds</em> or <em>types</em>, we are using what are called <strong>categorical variables</strong></p>
+<p>A categorical variable, as the name implies, denotes categories, groups, or types. If you look at the dataset again, you’ll note that we actually don’t have any categorical variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vrest</th>
+      <th>number_branches</th>
+      <th>threshold_v_ramp</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-73.553391</td>
+      <td>119</td>
+      <td>-40.416669</td>
+      <td>2355.765059</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-73.056595</td>
+      <td>94</td>
+      <td>-39.500001</td>
+      <td>2962.024123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-75.320374</td>
+      <td>42</td>
+      <td>-35.208335</td>
+      <td>460.354199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-79.520042</td>
+      <td>53</td>
+      <td>-47.343751</td>
+      <td>129.985840</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-81.065971</td>
+      <td>49</td>
+      <td>-44.041670</td>
+      <td>204.115177</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>All of our data about cell type, species type, etc (those things that scream ‘categorical variable!’) are actually locked up in a different dataframe that we had named ‘cell_metadata’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_metadata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reporter_status</th>
+      <th>cell_soma_location</th>
+      <th>species</th>
+      <th>id</th>
+      <th>name</th>
+      <th>structure_layer_name</th>
+      <th>structure_area_id</th>
+      <th>structure_area_abbrev</th>
+      <th>transgenic_line</th>
+      <th>dendrite_type</th>
+      <th>apical</th>
+      <th>reconstruction_type</th>
+      <th>disease_state</th>
+      <th>donor_id</th>
+      <th>structure_hemisphere</th>
+      <th>normalized_depth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>[273.0, 354.0, 216.0]</td>
+      <td>Homo Sapiens</td>
+      <td>525011903</td>
+      <td>H16.03.003.01.14.02</td>
+      <td>3</td>
+      <td>12113</td>
+      <td>FroL</td>
+      <td></td>
+      <td>spiny</td>
+      <td>intact</td>
+      <td>None</td>
+      <td>epilepsy</td>
+      <td>524848408</td>
+      <td>right</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>positive</td>
+      <td>[8966.56330957526, 1429.52689052075, 8567.3896...</td>
+      <td>Mus musculus</td>
+      <td>565871768</td>
+      <td>Oxtr-2A-Cre;Ai14-293837.03.01.02</td>
+      <td>5</td>
+      <td>385</td>
+      <td>VISp</td>
+      <td>Oxtr-T2A-Cre</td>
+      <td>aspiny</td>
+      <td>NA</td>
+      <td>None</td>
+      <td></td>
+      <td>563340157</td>
+      <td>left</td>
+      <td>0.582057</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>positive</td>
+      <td>[7872.53138541818, 993.212032389272, 3127.1530...</td>
+      <td>Mus musculus</td>
+      <td>469801138</td>
+      <td>Pvalb-IRES-Cre;Ai14-170927.05.02.01</td>
+      <td>4</td>
+      <td>385</td>
+      <td>VISp</td>
+      <td>Pvalb-IRES-Cre</td>
+      <td>aspiny</td>
+      <td>NA</td>
+      <td>None</td>
+      <td></td>
+      <td>319194354</td>
+      <td>right</td>
+      <td>0.469578</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>[69.0, 254.0, 96.0]</td>
+      <td>Homo Sapiens</td>
+      <td>528642047</td>
+      <td>H16.06.009.01.02.06.05</td>
+      <td>5</td>
+      <td>12141</td>
+      <td>MTG</td>
+      <td></td>
+      <td>aspiny</td>
+      <td>NA</td>
+      <td>None</td>
+      <td>epilepsy</td>
+      <td>528574320</td>
+      <td>left</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>positive</td>
+      <td>[9400.0, 1520.74232706376, 2188.13845194139]</td>
+      <td>Mus musculus</td>
+      <td>605889373</td>
+      <td>Vipr2-IRES2-Cre;Slc32a1-T2A-FlpO;Ai65-337419.0...</td>
+      <td>2/3</td>
+      <td>385</td>
+      <td>VISp</td>
+      <td>Slc32a1-T2A-FlpO|Vipr2-IRES2-Cre</td>
+      <td>aspiny</td>
+      <td>NA</td>
+      <td>None</td>
+      <td></td>
+      <td>605622695</td>
+      <td>right</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It might seem more efficient to have just packed everything into one huge dataframe with both features and metadata, but it’s actually pretty common practice to split things up like this, and organize your data into a variety of different tables that all “talk to each other.”</p>
+<p>Our life is made easy here by the fact that a given row from the ‘features’ table corresponds to the same row from the cell_metadata table. We’ll smuggle in data from the cell_metadata table into the features table using pandas’ ‘merge’ function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> 
+                     <span class="n">cell_metadata</span><span class="p">[[</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;structure_layer_name&#39;</span><span class="p">,</span> <span class="s1">&#39;disease_state&#39;</span><span class="p">]],</span>
+                     <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span>
+                    <span class="p">)</span>
+
+<span class="n">merged_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vrest</th>
+      <th>number_branches</th>
+      <th>threshold_v_ramp</th>
+      <th>total_volume</th>
+      <th>species</th>
+      <th>structure_layer_name</th>
+      <th>disease_state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-73.553391</td>
+      <td>119</td>
+      <td>-40.416669</td>
+      <td>2355.765059</td>
+      <td>Homo Sapiens</td>
+      <td>3</td>
+      <td>epilepsy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-73.056595</td>
+      <td>94</td>
+      <td>-39.500001</td>
+      <td>2962.024123</td>
+      <td>Mus musculus</td>
+      <td>5</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-75.320374</td>
+      <td>42</td>
+      <td>-35.208335</td>
+      <td>460.354199</td>
+      <td>Mus musculus</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-79.520042</td>
+      <td>53</td>
+      <td>-47.343751</td>
+      <td>129.985840</td>
+      <td>Homo Sapiens</td>
+      <td>5</td>
+      <td>epilepsy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-81.065971</td>
+      <td>49</td>
+      <td>-44.041670</td>
+      <td>204.115177</td>
+      <td>Mus musculus</td>
+      <td>2/3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>696</th>
+      <td>-78.721344</td>
+      <td>58</td>
+      <td>-34.812500</td>
+      <td>438.463505</td>
+      <td>Mus musculus</td>
+      <td>5</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>697</th>
+      <td>-73.505409</td>
+      <td>29</td>
+      <td>-37.822920</td>
+      <td>38.494166</td>
+      <td>Mus musculus</td>
+      <td>5</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>-69.298126</td>
+      <td>56</td>
+      <td>-38.885419</td>
+      <td>257.901659</td>
+      <td>Mus musculus</td>
+      <td>2/3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>699</th>
+      <td>-75.972267</td>
+      <td>88</td>
+      <td>-33.729168</td>
+      <td>1262.798669</td>
+      <td>Mus musculus</td>
+      <td>5</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>-75.972267</td>
+      <td>88</td>
+      <td>-33.729168</td>
+      <td>1262.798767</td>
+      <td>Mus musculus</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<p>701 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>Now we’re ready to rock. We can ask questions like: ‘how does resting potential vary with cell layer?’, or ‘how does the number of branches vary by species?’. Let’s take a quick peek at how many different levels (i.e. unique types) there are for each of our new categorical variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;structure_layer_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;disease_state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Homo Sapiens&#39; &#39;Mus musculus&#39;]
+[&#39;3&#39; &#39;5&#39; &#39;4&#39; &#39;2/3&#39; &#39;6a&#39; &#39;2&#39; &#39;6b&#39; &#39;1&#39; &#39;6&#39;]
+[&#39;epilepsy&#39; &#39;&#39; &#39;tumor&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like the data are from one of two types of species, one of 9 types of layers, and one of three types of disease states (be careful, there’s a blank middle field in the output that corresponds to no disease. You can think of that as ‘control’, or ‘no disease’). Note that even though the cell layers have some numeric values, we are still thinking of them as categorical, and not numeric. That’s because the numbers are serving as labels that aren’t really carrying quantitative information. It would have been equivalent to call the cell layers “a, b, c,… etc”.</p>
+<p>If we look at our dataframe above, we see that it comprises 701 rows. At the most granular level, there are 701 things our data are about. But we can skin that cat a lot of different ways. From another perspective, we could say that are data are ‘about’ two things: Mouse cells vs. Human cells. Similarly, we could say our data are ‘about’ three things: epileptic neurons, control neurons, and tumor neurons.</p>
+<p>Pandas has a nifty function called ‘groupby’ that lets us change what our data is about.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vrest</th>
+      <th>number_branches</th>
+      <th>threshold_v_ramp</th>
+      <th>total_volume</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Homo Sapiens</th>
+      <td>-71.791211</td>
+      <td>63.531915</td>
+      <td>-37.973826</td>
+      <td>939.751153</td>
+    </tr>
+    <tr>
+      <th>Mus musculus</th>
+      <td>-71.679168</td>
+      <td>60.855357</td>
+      <td>-36.868920</td>
+      <td>840.908565</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The function above has, behind the scenes, grabbed all those rows of data that corresponded to mice, all those rows of data that correspond to humans, and calculated the means for all numeric variables, separately for the two categories.</p>
+<p>We could have also grouped the data differently, and calculated a different attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;disease_state&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vrest</th>
+      <th>number_branches</th>
+      <th>threshold_v_ramp</th>
+      <th>total_volume</th>
+      <th>species</th>
+      <th>structure_layer_name</th>
+    </tr>
+    <tr>
+      <th>disease_state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>560</td>
+      <td>560</td>
+      <td>551</td>
+      <td>560</td>
+      <td>560</td>
+      <td>560</td>
+    </tr>
+    <tr>
+      <th>epilepsy</th>
+      <td>112</td>
+      <td>112</td>
+      <td>108</td>
+      <td>112</td>
+      <td>112</td>
+      <td>112</td>
+    </tr>
+    <tr>
+      <th>tumor</th>
+      <td>29</td>
+      <td>29</td>
+      <td>28</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here, we’ve broken things up by disease state, and have simply counted the number of cells in each group. If you add up the numbers in the first column, you’ll see that they come to 701 – our total number of cells. From this table, we can appreciate that we have by far the most data from the control group, and by far the least data from the tumor group. The reason one number looks weird (the 108 for the count of threshold_v_ramp measurements in the ‘epilepsy’ group) is that there were probably some missing dataa values for that measurement (maybe the recording went bad for that measurement, but they didn’t want to scrap all the other great data they had collected).</p>
+<p>Tables are a nice way to make contrasts between groups, but often a bar-graph is the better choice. We can put our seaborn hat back on to do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">merged_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_volume&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;species&#39;, ylabel=&#39;total_volume&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/Allen_Intro_101_1.png" src="_images/Allen_Intro_101_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-allen-sdk">
+<h1>The Allen SDK<a class="headerlink" href="#the-allen-sdk" title="Permalink to this headline">#</a></h1>
+<p>Recall from our initial example that there was a block of code that looked something like this</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.core.cell_types_cache</span> <span class="kn">import</span> <span class="n">CellTypesCache</span>
+
+<span class="n">ctc</span> <span class="o">=</span> <span class="n">CellTypesCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="s1">&#39;cell_types/manifest.json&#39;</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">(</span><span class="n">require_reconstruction</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">cell_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_cells</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the code that actually made the data available to us in the first place. You’ll note that the top line includes the keyword ‘import’ that we discussed earlier. The ‘from … import’ syntax is our way of indicating that we really only want a very small piece from the library we’re importing from (in this case something called ‘CellTypesCache’).</p>
+<p>But let’s back up. What is allensdk? Basically, it’s a set of modules that the Allen Institute has made publicly available, and which allow anyone to gain access to their data. In general, an SDK stands for software development kit. You can find details on the allen sdk here. […]</p>
+<p>The thing of interest to us is ‘CellTypesCache’, which is a module that lives under core.cell_types_cache.</p>
+<p>The details arent’ terribly important, but just for completeness, here is what happens in the three lines of code above:</p>
+<ol class="simple">
+<li><p>A new directory is created on your computer called ‘cell_types’, which contains the downloaded data.</p></li>
+<li><p>A dataframe called ‘features’ is created, which contains all the computed cell features</p></li>
+<li><p>A dataframe called ‘cell_metadata’ is created.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-you-should-take-away">
+<h1>What you should take away:<a class="headerlink" href="#what-you-should-take-away" title="Permalink to this headline">#</a></h1>
+<p>As a reminder, I want you to think of this as a safari. You will have a whole semester to put these ideas into practice. The more important thing is to appreciate the overall landscape.</p>
+<ul class="simple">
+<li><p>It’s pretty easy to get access to big, fancy data sets (3 lines of code puts 700 cells x XX measurements on your machine!)</p></li>
+<li><p>Functions are things that you feed an input, and which produce an output</p></li>
+<li><p>numpy is good for working with arrays of numbers</p></li>
+<li><p>seaborn makes really pretty plots, and hides a lot of details about exactly how</p></li>
+<li><p>pandas lets you slice and dice data. You can merge dataframes together, and group your data in interesting ways</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="handy-list-of-functions-you-encountered-today">
+<h1>Handy list of functions you encountered today:<a class="headerlink" href="#handy-list-of-functions-you-encountered-today" title="Permalink to this headline">#</a></h1>
+<p>abs()
+bin()
+&amp; operator
+import
+from … import … as</p>
+<p>sns.heatmap()
+sns.lmplot()
+sns.barplot</p>
+<p>np.shape()
+np.unique()
+np.random.rand()
+np.ones()
+np.reshape()
+np.where()
+np.mean()</p>
+<p>pd.DataFrame()
+pd.head()
+pd.plot.hist()
+pd.plot.scatter()
+pd.plotting.scatter_matrix()
+pd.corr()
+pd.merge()
+pd.groupby()</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="mymarkdownfile.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Sample title</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Castro<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
