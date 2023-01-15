@@ -350,6 +350,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-motivating-example">
+   A motivating example
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#libraries-and-apis">
    Libraries, and APIs
   </a>
@@ -460,6 +465,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-motivating-example">
+   A motivating example
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#libraries-and-apis">
    Libraries, and APIs
   </a>
@@ -562,333 +572,11 @@ title="Print to PDF"
 <li><p>You have a deep intuitive understanding of all the operations. What you lack is not understanding, just a grasp of syntax.</p></li>
 <li><p>Even though some of the code looks pretty ‘codey’, it’s not like we’re writing thousands of lines of code. Often, we’re making cool stuff happen, and pretty graphs appear with a line or two of code.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">allensdk</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: allensdk in /Applications/anaconda3/lib/python3.8/site-packages (2.13.6)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: semver in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.13.0)
-Requirement already satisfied: xarray&lt;0.16.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.15.1)
-Requirement already satisfied: sqlalchemy in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.4.39)
-Requirement already satisfied: simplejson&lt;4.0.0,&gt;=3.10.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.17.6)
-Requirement already satisfied: aiohttp==3.7.4 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.7.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting statsmodels&lt;=0.13.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading statsmodels-0.13.0-cp38-cp38-macosx_10_15_x86_64.whl (9.5 MB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.5 MB</span> <span class=" -Color -Color-Red">656.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:00:15</span>
-     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/9.5 MB</span> <span class=" -Color -Color-Red">1.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.4/9.5 MB</span> <span class=" -Color -Color-Red">2.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.7/9.5 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.2/9.5 MB</span> <span class=" -Color -Color-Red">2.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/9.5 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.7/9.5 MB</span> <span class=" -Color -Color-Red">3.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/9.5 MB</span> <span class=" -Color -Color-Red">3.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.3/9.5 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.7/9.5 MB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/9.5 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.5/9.5 MB</span> <span class=" -Color -Color-Red">6.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.4/9.5 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">7.0/9.5 MB</span> <span class=" -Color -Color-Red">7.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">7.3/9.5 MB</span> <span class=" -Color -Color-Red">7.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">8.0/9.5 MB</span> <span class=" -Color -Color-Red">8.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">8.4/9.5 MB</span> <span class=" -Color -Color-Red">8.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">9.2/9.5 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.3/9.5 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">9.4/9.5 MB</span> <span class=" -Color -Color-Red">7.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">9.5/9.5 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">9.5/9.5 MB</span> <span class=" -Color -Color-Red">7.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.5/9.5 MB</span> <span class=" -Color -Color-Red">7.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: requests-toolbelt&lt;1.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.10.1)
-Requirement already satisfied: pynwb in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.2.0)
-Requirement already satisfied: tables&lt;3.7.0,&gt;=3.6.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.6.1)
-Requirement already satisfied: requests&lt;3.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.28.1)
-Requirement already satisfied: argschema&lt;4.0.0,&gt;=3.0.1 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.0.4)
-Requirement already satisfied: nest-asyncio in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.5.5)
-Requirement already satisfied: numpy in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.21.5)
-Requirement already satisfied: glymur==0.8.19 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.8.19)
-Requirement already satisfied: hdmf&gt;=2.5.8 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.4.6)
-Requirement already satisfied: future&lt;1.0.0,&gt;=0.14.3 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.18.2)
-Requirement already satisfied: ndx-events&lt;=0.2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.2.0)
-Requirement already satisfied: psycopg2-binary&lt;3.0.0,&gt;=2.7 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.9.5)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-image&lt;0.17.0,&gt;=0.14.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached scikit_image-0.16.2-cp38-cp38-macosx_10_9_x86_64.whl (26.2 MB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas&gt;=1.1.5 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.4.4)
-Requirement already satisfied: seaborn&lt;1.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.12.1)
-Requirement already satisfied: jinja2&gt;=3.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (3.0.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib&lt;3.4.3,&gt;=1.4.3
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading matplotlib-3.4.2-cp38-cp38-macosx_10_9_x86_64.whl (7.2 MB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/7.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.5/7.2 MB</span> <span class=" -Color -Color-Red">14.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/7.2 MB</span> <span class=" -Color -Color-Red">20.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/7.2 MB</span> <span class=" -Color -Color-Red">24.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.7/7.2 MB</span> <span class=" -Color -Color-Red">18.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/7.2 MB</span> <span class=" -Color -Color-Red">19.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.8/7.2 MB</span> <span class=" -Color -Color-Red">17.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/7.2 MB</span> <span class=" -Color -Color-Red">16.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.4/7.2 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.8/7.2 MB</span> <span class=" -Color -Color-Red">9.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">5.8/7.2 MB</span> <span class=" -Color -Color-Red">10.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">5.8/7.2 MB</span> <span class=" -Color -Color-Red">10.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">6.2/7.2 MB</span> <span class=" -Color -Color-Red">9.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">6.2/7.2 MB</span> <span class=" -Color -Color-Red">9.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">6.2/7.2 MB</span> <span class=" -Color -Color-Red">8.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">6.3/7.2 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">6.3/7.2 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">6.7/7.2 MB</span> <span class=" -Color -Color-Red">8.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.1/7.2 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.1/7.2 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.1/7.2 MB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">7.2/7.2 MB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.2/7.2 MB</span> <span class=" -Color -Color-Red">7.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: tqdm&gt;=4.27 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (4.64.1)
-Requirement already satisfied: scikit-build&lt;1.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.16.1)
-Requirement already satisfied: pynrrd&lt;1.0.0,&gt;=0.2.1 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (0.4.3)
-Requirement already satisfied: simpleitk&lt;3.0.0,&gt;=2.0.2 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.2.0)
-Requirement already satisfied: cachetools&lt;5.0.0,&gt;=4.2.1 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (4.2.4)
-Requirement already satisfied: scipy&lt;2.0.0,&gt;=1.4.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.7.3)
-Requirement already satisfied: six&lt;2.0.0,&gt;=1.9.0 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.16.0)
-Requirement already satisfied: h5py in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (2.10.0)
-Requirement already satisfied: boto3==1.17.21 in /Applications/anaconda3/lib/python3.8/site-packages (from allensdk) (1.17.21)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (3.0.1)
-Requirement already satisfied: typing-extensions&gt;=3.6.5 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (4.4.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting chardet&lt;4.0,&gt;=2.0
-  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (1.8.1)
-Requirement already satisfied: attrs&gt;=17.3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (21.4.0)
-Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /Applications/anaconda3/lib/python3.8/site-packages (from aiohttp==3.7.4-&gt;allensdk) (6.0.2)
-Requirement already satisfied: s3transfer&lt;0.4.0,&gt;=0.3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from boto3==1.17.21-&gt;allensdk) (0.3.7)
-Requirement already satisfied: jmespath&lt;1.0.0,&gt;=0.7.1 in /Applications/anaconda3/lib/python3.8/site-packages (from boto3==1.17.21-&gt;allensdk) (0.10.0)
-Requirement already satisfied: botocore&lt;1.21.0,&gt;=1.20.21 in /Applications/anaconda3/lib/python3.8/site-packages (from boto3==1.17.21-&gt;allensdk) (1.20.112)
-Requirement already satisfied: setuptools in /Applications/anaconda3/lib/python3.8/site-packages (from glymur==0.8.19-&gt;allensdk) (65.5.0)
-Requirement already satisfied: pyyaml in /Applications/anaconda3/lib/python3.8/site-packages (from argschema&lt;4.0.0,&gt;=3.0.1-&gt;allensdk) (6.0)
-Requirement already satisfied: marshmallow&lt;4.0,&gt;=3.0.0 in /Applications/anaconda3/lib/python3.8/site-packages (from argschema&lt;4.0.0,&gt;=3.0.1-&gt;allensdk) (3.18.0)
-Requirement already satisfied: ruamel.yaml&lt;1,&gt;=0.16 in /Applications/anaconda3/lib/python3.8/site-packages (from hdmf&gt;=2.5.8-&gt;allensdk) (0.17.21)
-Requirement already satisfied: jsonschema&lt;5,&gt;=2.6.0 in /Applications/anaconda3/lib/python3.8/site-packages (from hdmf&gt;=2.5.8-&gt;allensdk) (3.2.0)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from jinja2&gt;=3.0.0-&gt;allensdk) (2.1.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing&gt;=2.2.1 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (3.0.9)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (2.8.2)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (1.4.2)
-Requirement already satisfied: cycler&gt;=0.10 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (0.11.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk) (9.2.0)
-Requirement already satisfied: pytz&gt;=2020.1 in /Applications/anaconda3/lib/python3.8/site-packages (from pandas&gt;=1.1.5-&gt;allensdk) (2022.1)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (3.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (1.26.13)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Applications/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0-&gt;allensdk) (2022.9.24)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: distro in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (1.8.0)
-Requirement already satisfied: packaging in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (21.3)
-Requirement already satisfied: wheel&gt;=0.32.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (0.37.1)
-Requirement already satisfied: PyWavelets&gt;=0.4.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-image&lt;0.17.0,&gt;=0.14.0-&gt;allensdk) (1.4.1)
-Requirement already satisfied: networkx&gt;=2.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-image&lt;0.17.0,&gt;=0.14.0-&gt;allensdk) (2.8.4)
-Requirement already satisfied: imageio&gt;=2.3.0 in /Applications/anaconda3/lib/python3.8/site-packages (from scikit-image&lt;0.17.0,&gt;=0.14.0-&gt;allensdk) (2.19.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: patsy&gt;=0.5.2 in /Applications/anaconda3/lib/python3.8/site-packages (from statsmodels&lt;=0.13.0-&gt;allensdk) (0.5.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numexpr&gt;=2.6.2 in /Applications/anaconda3/lib/python3.8/site-packages (from tables&lt;3.7.0,&gt;=3.6.0-&gt;allensdk) (2.8.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: greenlet!=0.4.17 in /Applications/anaconda3/lib/python3.8/site-packages (from sqlalchemy-&gt;allensdk) (2.0.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyrsistent&gt;=0.14.0 in /Applications/anaconda3/lib/python3.8/site-packages (from jsonschema&lt;5,&gt;=2.6.0-&gt;hdmf&gt;=2.5.8-&gt;allensdk) (0.18.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ruamel.yaml.clib&gt;=0.2.6 in /Applications/anaconda3/lib/python3.8/site-packages (from ruamel.yaml&lt;1,&gt;=0.16-&gt;hdmf&gt;=2.5.8-&gt;allensdk) (0.2.7)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: chardet, matplotlib, statsmodels, scikit-image
-  Attempting uninstall: chardet
-    Found existing installation: chardet 4.0.0
-    Uninstalling chardet-4.0.0:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled chardet-4.0.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: matplotlib
-    Found existing installation: matplotlib 3.6.2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling matplotlib-3.6.2:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled matplotlib-3.6.2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: statsmodels
-    Found existing installation: statsmodels 0.13.2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling statsmodels-0.13.2:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled statsmodels-0.13.2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: scikit-image
-    Found existing installation: scikit-image 0.19.3
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling scikit-image-0.19.3:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled scikit-image-0.19.3
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
-<span class=" -Color -Color-Red">spyder 4.2.5 requires pyqt5&lt;5.13, which is not installed.</span>
-<span class=" -Color -Color-Red">spyder 4.2.5 requires pyqtwebengine&lt;5.13, which is not installed.</span>
-<span class=" -Color -Color-Red">pyrfume 0.17.5 requires dask[bag]&lt;3.0.0,&gt;=2.17.0, but you have dask 2022.2.1 which is incompatible.</span>
-Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsmodels-0.13.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-motivating-example">
+<h1>A motivating example<a class="headerlink" href="#a-motivating-example" title="Permalink to this headline">#</a></h1>
 <p>Let’s just start by doing something cool, and we’ll worry about how it works later.</p>
-<p>Say you’re a brain researcher interested in the relationship between a cell’s excitability, and its resting potential. Moreover, you want to know if this relationship is different between the left and right brain hemispheres and whether this also varies between humans and mice. Here’s how you would do that.</p>
+<p>Say you’re a brain researcher interested in the relationship between cellular excitability (the threshold voltage at which you just start to observe spiking), and resting potential (the typical voltage that a cell hangs out at, in the absence of any stimulation). Moreover, you want to know if this relationship is different between the left and right brain hemispheres and whether this also varies between humans and mice. Here’s how you would do that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -911,14 +599,14 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_3_0.png" src="_images/Allen_Intro_3_0.png" />
+<img alt="_images/Allen_Intro_2_0.png" src="_images/Allen_Intro_2_0.png" />
 </div>
 </div>
 <p>The code may look a little hairy and intimidating, but you should still find it pretty amazing that at the end of the day, there really doesn’t seem to be all that much to it! In a handful of lines of code, we’ve:</p>
 <ul class="simple">
 <li><p>gained access to a very large and rich dataset with information about cellular properties, collected from different hemispheres and different species, for hundreds of cells.</p></li>
 <li><p>organized the data in such a way that we can separate them out by conditions (species, and hemisphere)</p></li>
-<li><p>made scatterplots of the data, and fit a statistical models to them (lines w/ error bars)</p></li>
+<li><p>made scatterplots of the data of almost publication quality, and fit statistical models to them (trendlines w/ confidence intervals)</p></li>
 </ul>
 <p>Let’s go line by line and explain what’s happening, so you can learn how to start slicing and dicing data like this.</p>
 </section>
@@ -1001,7 +689,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">]])</span>
 
 <span class="ne">NameError</span>: name &#39;heatmap&#39; is not defined
@@ -1020,7 +708,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_20_1.png" src="_images/Allen_Intro_20_1.png" />
+<img alt="_images/Allen_Intro_19_1.png" src="_images/Allen_Intro_19_1.png" />
 </div>
 </div>
 <p>We’re now in a position to make a bit more sense of this line of code, from above:</p>
@@ -1031,7 +719,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_22_0.png" src="_images/Allen_Intro_22_0.png" />
+<img alt="_images/Allen_Intro_21_0.png" src="_images/Allen_Intro_21_0.png" />
 </div>
 </div>
 <p>We are executing a Seaborn function called lmplot (a ‘linear model’ plot), and unlike the other functions we’ve encountered above, you can see that we actually have to feed it not just one input (called a parameter), but several. These control the behavior of the function, and determine what exactly is calculated and shown. We won’t go into what these parameters are doing in detail here, because there are some other concepts we need to develop first. Just make sure you have internalized the big ideas:</p>
@@ -1753,7 +1441,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_75_1.png" src="_images/Allen_Intro_75_1.png" />
+<img alt="_images/Allen_Intro_74_1.png" src="_images/Allen_Intro_74_1.png" />
 </div>
 </div>
 <p>This quickly gives you some information about the number of branches. Most of the cells have about 50 branches, but the tail of the distribution looks like it extends pretty far to the right. It certainly doesn’t look centered and symmetric like a classical normal (‘bell shaped’) curve. You can (and should!) look at distributions for the other three features in the data frame.</p>
@@ -1772,7 +1460,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;number_branches&#39;, ylabel=&#39;total_volume&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_79_1.png" src="_images/Allen_Intro_79_1.png" />
+<img alt="_images/Allen_Intro_78_1.png" src="_images/Allen_Intro_78_1.png" />
 </div>
 </div>
 <p>Perhaps there’s a trend there. It might not be super strong, but I think most of us would intuit some kind of relationship. We could imagine making scatter plots like this for every pair of features (branches vs. volume, branches vs. v_rest, v_rest vs. surface area, etc, etc….). Pandas has a handy function for plotting these all in one shot, rather than requiring us to write a separate line of code of each pair.</p>
@@ -1783,7 +1471,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_81_0.png" src="_images/Allen_Intro_81_0.png" />
+<img alt="_images/Allen_Intro_80_0.png" src="_images/Allen_Intro_80_0.png" />
 </div>
 </div>
 <p>The labels are a little ugly and bunched up here, but we’re not going to worry too much about that for now. The important thing is what this matrix is telling us. Basically, everywhere we see a diffuse circular cloud, we suspect there’s not a systematic relationship between the variables in question. Everywhere we see the points running along the diagonal, we hypothesize a potential relationship.</p>
@@ -2396,7 +2084,7 @@ Successfully installed chardet-3.0.4 matplotlib-3.4.2 scikit-image-0.16.2 statsm
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;species&#39;, ylabel=&#39;total_volume&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_101_1.png" src="_images/Allen_Intro_101_1.png" />
+<img alt="_images/Allen_Intro_100_1.png" src="_images/Allen_Intro_100_1.png" />
 </div>
 </div>
 </section>
