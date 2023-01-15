@@ -365,33 +365,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#question">
-   QUESTION:
+  <a class="reference internal nav-link" href="#practice-with-pandas-grouping-and-working-with-categorical-data">
+   Practice with Pandas: Grouping, and working with categorical data
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   QUESTION:
+  <a class="reference internal nav-link" href="#plotting-with-seaborn">
+   Plotting with Seaborn
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   QUESTION
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   QUESTION:
+  <a class="reference internal nav-link" href="#a-little-bit-of-numpy-practice">
+   A little bit of Numpy practice
   </a>
  </li>
 </ul>
@@ -429,33 +414,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#question">
-   QUESTION:
+  <a class="reference internal nav-link" href="#practice-with-pandas-grouping-and-working-with-categorical-data">
+   Practice with Pandas: Grouping, and working with categorical data
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   QUESTION:
+  <a class="reference internal nav-link" href="#plotting-with-seaborn">
+   Plotting with Seaborn
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   QUESTION
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   QUESTION:
+  <a class="reference internal nav-link" href="#a-little-bit-of-numpy-practice">
+   A little bit of Numpy practice
   </a>
  </li>
 </ul>
@@ -633,11 +603,115 @@ title="Print to PDF"
 <li><p>Construct a correlation matrix for the dataframe mpg2 (see the earlier notebook). Explain the relationship between this matrix, and the scattermatrix you made above.</p></li>
 </ul>
 </div>
+</section>
+<section id="practice-with-pandas-grouping-and-working-with-categorical-data">
+<h1>Practice with Pandas: Grouping, and working with categorical data<a class="headerlink" href="#practice-with-pandas-grouping-and-working-with-categorical-data" title="Permalink to this headline">#</a></h1>
+<p>Recall what the dataset looked like:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This snippet of code groups the cars by country of origin, and counts the total number of cars in each category:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">mpg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130.0</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165.0</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140.0</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>ford torino</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Each row is a single car (chevy malibu, ford torino, etc), but maybe there are multiple rows that correspond to the same <strong>kind</strong> of car. For example, maybe there are a few different rows of data that are all ford torinos, and are just models from different years. Pandas’ ‘groupby’ command allows us to split up our data into meaningful groups, and lets you grab all the data that are of the same kind. For example, if I wanted to group the data by car name, and then count the number of cars in each group, here’s how you would do that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -808,129 +882,444 @@ title="Print to PDF"
 <p>305 rows × 8 columns</p>
 </div></div></div>
 </div>
-</section>
-<section id="question">
-<h1>QUESTION:<a class="headerlink" href="#question" title="Permalink to this headline">#</a></h1>
-<p>Can you write a very similar statement to the above that groups the data not by car name, but by country of origin, and then finds the average of each feature?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;origin&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mpg</th>
-      <th>cylinders</th>
-      <th>displacement</th>
-      <th>horsepower</th>
-      <th>weight</th>
-      <th>acceleration</th>
-      <th>model_year</th>
-    </tr>
-    <tr>
-      <th>origin</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>europe</th>
-      <td>27.891429</td>
-      <td>4.157143</td>
-      <td>109.142857</td>
-      <td>80.558824</td>
-      <td>2423.300000</td>
-      <td>16.787143</td>
-      <td>75.814286</td>
-    </tr>
-    <tr>
-      <th>japan</th>
-      <td>30.450633</td>
-      <td>4.101266</td>
-      <td>102.708861</td>
-      <td>79.835443</td>
-      <td>2221.227848</td>
-      <td>16.172152</td>
-      <td>77.443038</td>
-    </tr>
-    <tr>
-      <th>usa</th>
-      <td>20.083534</td>
-      <td>6.248996</td>
-      <td>245.901606</td>
-      <td>119.048980</td>
-      <td>3361.931727</td>
-      <td>15.033735</td>
-      <td>75.610442</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<p>Looks like there’s 2 VW rabbits in the data set, and 2 amc concords. For each of the other cars (at least in this small snippet of the data), there’s only one of each in the dataset.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Question 6</p>
+<ul class="simple">
+<li><p>Write a very similar statement to the above that groups the data not by car name, but by country of origin, and calculates not the count of each feature, but the mean of each feature.</p></li>
+<li><p>Based on the query you just ran, do the data support the claim that, relative to Europeans, Americans like heavy cars, with lots of horsepower, and which get few miles to the gallon?</p></li>
+</ul>
 </div>
 </section>
-<section id="id1">
-<h1>QUESTION:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Based on the query you just ran, do the data support the claim that, relative to Europeans, Americans like heavy cars, with lots of horsepower, and which get few miles to the gallon?</p>
+<section id="plotting-with-seaborn">
+<h1>Plotting with Seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this headline">#</a></h1>
+<p>Look at <a class="reference external" href="https://seaborn.pydata.org/examples/grouped_barplot.html">this example</a> from the Seaborn Gallery of how to make a ‘category plot’ (which is basically just a multi-group bar plot).</p>
+<div class="seealso admonition">
+<p class="admonition-title">Question 6</p>
+<ul class="simple">
+<li><p>Make a similar category plot using the car data we’ve been working with, and show the relationship between miles per gallon and country of origin, broken down by year.</p></li>
+<li><p>Make 2 observations about the data that are clearly visible from the category plot.</p></li>
+</ul>
+</div>
 </section>
-<section id="id2">
-<h1>QUESTION<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
-<p>Look at <a class="reference external" href="https://seaborn.pydata.org/examples/grouped_barplot.html">this example</a> from the Seaborn Gallery of how to make a ‘category plot.’ Make a similar category plot using the car data we’ve been working with, and show the relationship between miles per gallon and country of origin, broken down by year.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">mpg</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;mpg&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;model_year&quot;</span><span class="p">,</span>
-    <span class="n">errorbar</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/SP1_19_0.png" src="_images/SP1_19_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### QUESTION </span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Recall that pandas objects are ‘dataframes’. We can pull out a column from a pandas dataframe as follows:</p>
+<section id="a-little-bit-of-numpy-practice">
+<h1>A little bit of Numpy practice<a class="headerlink" href="#a-little-bit-of-numpy-practice" title="Permalink to this headline">#</a></h1>
+<p>Recall that pandas objects are called ‘dataframes’. We can pull out columns from pandas dataframe, and turn them into numpy arrays with a command like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">[[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="s1">&#39;model_year&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[130.,  70.],
+       [165.,  70.],
+       [150.,  70.],
+       [150.,  70.],
+       [140.,  70.],
+       [198.,  70.],
+       [220.,  70.],
+       [215.,  70.],
+       [225.,  70.],
+       [190.,  70.],
+       [170.,  70.],
+       [160.,  70.],
+       [150.,  70.],
+       [225.,  70.],
+       [ 95.,  70.],
+       [ 95.,  70.],
+       [ 97.,  70.],
+       [ 85.,  70.],
+       [ 88.,  70.],
+       [ 46.,  70.],
+       [ 87.,  70.],
+       [ 90.,  70.],
+       [ 95.,  70.],
+       [113.,  70.],
+       [ 90.,  70.],
+       [215.,  70.],
+       [200.,  70.],
+       [210.,  70.],
+       [193.,  70.],
+       [ 88.,  71.],
+       [ 90.,  71.],
+       [ 95.,  71.],
+       [ nan,  71.],
+       [100.,  71.],
+       [105.,  71.],
+       [100.,  71.],
+       [ 88.,  71.],
+       [100.,  71.],
+       [165.,  71.],
+       [175.,  71.],
+       [153.,  71.],
+       [150.,  71.],
+       [180.,  71.],
+       [170.,  71.],
+       [175.,  71.],
+       [110.,  71.],
+       [ 72.,  71.],
+       [100.,  71.],
+       [ 88.,  71.],
+       [ 86.,  71.],
+       [ 90.,  71.],
+       [ 70.,  71.],
+       [ 76.,  71.],
+       [ 65.,  71.],
+       [ 69.,  71.],
+       [ 60.,  71.],
+       [ 70.,  71.],
+       [ 95.,  72.],
+       [ 80.,  72.],
+       [ 54.,  72.],
+       [ 90.,  72.],
+       [ 86.,  72.],
+       [165.,  72.],
+       [175.,  72.],
+       [150.,  72.],
+       [153.,  72.],
+       [150.,  72.],
+       [208.,  72.],
+       [155.,  72.],
+       [160.,  72.],
+       [190.,  72.],
+       [ 97.,  72.],
+       [150.,  72.],
+       [130.,  72.],
+       [140.,  72.],
+       [150.,  72.],
+       [112.,  72.],
+       [ 76.,  72.],
+       [ 87.,  72.],
+       [ 69.,  72.],
+       [ 86.,  72.],
+       [ 92.,  72.],
+       [ 97.,  72.],
+       [ 80.,  72.],
+       [ 88.,  72.],
+       [175.,  73.],
+       [150.,  73.],
+       [145.,  73.],
+       [137.,  73.],
+       [150.,  73.],
+       [198.,  73.],
+       [150.,  73.],
+       [158.,  73.],
+       [150.,  73.],
+       [215.,  73.],
+       [225.,  73.],
+       [175.,  73.],
+       [105.,  73.],
+       [100.,  73.],
+       [100.,  73.],
+       [ 88.,  73.],
+       [ 95.,  73.],
+       [ 46.,  73.],
+       [150.,  73.],
+       [167.,  73.],
+       [170.,  73.],
+       [180.,  73.],
+       [100.,  73.],
+       [ 88.,  73.],
+       [ 72.,  73.],
+       [ 94.,  73.],
+       [ 90.,  73.],
+       [ 85.,  73.],
+       [107.,  73.],
+       [ 90.,  73.],
+       [145.,  73.],
+       [230.,  73.],
+       [ 49.,  73.],
+       [ 75.,  73.],
+       [ 91.,  73.],
+       [112.,  73.],
+       [150.,  73.],
+       [110.,  73.],
+       [122.,  73.],
+       [180.,  73.],
+       [ 95.,  74.],
+       [ nan,  74.],
+       [100.,  74.],
+       [100.,  74.],
+       [ 67.,  74.],
+       [ 80.,  74.],
+       [ 65.,  74.],
+       [ 75.,  74.],
+       [100.,  74.],
+       [110.,  74.],
+       [105.,  74.],
+       [140.,  74.],
+       [150.,  74.],
+       [150.,  74.],
+       [140.,  74.],
+       [150.,  74.],
+       [ 83.,  74.],
+       [ 67.,  74.],
+       [ 78.,  74.],
+       [ 52.,  74.],
+       [ 61.,  74.],
+       [ 75.,  74.],
+       [ 75.,  74.],
+       [ 75.,  74.],
+       [ 97.,  74.],
+       [ 93.,  74.],
+       [ 67.,  74.],
+       [ 95.,  75.],
+       [105.,  75.],
+       [ 72.,  75.],
+       [ 72.,  75.],
+       [170.,  75.],
+       [145.,  75.],
+       [150.,  75.],
+       [148.,  75.],
+       [110.,  75.],
+       [105.,  75.],
+       [110.,  75.],
+       [ 95.,  75.],
+       [110.,  75.],
+       [110.,  75.],
+       [129.,  75.],
+       [ 75.,  75.],
+       [ 83.,  75.],
+       [100.,  75.],
+       [ 78.,  75.],
+       [ 96.,  75.],
+       [ 71.,  75.],
+       [ 97.,  75.],
+       [ 97.,  75.],
+       [ 70.,  75.],
+       [ 90.,  75.],
+       [ 95.,  75.],
+       [ 88.,  75.],
+       [ 98.,  75.],
+       [115.,  75.],
+       [ 53.,  75.],
+       [ 86.,  76.],
+       [ 81.,  76.],
+       [ 92.,  76.],
+       [ 79.,  76.],
+       [ 83.,  76.],
+       [140.,  76.],
+       [150.,  76.],
+       [120.,  76.],
+       [152.,  76.],
+       [100.,  76.],
+       [105.,  76.],
+       [ 81.,  76.],
+       [ 90.,  76.],
+       [ 52.,  76.],
+       [ 60.,  76.],
+       [ 70.,  76.],
+       [ 53.,  76.],
+       [100.,  76.],
+       [ 78.,  76.],
+       [110.,  76.],
+       [ 95.,  76.],
+       [ 71.,  76.],
+       [ 70.,  76.],
+       [ 75.,  76.],
+       [ 72.,  76.],
+       [102.,  76.],
+       [150.,  76.],
+       [ 88.,  76.],
+       [108.,  76.],
+       [120.,  76.],
+       [180.,  76.],
+       [145.,  76.],
+       [130.,  76.],
+       [150.,  76.],
+       [ 68.,  77.],
+       [ 80.,  77.],
+       [ 58.,  77.],
+       [ 96.,  77.],
+       [ 70.,  77.],
+       [145.,  77.],
+       [110.,  77.],
+       [145.,  77.],
+       [130.,  77.],
+       [110.,  77.],
+       [105.,  77.],
+       [100.,  77.],
+       [ 98.,  77.],
+       [180.,  77.],
+       [170.,  77.],
+       [190.,  77.],
+       [149.,  77.],
+       [ 78.,  77.],
+       [ 88.,  77.],
+       [ 75.,  77.],
+       [ 89.,  77.],
+       [ 63.,  77.],
+       [ 83.,  77.],
+       [ 67.,  77.],
+       [ 78.,  77.],
+       [ 97.,  77.],
+       [110.,  77.],
+       [110.,  77.],
+       [ 48.,  78.],
+       [ 66.,  78.],
+       [ 52.,  78.],
+       [ 70.,  78.],
+       [ 60.,  78.],
+       [110.,  78.],
+       [140.,  78.],
+       [139.,  78.],
+       [105.,  78.],
+       [ 95.,  78.],
+       [ 85.,  78.],
+       [ 88.,  78.],
+       [100.,  78.],
+       [ 90.,  78.],
+       [105.,  78.],
+       [ 85.,  78.],
+       [110.,  78.],
+       [120.,  78.],
+       [145.,  78.],
+       [165.,  78.],
+       [139.,  78.],
+       [140.,  78.],
+       [ 68.,  78.],
+       [ 95.,  78.],
+       [ 97.,  78.],
+       [ 75.,  78.],
+       [ 95.,  78.],
+       [105.,  78.],
+       [ 85.,  78.],
+       [ 97.,  78.],
+       [103.,  78.],
+       [125.,  78.],
+       [115.,  78.],
+       [133.,  78.],
+       [ 71.,  78.],
+       [ 68.,  78.],
+       [115.,  79.],
+       [ 85.,  79.],
+       [ 88.,  79.],
+       [ 90.,  79.],
+       [110.,  79.],
+       [130.,  79.],
+       [129.,  79.],
+       [138.,  79.],
+       [135.,  79.],
+       [155.,  79.],
+       [142.,  79.],
+       [125.,  79.],
+       [150.,  79.],
+       [ 71.,  79.],
+       [ 65.,  79.],
+       [ 80.,  79.],
+       [ 80.,  79.],
+       [ 77.,  79.],
+       [125.,  79.],
+       [ 71.,  79.],
+       [ 90.,  79.],
+       [ 70.,  79.],
+       [ 70.,  79.],
+       [ 65.,  79.],
+       [ 69.,  79.],
+       [ 90.,  79.],
+       [115.,  79.],
+       [115.,  79.],
+       [ 90.,  79.],
+       [ 76.,  80.],
+       [ 60.,  80.],
+       [ 70.,  80.],
+       [ 65.,  80.],
+       [ 90.,  80.],
+       [ 88.,  80.],
+       [ 90.,  80.],
+       [ 90.,  80.],
+       [ 78.,  80.],
+       [ 90.,  80.],
+       [ 75.,  80.],
+       [ 92.,  80.],
+       [ 75.,  80.],
+       [ 65.,  80.],
+       [105.,  80.],
+       [ 65.,  80.],
+       [ 48.,  80.],
+       [ 48.,  80.],
+       [ 67.,  80.],
+       [ 67.,  80.],
+       [ 67.,  80.],
+       [ nan,  80.],
+       [ 67.,  80.],
+       [ 62.,  80.],
+       [132.,  80.],
+       [100.,  80.],
+       [ 88.,  80.],
+       [ nan,  80.],
+       [ 72.,  80.],
+       [ 84.,  81.],
+       [ 84.,  81.],
+       [ 92.,  81.],
+       [110.,  81.],
+       [ 84.,  81.],
+       [ 58.,  81.],
+       [ 64.,  81.],
+       [ 60.,  81.],
+       [ 67.,  81.],
+       [ 65.,  81.],
+       [ 62.,  81.],
+       [ 68.,  81.],
+       [ 63.,  81.],
+       [ 65.,  81.],
+       [ 65.,  81.],
+       [ 74.,  81.],
+       [ nan,  81.],
+       [ 75.,  81.],
+       [ 75.,  81.],
+       [100.,  81.],
+       [ 74.,  81.],
+       [ 80.,  81.],
+       [ 76.,  81.],
+       [116.,  81.],
+       [120.,  81.],
+       [110.,  81.],
+       [105.,  81.],
+       [ 88.,  81.],
+       [ 85.,  81.],
+       [ 88.,  82.],
+       [ 88.,  82.],
+       [ 88.,  82.],
+       [ 85.,  82.],
+       [ 84.,  82.],
+       [ 90.,  82.],
+       [ 92.,  82.],
+       [ nan,  82.],
+       [ 74.,  82.],
+       [ 68.,  82.],
+       [ 68.,  82.],
+       [ 63.,  82.],
+       [ 70.,  82.],
+       [ 88.,  82.],
+       [ 75.,  82.],
+       [ 70.,  82.],
+       [ 67.,  82.],
+       [ 67.,  82.],
+       [ 67.,  82.],
+       [110.,  82.],
+       [ 85.,  82.],
+       [ 92.,  82.],
+       [112.,  82.],
+       [ 96.,  82.],
+       [ 84.,  82.],
+       [ 90.,  82.],
+       [ 86.,  82.],
+       [ 52.,  82.],
+       [ 84.,  82.],
+       [ 79.,  82.],
+       [ 82.,  82.]])
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id3">
-<h1>QUESTION:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h1>
-<p>Explain what this bit of code does:</p>
+<p>Note that this is a 2 dimensional array, with a bunch of rows and 2 columns.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Question 7</p>
+<p>Run the bit of code below, and describe what it is returning. What are the dimensions of what is returned?</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slice1</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">4</span><span class="p">,:]</span>
@@ -938,10 +1327,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="id4">
-<h1>QUESTION:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
-<p>Explain what this bit of code does:</p>
+<div class="seealso admonition">
+<p class="admonition-title">Question 8</p>
+<p>Run the bit of code below, and describe what it is returning. What are the dimensions of what is returned?</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slice2</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
@@ -949,46 +1338,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id5">
-<h1>QUESTION:<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
-<p>Use the numpy function, where(), to find the indices of all cars that were made after 1974.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">slice2</span> <span class="o">&gt;</span> <span class="mi">74</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164,
-        165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177,
-        178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190,
-        191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203,
-        204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216,
-        217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229,
-        230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242,
-        243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255,
-        256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268,
-        269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281,
-        282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294,
-        295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307,
-        308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320,
-        321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333,
-        334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346,
-        347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359,
-        360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372,
-        373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385,
-        386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397]),)
-</pre></div>
-</div>
-</div>
+<p>Remember that the numpy function, where() was useful for asking where certain conditions were met in an array.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Question 9</p>
+<p>Use the numpy where function, as well as one of the results above, to find the array indices of cars that were made after 1974</p>
 </div>
 </section>
 
