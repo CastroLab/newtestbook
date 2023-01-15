@@ -565,7 +565,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="a-data-science-safari">
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is a note</p>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="a-data-science-safari">
 <h1>A data science safari<a class="headerlink" href="#a-data-science-safari" title="Permalink to this headline">#</a></h1>
 <p>The goal for today is, as the title suggests, to take a data science safari. In the spirit of a safari, you mostly want to focus on being an engaged observer. For today, we’ll keep our hands inside the vehicle. The idea here is not for you to soak up all the nuances of Python syntax. Instead, just focus on two things. Noting:</p>
 <ul class="simple">
@@ -599,7 +603,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_2_0.png" src="_images/Allen_Intro_2_0.png" />
+<img alt="_images/Allen_Intro_3_0.png" src="_images/Allen_Intro_3_0.png" />
 </div>
 </div>
 <p>The code may look a little hairy and intimidating, but you should still find it pretty amazing that at the end of the day, there really doesn’t seem to be all that much to it! In a handful of lines of code, we’ve:</p>
@@ -708,7 +712,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_19_1.png" src="_images/Allen_Intro_19_1.png" />
+<img alt="_images/Allen_Intro_20_1.png" src="_images/Allen_Intro_20_1.png" />
 </div>
 </div>
 <p>We’re now in a position to make a bit more sense of this line of code, from above:</p>
@@ -719,7 +723,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_21_0.png" src="_images/Allen_Intro_21_0.png" />
+<img alt="_images/Allen_Intro_22_0.png" src="_images/Allen_Intro_22_0.png" />
 </div>
 </div>
 <p>We are executing a Seaborn function called lmplot (a ‘linear model’ plot), and unlike the other functions we’ve encountered above, you can see that we actually have to feed it not just one input (called a parameter), but several. These control the behavior of the function, and determine what exactly is calculated and shown. We won’t go into what these parameters are doing in detail here, because there are some other concepts we need to develop first. Just make sure you have internalized the big ideas:</p>
@@ -1441,7 +1445,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_74_1.png" src="_images/Allen_Intro_74_1.png" />
+<img alt="_images/Allen_Intro_75_1.png" src="_images/Allen_Intro_75_1.png" />
 </div>
 </div>
 <p>This quickly gives you some information about the number of branches. Most of the cells have about 50 branches, but the tail of the distribution looks like it extends pretty far to the right. It certainly doesn’t look centered and symmetric like a classical normal (‘bell shaped’) curve. You can (and should!) look at distributions for the other three features in the data frame.</p>
@@ -1460,7 +1464,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;number_branches&#39;, ylabel=&#39;total_volume&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_78_1.png" src="_images/Allen_Intro_78_1.png" />
+<img alt="_images/Allen_Intro_79_1.png" src="_images/Allen_Intro_79_1.png" />
 </div>
 </div>
 <p>Perhaps there’s a trend there. It might not be super strong, but I think most of us would intuit some kind of relationship. We could imagine making scatter plots like this for every pair of features (branches vs. volume, branches vs. v_rest, v_rest vs. surface area, etc, etc….). Pandas has a handy function for plotting these all in one shot, rather than requiring us to write a separate line of code of each pair.</p>
@@ -1471,7 +1475,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_80_0.png" src="_images/Allen_Intro_80_0.png" />
+<img alt="_images/Allen_Intro_81_0.png" src="_images/Allen_Intro_81_0.png" />
 </div>
 </div>
 <p>The labels are a little ugly and bunched up here, but we’re not going to worry too much about that for now. The important thing is what this matrix is telling us. Basically, everywhere we see a diffuse circular cloud, we suspect there’s not a systematic relationship between the variables in question. Everywhere we see the points running along the diagonal, we hypothesize a potential relationship.</p>
@@ -2084,7 +2088,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;species&#39;, ylabel=&#39;total_volume&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_100_1.png" src="_images/Allen_Intro_100_1.png" />
+<img alt="_images/Allen_Intro_101_1.png" src="_images/Allen_Intro_101_1.png" />
 </div>
 </div>
 </section>
