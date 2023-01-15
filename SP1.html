@@ -360,23 +360,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#question-2">
-   QUESTION 2
+  <a class="reference internal nav-link" href="#practice-with-pandas-histograms-scatterplots-correlation">
+   Practice with Pandas: histograms, scatterplots, correlation
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#question">
-   QUESTION
+   QUESTION:
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   QUESTION
+   QUESTION:
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   QUESTION:
+   QUESTION
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -391,26 +391,6 @@ title="Print to PDF"
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   QUESTION
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
    QUESTION:
   </a>
  </li>
@@ -444,23 +424,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#question-2">
-   QUESTION 2
+  <a class="reference internal nav-link" href="#practice-with-pandas-histograms-scatterplots-correlation">
+   Practice with Pandas: histograms, scatterplots, correlation
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#question">
-   QUESTION
+   QUESTION:
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   QUESTION
+   QUESTION:
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   QUESTION:
+   QUESTION
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -475,26 +455,6 @@ title="Print to PDF"
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   QUESTION
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   QUESTION:
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
    QUESTION:
   </a>
  </li>
@@ -633,136 +593,45 @@ title="Print to PDF"
 <p>Create a markdown cell in your jupyter notebook. In that cell, write down two analyses or queries you think would be interesting to perform on this dataset (just in plain language, not code). Then, briefly describe what you think you might find, just based on intuition or prior knowledge.</p>
 <p>For example: “It would be interesting to look at the relationship between _ and _. My hunch is that ____.”</p>
 </div>
+<div class="seealso admonition">
+<p class="admonition-title">Question 2</p>
+<p>Which of the features in the mpg dataframe are <em>categorical variables</em>? (There may be more than one). Give a definition of a categorical variable. Enter your answer in a markdown cell.</p>
+</div>
 </section>
-<section id="question-2">
-<h1>QUESTION 2<a class="headerlink" href="#question-2" title="Permalink to this headline">#</a></h1>
-<p>Which of the features in the mpg dataframe are <em>categorical variables</em>? (There may be more than one)</p>
+<section id="practice-with-pandas-histograms-scatterplots-correlation">
+<h1>Practice with Pandas: histograms, scatterplots, correlation<a class="headerlink" href="#practice-with-pandas-histograms-scatterplots-correlation" title="Permalink to this headline">#</a></h1>
+<p>Did you ever wonder how many cylinders cars have, on average? Of course you have. The answer, at least according to this dataset, is 5.45 cylinders. That’s a nice summary measure, but it doesn’t tell us about the relative proportions of 4 vs. 5 vs. 6 vs. 8 cylinder cars. We might want to know about the <strong>distribution</strong> of cylinders, which we can get a better sense of through a <strong>histogram</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If I wanted to look at just the number of cylinders and plot a histogram, here&#39;s how I do it. </span>
-<span class="n">mpg</span><span class="p">[</span><span class="s1">&#39;cylinders&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="p">[</span><span class="s1">&#39;cylinders&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/SP1_9_1.png" src="_images/SP1_9_1.png" />
+<img alt="_images/SP1_9_0.png" src="_images/SP1_9_0.png" />
 </div>
 </div>
-</section>
-<section id="question">
-<h1>QUESTION<a class="headerlink" href="#question" title="Permalink to this headline">#</a></h1>
-<p>Extract the weight columns, and construct a histogram, as above. Interpret.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-</pre></div>
+<p>The histogram is reporting the number of cars with a certain number of cylinders. Looks like most cars have 4. Interestingly, it seems there are very very few cars with an odd number of cylinders.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Question 3</p>
+<ul class="simple">
+<li><p>Extract the ‘weight’ column from the mpg dataframe, and construct a histogram, as above. Interpret.</p></li>
+<li><p>Look at pandas documentation as needed to figure out how to change the number of bins in the histogram. Then, show another histogram of the same data, but with 60 bins instead of the default number of bins. What is evident about the data in this histogram that was harder to appreciate in your first histogram?</p></li>
+</ul>
 </div>
+<div class="seealso admonition">
+<p class="admonition-title">Question 4</p>
+<ul class="simple">
+<li><p>Make a new dataframe, called mpg2 that consists of only the following colummns of the mpg dataset: displacement, horsepower, weight, and mpg. You may need to consult an earlier chapter for an example where we grabbed multiple columns.</p></li>
+<li><p>Create a 4 x 4 scatter matrix of mpg2 (consult the earlier notebook).</p></li>
+<li><p>Looking at the scatter matrix, discuss which variables you think are positively correlated, and which you think are negatively correlated.</p></li>
+</ul>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/SP1_11_1.png" src="_images/SP1_11_1.png" />
-</div>
-</div>
-</section>
-<section id="id1">
-<h1>QUESTION<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Go to the documentation for the pandas function hist(), figure out how to change the size of the bins, and plot a histrogram with 60 bins, instead of the default number of bins. What is evident about the data in this histogram that was harder to appreciate in your first histogram?</p>
-<p>Make a new dataframe, called mpg2 that consists of only the following colummns of the mpg dataset: displacement, horsepower, weight.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg2</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">[[</span><span class="s1">&#39;displacement&#39;</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">mpg2</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/SP1_15_0.png" src="_images/SP1_15_0.png" />
-</div>
-</div>
-</section>
-<section id="id2">
-<h1>QUESTION:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
-<p>Looking at the scatterplot matrix you produced, describe whether any of the variables seem strongly correlated. Describe why you think this.</p>
-<p>Do heavier cars get more miles to the gallon, or fewer miles to the gallon? Based on that, would you say those two variables are positively correlated, or negatively correlated?</p>
-<p>Do cars with more horsepower tend to be heavier? Based on that, would you say those two variables are positively correlated, or negatively correlated?</p>
-</section>
-<section id="id3">
-<h1>QUESTION:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h1>
-<p>Construct a correlation matrix for the dataframe mpg2. Explain how […]. // Neg. vs. pos correlation</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg2</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>displacement</th>
-      <th>horsepower</th>
-      <th>weight</th>
-      <th>mpg</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>displacement</th>
-      <td>1.000000</td>
-      <td>0.897257</td>
-      <td>0.932824</td>
-      <td>-0.804203</td>
-    </tr>
-    <tr>
-      <th>horsepower</th>
-      <td>0.897257</td>
-      <td>1.000000</td>
-      <td>0.864538</td>
-      <td>-0.778427</td>
-    </tr>
-    <tr>
-      <th>weight</th>
-      <td>0.932824</td>
-      <td>0.864538</td>
-      <td>1.000000</td>
-      <td>-0.831741</td>
-    </tr>
-    <tr>
-      <th>mpg</th>
-      <td>-0.804203</td>
-      <td>-0.778427</td>
-      <td>-0.831741</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="seealso admonition">
+<p class="admonition-title">Question 5</p>
+<ul class="simple">
+<li><p>Construct a correlation matrix for the dataframe mpg2 (see the earlier notebook). Explain the relationship between this matrix, and the scattermatrix you made above.</p></li>
+</ul>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,8 +809,8 @@ title="Print to PDF"
 </div></div></div>
 </div>
 </section>
-<section id="id4">
-<h1>QUESTION:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
+<section id="question">
+<h1>QUESTION:<a class="headerlink" href="#question" title="Permalink to this headline">#</a></h1>
 <p>Can you write a very similar statement to the above that groups the data not by car name, but by country of origin, and then finds the average of each feature?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1023,12 +892,12 @@ title="Print to PDF"
 </div></div></div>
 </div>
 </section>
-<section id="id5">
-<h1>QUESTION:<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h1>QUESTION:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>Based on the query you just ran, do the data support the claim that, relative to Europeans, Americans like heavy cars, with lots of horsepower, and which get few miles to the gallon?</p>
 </section>
-<section id="id6">
-<h1>QUESTION<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h1>QUESTION<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
 <p>Look at <a class="reference external" href="https://seaborn.pydata.org/examples/grouped_barplot.html">this example</a> from the Seaborn Gallery of how to make a ‘category plot.’ Make a similar category plot using the car data we’ve been working with, and show the relationship between miles per gallon and country of origin, broken down by year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,7 +909,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/SP1_24_0.png" src="_images/SP1_24_0.png" />
+<img alt="_images/SP1_19_0.png" src="_images/SP1_19_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1059,8 +928,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="id7">
-<h1>QUESTION:<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h1>
+<section id="id3">
+<h1>QUESTION:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h1>
 <p>Explain what this bit of code does:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1070,8 +939,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="id8">
-<h1>QUESTION:<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h1>
+<section id="id4">
+<h1>QUESTION:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
 <p>Explain what this bit of code does:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1081,8 +950,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id9">
-<h1>QUESTION:<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>QUESTION:<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
 <p>Use the numpy function, where(), to find the indices of all cars that were made after 1974.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
