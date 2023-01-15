@@ -288,12 +288,46 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Welcome!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intended-audience">
+   Intended audience
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funding">
+   Funding
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -305,6 +339,29 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Welcome!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intended-audience">
+   Intended audience
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funding">
+   Funding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -314,10 +371,15 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="welcome">
 <h1>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this headline">#</a></h1>
-<p>This is the ‘lab manual’ for a capstone course for neuroscience, taught at Bates College. Here we introduce fundamental statistics and data science concepts, in the context of cellular neuroscience. We use the publicly available resources of the Allen Brain Institute, in Seattle, and more specifically work with their ‘Cell Types’ database and API. Briefly, these resources</p>
-<p>It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+<p>This is the ‘lab manual’ for a capstone course for neuroscience seniors, taught at Bates College. Here we introduce fundamental statistics and data science concepts, in the context of cellular neuroscience. This course use the publicly available resources of the <a class="reference external" href="https://alleninstitute.org">Allen Institute</a>, in Seattle, and works mostly with their <a class="reference external" href="https://celltypes.brain-map.org">‘Cell Types’ database and API</a>. Briefly, these resources allow one to explore and analyze data from thousands of neurons, across a wide range of experimental modalities (molecular, morphological, electrophysiological).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="intended-audience">
+<h1>Intended audience<a class="headerlink" href="#intended-audience" title="Permalink to this headline">#</a></h1>
+<p>This book is meant to be accessible to anyone who’s intrigued by the brain, and willing to work slowly and carefully. That said, the target audience is something like: “folks who have taken a course or two in neuroscience, feel comfortable talking about cells, synapses, and genes, but less comfortable with coding.” No prior exposure to coding is presumed.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="funding">
+<h1>Funding<a class="headerlink" href="#funding" title="Permalink to this headline">#</a></h1>
+<p>We acknowledge the generous support of the NSF</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
