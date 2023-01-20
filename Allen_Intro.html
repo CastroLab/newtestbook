@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A data science safari &#8212; Exploring cell types in the brain</title>
+    <title>Week 1: A data science safari &#8212; Exploring cell types in the brain</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -116,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   A data science safari
+   Week 1: A data science safari
   </a>
  </li>
  <li class="toctree-l1">
@@ -332,7 +332,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   A data science safari
+   Week 1: A data science safari
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -356,28 +356,28 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#make-an-array-of-random-numbers">
-       1) make an array of random numbers
+      <a class="reference internal nav-link" href="#numpy-example-1-make-an-array-of-random-numbers">
+       Numpy example 1) Make an array of random numbers
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
-       2. make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.
+      <a class="reference internal nav-link" href="#numpy-example-2-make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
+       Numpy example 2)  Make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#take-slices-of-an-array">
-       3. take ‘slices’ of an array:
+      <a class="reference internal nav-link" href="#numpy-example-3-take-slices-of-an-array">
+       Numpy example 3) Take ‘slices’ of an array:
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#find-locations-in-an-array-where-a-certain-condition-is-met">
-       4. find locations in an array where a certain condition is met
+      <a class="reference internal nav-link" href="#numpy-example-4-find-locations-in-an-array-where-a-certain-condition-is-met">
+       Numpy example 4) Find locations in an array where a certain condition is met
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-more-realistic-example">
-       5. A more realistic example
+      <a class="reference internal nav-link" href="#numpy-example-5-a-more-realistic-example">
+       Numpy example 5) A more realistic example
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
@@ -409,12 +409,12 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-allen-sdk">
+     The Allen SDK
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-allen-sdk">
-   The Allen SDK
-  </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-you-should-take-away">
@@ -435,7 +435,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>A data science safari</h1>
+                <h1>Week 1: A data science safari</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -447,7 +447,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   A data science safari
+   Week 1: A data science safari
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -471,28 +471,28 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#make-an-array-of-random-numbers">
-       1) make an array of random numbers
+      <a class="reference internal nav-link" href="#numpy-example-1-make-an-array-of-random-numbers">
+       Numpy example 1) Make an array of random numbers
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
-       2. make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.
+      <a class="reference internal nav-link" href="#numpy-example-2-make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
+       Numpy example 2)  Make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#take-slices-of-an-array">
-       3. take ‘slices’ of an array:
+      <a class="reference internal nav-link" href="#numpy-example-3-take-slices-of-an-array">
+       Numpy example 3) Take ‘slices’ of an array:
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#find-locations-in-an-array-where-a-certain-condition-is-met">
-       4. find locations in an array where a certain condition is met
+      <a class="reference internal nav-link" href="#numpy-example-4-find-locations-in-an-array-where-a-certain-condition-is-met">
+       Numpy example 4) Find locations in an array where a certain condition is met
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-more-realistic-example">
-       5. A more realistic example
+      <a class="reference internal nav-link" href="#numpy-example-5-a-more-realistic-example">
+       Numpy example 5) A more realistic example
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
@@ -524,12 +524,12 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-allen-sdk">
+     The Allen SDK
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-allen-sdk">
-   The Allen SDK
-  </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-you-should-take-away">
@@ -551,13 +551,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="a-data-science-safari">
-<h1>A data science safari<a class="headerlink" href="#a-data-science-safari" title="Permalink to this headline">#</a></h1>
-<p>The goal for today is, as the title suggests, to take a data science safari. In the spirit of a safari, you mostly want to focus on being an engaged observer. For today, we’ll keep our hands inside the vehicle. The idea here is not for you to soak up all the nuances of Python syntax. Instead, just focus on two things. Note the following:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-1-a-data-science-safari">
+<h1>Week 1: A data science safari<a class="headerlink" href="#week-1-a-data-science-safari" title="Permalink to this headline">#</a></h1>
+<p>The goal for today is, as the title suggests, to take a data science safari. In the spirit of a safari, you mostly want to focus on being an engaged observer. For today, we’ll keep our hands inside the vehicle. The idea here is not for you to soak up all the nuances of Python syntax. Instead, try to maintain a general awareness of two things:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -592,13 +588,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_3_0.png" src="_images/Allen_Intro_3_0.png" />
+<img alt="_images/Allen_Intro_2_0.png" src="_images/Allen_Intro_2_0.png" />
 </div>
 </div>
-<p>The code may look a little hairy and intimidating, but you should still find it pretty amazing that at the end of the day, there really doesn’t seem to be all that much to it! In a handful of lines of code, we’ve:</p>
+<div class="seealso admonition">
+<p class="admonition-title">Think about it…</p>
+<p>What are some trends you observe in the data? What claims do you have evidence for, given what you see? Which claims do you think you have relatively strong evidence for and which claims do you think you have only weak evidence for? (We’re just trusting out hunches for now, and not encumbering ourselves with formal notions of ‘statistical significance’, etc)</p>
+</div>
+<p>The code may look a little hairy and intimidating, but you should still find it pretty amazing that at the end of the day, there really doesn’t seem to be all that much to it, relative to the complexity of the output. In a handful of lines of code, we’ve:</p>
 <ul class="simple">
 <li><p>gained access to a very large and rich dataset with information about cellular properties, collected from different hemispheres and different species, for hundreds of cells.</p></li>
-<li><p>organized the data in such a way that we can separate them out by conditions (species, and hemisphere)</p></li>
+<li><p>organized the data in such a way that we can separate them out by conditions (species, and hemisphere, in this case)</p></li>
 <li><p>made scatterplots of the data of almost publication quality, and fit statistical models to them (trendlines w/ confidence intervals)</p></li>
 </ul>
 <p>Let’s go line by line and explain what’s happening, so you can learn how to start slicing and dicing data like this.</p>
@@ -618,7 +618,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Hopefully you have intuited that some stuff is being imported here. But what does that mean?</p>
+<p>Hopefully you have intuited that some stuff is being imported here. But what does that mean? Basically, you can think of each import statement as leveling-up your calculator and adding new buttons to it. If your starting calculator was one of those $5 ones from CVS that can do only basic arithmetic, then the first import statement would be turning it into a scientific calculator. The second import statement would be turning it graphing calculator.</p>
 <p>Whenever we open a notebook like this one, we can start typing Python code and running it. We might want to just do some simple calculations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -635,7 +635,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Or maybe we want to use a simple mathematical function, like calculate the absolute value of a number. Recall that a function is something like a little machine that you feed an input (typically the input is put inside parentheses), and which spits back an output.</p>
+<p>Or maybe we want to use a simple mathematical function, like calculate the absolute value of a number. Recall that a function is something like a little machine with a name like log(), or cos(), or exp() that you feed an input (typically the input is put inside parentheses), and which spits back an output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
@@ -661,9 +661,16 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Bottom line: functions, for our purposes, process inputs and do something useful with them. When you feed them an input they typically either make something happen, or spit something back at you.</p>
 <section id="seaborn">
 <h2>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">#</a></h2>
-<p>But now say you wanted a function that you feed data from a table, and which aggregates the data into different user-specified groups, performs a linear regression on each group, and spits back a nicely formatted graph. That’s a tall order, and that functionality is not built into basic Python. It would actually be pretty weird if it were. Luckily for us though, someone <em>has</em> written exactly that function, has been generous enough to share it with us, and has made it very easy for us to access it. Not only that, they have actually written a whole <em>library</em> of related functions that we can access.</p>
+<p>Now say you wanted a function with you following specs: when you feed it data from a table (the input), its output/effect is to:</p>
+<ul class="simple">
+<li><p>aggregate the data into different user-specified groups</p></li>
+<li><p>perform a linear regression on each group, and..</p></li>
+<li><p>spit back a nicely formatted graph.</p></li>
+</ul>
+<p>That’s a tall order, and that functionality is not built into basic Python. It would actually be pretty weird if it were. Luckily for us though, someone <em>has</em> written exactly that function, has been generous enough to share it with us, and has made it very easy for us to access it. Not only that, they have actually written a whole <em>library</em> of related functions that we can access.</p>
 <p>That library is called ‘Seaborn’, and when we type the command</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -690,7 +697,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Then python will yell at us. We need to be a bit more explicit, and let it know that we’re calling a function from seaborn. This is how we do it:</p>
+<p>Then python will yell at us, as you can see. We need to be a bit more explicit, and let it know that we’re calling a function <em>from seaborn</em>. This is how we do it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">]])</span>
@@ -698,10 +705,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_20_1.png" src="_images/Allen_Intro_20_1.png" />
+<img alt="_images/Allen_Intro_19_1.png" src="_images/Allen_Intro_19_1.png" />
 </div>
 </div>
 <p>We’re now in a position to make a bit more sense of this line of code, from above:</p>
@@ -712,7 +719,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_22_0.png" src="_images/Allen_Intro_22_0.png" />
+<img alt="_images/Allen_Intro_21_0.png" src="_images/Allen_Intro_21_0.png" />
 </div>
 </div>
 <p>We are executing a Seaborn function called lmplot (a ‘linear model’ plot), and unlike the other functions we’ve encountered above, you can see that we actually have to feed it not just one input (called a parameter), but several. These control the behavior of the function, and determine what exactly is calculated and shown. We won’t go into what these parameters are doing in detail here, because there are some other concepts we need to develop first. Just make sure you have internalized the big ideas:</p>
@@ -730,7 +737,7 @@ title="Print to PDF"
 <li><p><strong>pandas:</strong> a library for the manipulation and analysis of tabular data (where each row is an object, and each column is a different measurement made of that object)</p></li>
 <li><p><strong>matplotlib:</strong> a library for making professional quality graphs and plots.</p></li>
 </ul>
-<p>After importing numpy (which we’ve done above, and won’t repeat here), we can create simple arrays as follows:</p>
+<p>After importing numpy (which we’ve done above, and won’t repeat here), we can create simple arrays as follows. Note that we have to call the function ‘array’ using the prefix ‘np’. It’s the same trick we saw above with using ‘sns’ to call Seaborn functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
@@ -744,7 +751,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Not terribly exciting. But what’s cool is that we can call numpy functions directly on this new array, using a syntax like this:</p>
+<p>Not terribly exciting. But what’s cool is that we can peek into this new array, using a syntax like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
@@ -771,8 +778,8 @@ title="Print to PDF"
 </div>
 </div>
 <p>Numpy is a really extensive library, and we won’t be going that deep into it, but a few example will help give a bit of its flavor. We can do things like:</p>
-<section id="make-an-array-of-random-numbers">
-<h3>1) make an array of random numbers<a class="headerlink" href="#make-an-array-of-random-numbers" title="Permalink to this headline">#</a></h3>
+<section id="numpy-example-1-make-an-array-of-random-numbers">
+<h3>Numpy example 1) Make an array of random numbers<a class="headerlink" href="#numpy-example-1-make-an-array-of-random-numbers" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -781,16 +788,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.13778182, 0.48626575, 0.08540665, 0.45892845, 0.9274585 ,
-        0.16077896, 0.17336873, 0.01512331, 0.27846253, 0.66425606]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.55104242, 0.37075582, 0.77656753, 0.18675201, 0.1570436 ,
+        0.3546588 , 0.06052583, 0.402605  , 0.247214  , 0.48907846]])
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note that here, we couldn’t just call the function rand(). We had to call it as np.random.rand(). That’s because numpy is broken up into a number of different <em>modules</em>, of which rand is one. You can think of a module as a name for grouping related sets of functions. For example, there’s also np.linalg, which contains functions for doing linear algebra, and np.matlib, which has functions for a wide variety of matrix operations.</p>
 </section>
-<section id="make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
-<h3>2. make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.<a class="headerlink" href="#make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array" title="Permalink to this headline">#</a></h3>
+<section id="numpy-example-2-make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array">
+<h3>Numpy example 2)  Make a 1 x 10 array of ones, and reshape it into a 5 x 2 array.<a class="headerlink" href="#numpy-example-2-make-a-1-x-10-array-of-ones-and-reshape-it-into-a-5-x-2-array" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -813,8 +820,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="take-slices-of-an-array">
-<h3>3. take ‘slices’ of an array:<a class="headerlink" href="#take-slices-of-an-array" title="Permalink to this headline">#</a></h3>
+<section id="numpy-example-3-take-slices-of-an-array">
+<h3>Numpy example 3) Take ‘slices’ of an array:<a class="headerlink" href="#numpy-example-3-take-slices-of-an-array" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">]))</span>
@@ -833,7 +840,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Above, we’ve grabbed a single entry from the array named (uncreatively) ‘arr’. The ‘1’ indicates that we want the first <em>row</em>, and the ‘2’ indicates that we want the second <em>column</em>. You might be wondering “isn’t the item in the first row and second column ‘b’ and not ‘g’”? The answer is ‘yes’, but the indexing of rows and columns actually starts with zero, not one in python. ‘a’, for example, would be in the zeroth row, and the zeroth column.</p>
+<p>Above, we’ve grabbed a single entry from the array named (uncreatively) ‘arr’. The ‘1’ indicates that we want the first <em>row</em>, and the ‘2’ indicates that we want the second <em>column</em>. You might be wondering “isn’t the item in the first row and second column ‘b’ and not ‘g’”? The answer (somewhat frustratingly to many new to Python) is ‘no’, because the indexing of rows and columns actually starts with zero, not one in python. ‘a’, for example, would be in the <em>zeroth</em> row, and the <em>zeroth</em> column.</p>
 <p>You might also be interested in grabbing subsets of an array, like all the columns at a particular row. Here, the colon (:) operator comes in handy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,16 +854,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">notation</span> <span class="ow">is</span> <span class="n">just</span> <span class="n">saying</span> <span class="s2">&quot;grab me everything in row 1&quot;</span> 
-</pre></div>
-</div>
-</div>
-</div>
+<p>The notation is just saying “grab me row 1, and all the columns”</p>
 </section>
-<section id="find-locations-in-an-array-where-a-certain-condition-is-met">
-<h3>4. find locations in an array where a certain condition is met<a class="headerlink" href="#find-locations-in-an-array-where-a-certain-condition-is-met" title="Permalink to this headline">#</a></h3>
+<section id="numpy-example-4-find-locations-in-an-array-where-a-certain-condition-is-met">
+<h3>Numpy example 4) Find locations in an array where a certain condition is met<a class="headerlink" href="#numpy-example-4-find-locations-in-an-array-where-a-certain-condition-is-met" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an array w/ 100 random numbers uniformly distributed between 0 and 1</span>
@@ -874,7 +875,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([10, 12, 24, 30, 43, 44, 51, 52, 60, 65, 85]),)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 3, 10, 12, 17, 25, 26, 28, 31, 34, 39, 41, 49, 63, 86, 94]),)
 </pre></div>
 </div>
 </div>
@@ -886,19 +887,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99340462, 0.98708416, 0.92635883, 0.95902238, 0.95837603,
-       0.99989267, 0.94642556, 0.91902474, 0.99288174, 0.98322998,
-       0.954065  ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.90619678, 0.93527905, 0.92885439, 0.90593958, 0.98516101,
+       0.9030679 , 0.91981166, 0.97626822, 0.9591417 , 0.90435428,
+       0.93416509, 0.91006   , 0.95767413, 0.93013555, 0.96125092])
 </pre></div>
 </div>
 </div>
 </div>
 <p>In the first blocks of code we made an array of 100 numbers, chosen from a uniform distribution between 0 an 1. In the second block of code, we ‘asked’ “find me the indices where the numbers from the array are greater than 0.9” (incidentally, we expect about 10 of these if each number is chosen at rantom from 0 to 1). Recall that the index values run from 0 to 99, not from 1 to 100. In the last block of code, we’re saying “give me the values of the array at those indices I specified above”.</p>
 </section>
-<section id="a-more-realistic-example">
-<h3>5. A more realistic example<a class="headerlink" href="#a-more-realistic-example" title="Permalink to this headline">#</a></h3>
+<section id="numpy-example-5-a-more-realistic-example">
+<h3>Numpy example 5) A more realistic example<a class="headerlink" href="#numpy-example-5-a-more-realistic-example" title="Permalink to this headline">#</a></h3>
 <p>To give a somewhat more realistic example of how you might use numpy, let’s ask a question about some real data. The data we imported at the very beginning was a big table of cells x features, and among the features were the surface area of the soma (called ‘soma_surface’ in the table), and the resting membrane potential (called ‘vrest’ in the table).</p>
-<p>Let’s make an array with those two measurements as the columns. Don’t worry too much about the syntax in this part:</p>
+<p>Let’s make an array with those two measurements as the columns. Don’t worry too much about the syntax in this part. The important point is that we’re creatign an array where the first column is surface areas, and the second column is resting potentials.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr3</span> <span class="o">=</span> <span class="n">features</span><span class="p">[[</span><span class="s1">&#39;soma_surface&#39;</span><span class="p">,</span> <span class="s1">&#39;vrest&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -1431,10 +1432,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: ylabel=&#39;Frequency&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_75_1.png" src="_images/Allen_Intro_75_1.png" />
+<img alt="_images/Allen_Intro_74_1.png" src="_images/Allen_Intro_74_1.png" />
 </div>
 </div>
 <p>This quickly gives you some information about the number of branches. Most of the cells have about 50 branches, but the tail of the distribution looks like it extends pretty far to the right. It certainly doesn’t look centered and symmetric like a classical normal (‘bell shaped’) curve. You can (and should!) look at distributions for the other three features in the data frame.</p>
@@ -1453,7 +1454,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;number_branches&#39;, ylabel=&#39;total_volume&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_79_1.png" src="_images/Allen_Intro_79_1.png" />
+<img alt="_images/Allen_Intro_78_1.png" src="_images/Allen_Intro_78_1.png" />
 </div>
 </div>
 <p>Perhaps there’s a trend there. It might not be super strong, but I think most of us would intuit some kind of relationship. We could imagine making scatter plots like this for every pair of features (branches vs. volume, branches vs. v_rest, v_rest vs. surface area, etc, etc….). Pandas has a handy function for plotting these all in one shot, rather than requiring us to write a separate line of code of each pair.</p>
@@ -1464,8 +1465,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Allen_Intro_81_0.png" src="_images/Allen_Intro_81_0.png" />
+<img alt="_images/Allen_Intro_80_0.png" src="_images/Allen_Intro_80_0.png" />
 </div>
+</div>
+<div class="seealso admonition">
+<p class="admonition-title">Think about it…</p>
+<p>Before going ahead, pause to think about what trends you observe in the data. For which pairs of variables do you suspect there’s a relationship? If there <em>is</em> relationship, is it strong or weak? If there’s not relationship, what about the distribution of points is telling you that?</p>
 </div>
 <p>The labels are a little ugly and bunched up here, but we’re not going to worry too much about that for now. The important thing is what this matrix is telling us. Basically, everywhere we see a diffuse circular cloud, we suspect there’s not a systematic relationship between the variables in question. Everywhere we see the points running along the diagonal, we hypothesize a potential relationship.</p>
 <p>What might be nice is if we could just put a single number in each box above that’s representative of the overall relationship. That’s exactly what we get when we compute a correlation matrix:</p>
@@ -1610,7 +1615,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<p>All of our data about cell type, species type, etc (those things that scream ‘categorical variable!’) are actually locked up in a different dataframe that we had named ‘cell_metadata’</p>
+<p>All of our data about cell type, species type, etc (those things that scream: ‘categorical variable!’) are actually locked up in a different dataframe that we had named ‘cell_metadata’</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_metadata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1931,7 +1936,7 @@ title="Print to PDF"
 </div>
 <p>Looks like the data are from one of two types of species, one of 9 types of layers, and one of three types of disease states (be careful, there’s a blank middle field in the output that corresponds to no disease. You can think of that as ‘control’, or ‘no disease’). Note that even though the cell layers have some numeric values, we are still thinking of them as categorical, and not numeric. That’s because the numbers are serving as labels that aren’t really carrying quantitative information. It would have been equivalent to call the cell layers “a, b, c,… etc”.</p>
 <p>If we look at our dataframe above, we see that it comprises 701 rows. At the most granular level, there are 701 things our data are about. But we can skin that cat a lot of different ways. From another perspective, we could say that are data are ‘about’ two things: Mouse cells vs. Human cells. Similarly, we could say our data are ‘about’ three things: epileptic neurons, control neurons, and tumor neurons.</p>
-<p>Pandas has a nifty function called ‘groupby’ that lets us change what our data is about.</p>
+<p>Pandas has a nifty function called ‘groupby’ that lets us change our perspective on the data, and emphasize one of the particular things it is ‘about’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -2065,7 +2070,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<p>Here, we’ve broken things up by disease state, and have simply counted the number of cells in each group. If you add up the numbers in the first column, you’ll see that they come to 701 – our total number of cells. From this table, we can appreciate that we have by far the most data from the control group, and by far the least data from the tumor group. The reason one number looks weird (the 108 for the count of threshold_v_ramp measurements in the ‘epilepsy’ group) is that there were probably some missing dataa values for that measurement (maybe the recording went bad for that measurement, but they didn’t want to scrap all the other great data they had collected).</p>
+<p>Here, we’ve broken things up by disease state, and have simply counted the number of cells in each group. If you add up the numbers in the first column, you’ll see that they come to 701 – our total number of cells. From this table, we can appreciate that we have by far the most data from the control group, and by far the least data from the tumor group. The reason one number looks weird (the 108 for the count of threshold_v_ramp measurements in the ‘epilepsy’ group) is that there were probably some missing data values for that measurement (maybe the recording went bad for that measurement, but they didn’t want to scrap all the other great data they had collected).</p>
 <p>Tables are a nice way to make contrasts between groups, but often a bar-graph is the better choice. We can put our seaborn hat back on to do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2077,14 +2082,13 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;species&#39;, ylabel=&#39;total_volume&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Allen_Intro_101_1.png" src="_images/Allen_Intro_101_1.png" />
+<img alt="_images/Allen_Intro_100_1.png" src="_images/Allen_Intro_100_1.png" />
 </div>
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-allen-sdk">
-<h1>The Allen SDK<a class="headerlink" href="#the-allen-sdk" title="Permalink to this headline">#</a></h1>
+<section id="the-allen-sdk">
+<h2>The Allen SDK<a class="headerlink" href="#the-allen-sdk" title="Permalink to this headline">#</a></h2>
 <p>Recall from our initial example that there was a block of code that looked something like this</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2098,51 +2102,54 @@ title="Print to PDF"
 </div>
 </div>
 <p>This is the code that actually made the data available to us in the first place. You’ll note that the top line includes the keyword ‘import’ that we discussed earlier. The ‘from … import’ syntax is our way of indicating that we really only want a very small piece from the library we’re importing from (in this case something called ‘CellTypesCache’).</p>
-<p>But let’s back up. What is allensdk? Basically, it’s a set of modules that the Allen Institute has made publicly available, and which allow anyone to gain access to their data. In general, an SDK stands for software development kit. You can find details on the allen sdk here. […]</p>
-<p>The thing of interest to us is ‘CellTypesCache’, which is a module that lives under core.cell_types_cache.</p>
-<p>The details arent’ terribly important, but just for completeness, here is what happens in the three lines of code above:</p>
+<p>But let’s back up. What is allensdk? Basically, it’s a set of modules that the Allen Institute has made publicly available, and which allow anyone to gain access to their data. In general, an SDK stands for software development kit. You can find details on the allen sdk <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/">here</a>.</p>
+<p>The thing of interest to us is ‘CellTypesCache’, which is a module that lives under [core.cell_types_cache] (<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/allensdk.core.cell_types_cache.html">https://allensdk.readthedocs.io/en/latest/allensdk.core.cell_types_cache.html</a>).</p>
+<p>The details aren’t terribly important, but just for completeness, here is what happens in the three lines of code above:</p>
 <ol class="simple">
 <li><p>A new directory is created on your computer called ‘cell_types’, which contains the downloaded data.</p></li>
 <li><p>A dataframe called ‘features’ is created, which contains all the computed cell features</p></li>
 <li><p>A dataframe called ‘cell_metadata’ is created.</p></li>
 </ol>
 </section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="what-you-should-take-away">
 <h1>What you should take away:<a class="headerlink" href="#what-you-should-take-away" title="Permalink to this headline">#</a></h1>
 <p>As a reminder, I want you to think of this as a safari. You will have a whole semester to put these ideas into practice. The more important thing is to appreciate the overall landscape.</p>
 <ul class="simple">
-<li><p>It’s pretty easy to get access to big, fancy data sets (3 lines of code puts 700 cells x XX measurements on your machine!)</p></li>
+<li><p>It’s pretty easy to get access to big, fancy data sets (3 lines of code puts ~700 cells x ~100 measurements on your machine)</p></li>
 <li><p>Functions are things that you feed an input, and which produce an output</p></li>
 <li><p>numpy is good for working with arrays of numbers</p></li>
-<li><p>seaborn makes really pretty plots, and hides a lot of details about exactly how</p></li>
-<li><p>pandas lets you slice and dice data. You can merge dataframes together, and group your data in interesting ways</p></li>
+<li><p>seaborn makes really pretty plots, and hides a lot of details about exactly how this is done</p></li>
+<li><p>pandas lets you slice and dice data. You can also merge dataframes together, and group your data in interesting ways</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="handy-list-of-functions-you-encountered-today">
 <h1>Handy list of functions you encountered today:<a class="headerlink" href="#handy-list-of-functions-you-encountered-today" title="Permalink to this headline">#</a></h1>
-<p>abs()
-bin()
-&amp; operator
-import
-from … import … as</p>
-<p>sns.heatmap()
-sns.lmplot()
-sns.barplot</p>
-<p>np.shape()
-np.unique()
-np.random.rand()
-np.ones()
-np.reshape()
-np.where()
-np.mean()</p>
-<p>pd.DataFrame()
-pd.head()
-pd.plot.hist()
-pd.plot.scatter()
-pd.plotting.scatter_matrix()
-pd.corr()
-pd.merge()
-pd.groupby()</p>
+<ul class="simple">
+<li><p>abs()</p></li>
+<li><p>bin()</p></li>
+<li><p>&amp; operator</p></li>
+<li><p>import</p></li>
+<li><p>from … import … as</p></li>
+<li><p>sns.heatmap()</p></li>
+<li><p>sns.lmplot()</p></li>
+<li><p>sns.barplot</p></li>
+<li><p>np.shape()</p></li>
+<li><p>np.unique()</p></li>
+<li><p>np.random.rand()</p></li>
+<li><p>np.ones()</p></li>
+<li><p>np.reshape()</p></li>
+<li><p>np.where()</p></li>
+<li><p>np.mean()</p></li>
+<li><p>pd.DataFrame()</p></li>
+<li><p>pd.head()</p></li>
+<li><p>pd.plot.hist()</p></li>
+<li><p>pd.plot.scatter()</p></li>
+<li><p>pd.plotting.scatter_matrix()</p></li>
+<li><p>pd.corr()</p></li>
+<li><p>pd.merge()</p></li>
+<li><p>pd.groupby()</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
