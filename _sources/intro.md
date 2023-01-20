@@ -9,7 +9,3 @@ This book is meant to be accessible to anyone who's intrigued by the brain, and 
 # Funding
 
 We acknowledge the generous support of the NSF 
-
-
-```{tableofcontents}
-```
