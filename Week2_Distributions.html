@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strategic Practice 2 (SP2)" href="SP2.html" />
+    <link rel="prev" title="Strategic practice 1 (SP1)" href="SP1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Allen_Intro.html">
    Week 1: A data science safari
@@ -120,6 +122,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="SP1.html">
    Strategic practice 1 (SP1)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Typical values, oddballs
   </a>
  </li>
  <li class="toctree-l1">
@@ -358,6 +365,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-2-distributions-and-variability">
+   Week 2: Distributions and variability
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#case-study-neuronal-morphology">
    Case Study: Neuronal morphology
   </a>
@@ -445,6 +457,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-2-distributions-and-variability">
+   Week 2: Distributions and variability
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#case-study-neuronal-morphology">
    Case Study: Neuronal morphology
   </a>
@@ -513,9 +530,21 @@ title="Print to PDF"
 <section id="id1">
 <h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="week-2-distributions-and-variability">
+<h1>Week 2: Distributions and variability<a class="headerlink" href="#week-2-distributions-and-variability" title="Permalink to this headline">#</a></h1>
+<p>The main goals for this week are to dig a little bit deeper into the idea of a feature’s <strong>distribution</strong>, and understand ways of quantifying variability. For our purposes, we can think of a distribution as something like: “a systematic description of both the rage of values our data can take, and how frequently it takes on each value.” Recognize that this is definitely an operational, ‘intuitive’ definition. There are a lot of nuances we’re not going to worry about.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Motivating questions for today</p>
+<ul class="simple">
+<li><p>Given a dataset and/or a distribution, how do we think about its ‘typical’ and ‘oddball’ values? This will get us thinking about measures of central tendency, like the mean and median, and also quantiles.</p></li>
+<li><p>What are some of the different types of distribution we tend to see, out there in the wild?</p></li>
+<li><p>How do we quantify the ‘typical variation’ of a data set?</p></li>
+</ul>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="case-study-neuronal-morphology">
 <h1>Case Study: Neuronal morphology<a class="headerlink" href="#case-study-neuronal-morphology" title="Permalink to this headline">#</a></h1>
-<p>We’ll organize today’s tour and analysis around the study of cellular morphology. Basically, this is a fancy way of saying we’ll be thinking about cells’ shapes, their geometry, and their branching patterns. The study of cellular morphology has a very illustrious history in neuroscience, and was integral to the development of the neuron doctrine: the idea that brain cells are individual units with freely ending fibers. It can seem hard to imagine ever having found this surprising, but this was fiercely contested by some of the finest minds in science in the nineteenth and even early twentieth centuries. The Spaniard Santiago Ramon y Cajal is usually considered the chief mason of the neuron doctrine. Working with what we’d now consider a very rudimentary microscope, and well before the advent of modern biological imaging, Cajal channeled his artistic energies and cataloged the myriad cellular forms he saw under the microscope in a series of thousands of drawings. These are among the great monuments of scientific artwork and scientific discovery, and still find their way to art galleries around the world.</p>
+<p>We’ll organize today’s tour and analysis around the study of cellular morphology. Basically, this is a fancy way of saying we’ll be thinking about cells’ shapes, their geometry, and their branching patterns. The study of cellular morphology has a very illustrious history in neuroscience, and was integral to the development of the neuron doctrine: the idea that brain cells are individual units with freely ending fibers. It can seem hard to imagine ever having found this surprising, but this was fiercely contested by some of the finest minds in science in the nineteenth and even early twentieth centuries. The Spaniard Santiago Ramon y Cajal is usually considered the chief mason of the neuron doctrine. Working with what we’d now consider an extremely rudimentary microscope, and well before the advent of modern biological imaging, Cajal channeled his artistic energies and cataloged the myriad cellular forms he saw under the microscope in a series of thousands of drawings. These drawings are among the great monuments of scientific artwork and scientific discovery, and still find their way to art galleries around the world.</p>
 <p>Let’s fastforward into the twentyfirst century, where we can easily access morphological data obtained from filling neurons with dyes and labels of different kinds. The block of code below imports some libraries we’ll need, and also puts some some morphology data in our hands, courtesy of the Allen Institute.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,7 +558,7 @@ title="Print to PDF"
 <span class="n">ctc</span> <span class="o">=</span> <span class="n">CellTypesCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="s1">&#39;cell_types/manifest.json&#39;</span><span class="p">)</span>
 <span class="n">cell_specimen_id</span> <span class="o">=</span> <span class="mi">576107598</span>
 <span class="n">morphology</span> <span class="o">=</span> <span class="n">ctc</span><span class="o">.</span><span class="n">get_reconstruction</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">)</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">ctc</span><span class="o">.</span><span class="n">get_reconstruction_markers</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">)</span> 
+<span class="c1">#markers = ctc.get_reconstruction_markers(cell_specimen_id) </span>
 
 
 <span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">(</span><span class="n">require_reconstruction</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -575,15 +604,13 @@ title="Print to PDF"
 <p>Let’s see if the numbers agree with our intuition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lens</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pd.DataFrame(lens).hist(bins=800)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">lens</span><span class="p">),</span><span class="mi">200</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;0&#39;}&gt;]], dtype=object)
-</pre></div>
-</div>
-<img alt="_images/Week2_Distributions_6_1.png" src="_images/Week2_Distributions_6_1.png" />
+<img alt="_images/Week2_Distributions_6_0.png" src="_images/Week2_Distributions_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1669,6 +1696,20 @@ Name: average_diameter, Length: 701, dtype: bool
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="SP1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Strategic practice 1 (SP1)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SP2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Strategic Practice 2 (SP2)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
