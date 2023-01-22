@@ -1,0 +1,1697 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Typical values, oddballs &#8212; Exploring cell types in the brain</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Exploring cell types in the brain</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Allen_Intro.html">
+   Week 1: A data science safari
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SP1.html">
+   Strategic practice 1 (SP1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SP2.html">
+   Strategic Practice 2 (SP2)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Week2_Distributions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWeek2_Distributions.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Week2_Distributions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Typical values, oddballs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-and-fano-factor-standardize-data">
+   Variance and Fano factor (standardize data)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-common-distributions">
+   Some common distributions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-bit-more-w-the-normal-cdf">
+   A bit more w/ the normal (CDF)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-study-neuronal-morphology">
+   Case Study: Neuronal morphology
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upping-your-pandas-game">
+   UPPING YOUR PANDAS GAME
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-idiom-1-getting-subsets-of-your-dataframe">
+     Pandas Idiom 1: Getting subsets of your dataframe
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-idiom-2-filtering-your-data-on-the-basis-of-a-conditional">
+     Pandas Idiom 2: Filtering your data on the basis of a conditional
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typical-values-and-oddball-values-in-your-dataset">
+   Typical values and oddball values in your dataset
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions-we-might-have-about-our-data">
+     Questions we might have about our data:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leveling-up-our-pandas-game">
+     Leveling up our pandas game
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributions-the-underlying-story-of-your-data">
+   Distributions: The underlying story of your data.
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Typical values, oddballs</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Typical values, oddballs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-and-fano-factor-standardize-data">
+   Variance and Fano factor (standardize data)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-common-distributions">
+   Some common distributions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-bit-more-w-the-normal-cdf">
+   A bit more w/ the normal (CDF)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-study-neuronal-morphology">
+   Case Study: Neuronal morphology
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upping-your-pandas-game">
+   UPPING YOUR PANDAS GAME
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-idiom-1-getting-subsets-of-your-dataframe">
+     Pandas Idiom 1: Getting subsets of your dataframe
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-idiom-2-filtering-your-data-on-the-basis-of-a-conditional">
+     Pandas Idiom 2: Filtering your data on the basis of a conditional
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typical-values-and-oddball-values-in-your-dataset">
+   Typical values and oddball values in your dataset
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions-we-might-have-about-our-data">
+     Questions we might have about our data:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leveling-up-our-pandas-game">
+     Leveling up our pandas game
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributions-the-underlying-story-of-your-data">
+   Distributions: The underlying story of your data.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="typical-values-oddballs">
+<h1>Typical values, oddballs<a class="headerlink" href="#typical-values-oddballs" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="variance-and-fano-factor-standardize-data">
+<h1>Variance and Fano factor (standardize data)<a class="headerlink" href="#variance-and-fano-factor-standardize-data" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="some-common-distributions">
+<h1>Some common distributions<a class="headerlink" href="#some-common-distributions" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="a-bit-more-w-the-normal-cdf">
+<h1>A bit more w/ the normal (CDF)<a class="headerlink" href="#a-bit-more-w-the-normal-cdf" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="case-study-neuronal-morphology">
+<h1>Case Study: Neuronal morphology<a class="headerlink" href="#case-study-neuronal-morphology" title="Permalink to this headline">#</a></h1>
+<p>We’ll organize today’s tour and analysis around the study of cellular morphology. Basically, this is a fancy way of saying we’ll be thinking about cells’ shapes, their geometry, and their branching patterns. The study of cellular morphology has a very illustrious history in neuroscience, and was integral to the development of the neuron doctrine: the idea that brain cells are individual units with freely ending fibers. It can seem hard to imagine ever having found this surprising, but this was fiercely contested by some of the finest minds in science in the nineteenth and even early twentieth centuries. The Spaniard Santiago Ramon y Cajal is usually considered the chief mason of the neuron doctrine. Working with what we’d now consider a very rudimentary microscope, and well before the advent of modern biological imaging, Cajal channeled his artistic energies and cataloged the myriad cellular forms he saw under the microscope in a series of thousands of drawings. These are among the great monuments of scientific artwork and scientific discovery, and still find their way to art galleries around the world.</p>
+<p>Let’s fastforward into the twentyfirst century, where we can easily access morphological data obtained from filling neurons with dyes and labels of different kinds. The block of code below imports some libraries we’ll need, and also puts some some morphology data in our hands, courtesy of the Allen Institute.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.core.cell_types_cache</span> <span class="kn">import</span> <span class="n">CellTypesCache</span>
+
+<span class="n">ctc</span> <span class="o">=</span> <span class="n">CellTypesCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="s1">&#39;cell_types/manifest.json&#39;</span><span class="p">)</span>
+<span class="n">cell_specimen_id</span> <span class="o">=</span> <span class="mi">576107598</span>
+<span class="n">morphology</span> <span class="o">=</span> <span class="n">ctc</span><span class="o">.</span><span class="n">get_reconstruction</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">)</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">ctc</span><span class="o">.</span><span class="n">get_reconstruction_markers</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">)</span> 
+
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">(</span><span class="n">require_reconstruction</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">cell_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_cells</span><span class="p">())</span>
+
+<span class="n">features_morpho</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;average_bifurcation_angle_local&#39;</span><span class="p">:]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">features</span><span class="p">[[</span><span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;number_branches&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold_v_ramp&#39;</span><span class="p">,</span> <span class="s1">&#39;total_volume&#39;</span><span class="p">]],</span> 
+              <span class="n">cell_metadata</span><span class="p">[[</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;structure_hemisphere&#39;</span><span class="p">]],</span> 
+              <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The object above called ‘morphology’ is a data file for a single cell. It contains information we can use to render the cell’s shape, but it’s not really in a format that’s going to immediately make sense, visually. It’s more like a long list of geometric properties (lengths and radii of short cylinders, and instructions for how to connect them). There’s also metadata on the quality of reconstruction, etc. The block of code below does a little bit of work so we can see the cell. It’s a lightly edited version of code you can find on one of the Allen’s [sample notebooks] (<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/cell_types.html">https://allensdk.readthedocs.io/en/latest/_static/examples/nb/cell_types.html</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">lens</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># array of segment lengths</span>
+
+<span class="c1"># Make a line drawing of x-y and y-z views</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">morphology</span><span class="o">.</span><span class="n">compartment_list</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">morphology</span><span class="o">.</span><span class="n">children_of</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span> <span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]],</span> <span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">this_len</span> <span class="o">=</span> <span class="p">((</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">n</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">lens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">this_len</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Euclidian distance btw. nodes</span>
+        
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_4_0.png" src="_images/Week2_Distributions_4_0.png" />
+</div>
+</div>
+<p>Quite pretty! At the risk of stating the obvious, you can see that there’s a bit of variability in the branch lengths. Some are tiny, some are long, and one is super-long. Thinking about the branch lengths is actually a nice metaphor for the idea of a <strong>distribution</strong>. Recall from last time that the distribution of a variable (such as branch length) is a sort of bird’s eye description of how frequently we expect to find it in different ranges. If we wanted to give a handwavy, highly non-quantititive description of the distribution of branch lengths for this one neuron, just from eyeballing it, it might be something like: Beans.</p>
+<p>Let’s see if the numbers agree with our intuition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lens</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;0&#39;}&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="_images/Week2_Distributions_6_1.png" src="_images/Week2_Distributions_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morphology</span><span class="o">.</span><span class="n">compartment_list_by_type</span><span class="p">(</span><span class="s1">&#39;terminal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">morphology</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;APICAL_DENDRITE&#39;,
+ &#39;AXON&#39;,
+ &#39;BASAL_DENDRITE&#39;,
+ &#39;DENDRITE&#39;,
+ &#39;NODE_TYPES&#39;,
+ &#39;SOMA&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_check_consistency&#39;,
+ &#39;_compartment_index&#39;,
+ &#39;_compartment_list&#39;,
+ &#39;_find_type_boundary&#39;,
+ &#39;_print_all_nodes&#39;,
+ &#39;_reconstruct&#39;,
+ &#39;_reset_tree_ids&#39;,
+ &#39;_resolve_node_type&#39;,
+ &#39;_separate_trees&#39;,
+ &#39;_set_compartments&#39;,
+ &#39;_soma&#39;,
+ &#39;_tree_list&#39;,
+ &#39;append&#39;,
+ &#39;apply_affine&#39;,
+ &#39;change_parent&#39;,
+ &#39;children_of&#39;,
+ &#39;compartment_index&#39;,
+ &#39;compartment_index_by_type&#39;,
+ &#39;compartment_list&#39;,
+ &#39;compartment_list_by_type&#39;,
+ &#39;convert_type&#39;,
+ &#39;delete_tree&#39;,
+ &#39;find&#39;,
+ &#39;node&#39;,
+ &#39;num_nodes&#39;,
+ &#39;num_trees&#39;,
+ &#39;parent_of&#39;,
+ &#39;root&#39;,
+ &#39;save&#39;,
+ &#39;soma&#39;,
+ &#39;sparsify&#39;,
+ &#39;strip_all_other_types&#39;,
+ &#39;strip_type&#39;,
+ &#39;stumpify_axon&#39;,
+ &#39;tree&#39;,
+ &#39;write&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;average_bifurcation_angle_local&#39;</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">]</span>
+<span class="n">morpho_features</span> <span class="o">=</span> <span class="n">morpho_features</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">num_types</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;soma_surface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/Week2_Distributions_11_1.png" src="_images/Week2_Distributions_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/Week2_Distributions_12_1.png" src="_images/Week2_Distributions_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">py</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/lib/python3.8/site-packages/statsmodels/compat/pandas.py:61: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  from pandas import Int64Index as NumericIndex
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">])</span>
+<span class="n">py</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_14_0.png" src="_images/Week2_Distributions_14_0.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="upping-your-pandas-game">
+<h1>UPPING YOUR PANDAS GAME<a class="headerlink" href="#upping-your-pandas-game" title="Permalink to this headline">#</a></h1>
+<p>Let’s take a detour and dive a bit more into Pandas. It’s worth gaining some familiarity with, and whether data analysis feels fun vs. frustrating (not that it can’t be both!) will in large part boil down to how comfortable you are using this library. Pandas isn’t hard the way quantum physics is hard; rather, it’s hard the way that cooking is hard. There are a set of basic skills and ‘idioms’ that get used again and again, which, if you lack them, make the endeavor miserable and disaster-prone. But if you have these skills (and they are definitely super-learnable with patience and practice), they can open up an entire world for you.</p>
+<section id="pandas-idiom-1-getting-subsets-of-your-dataframe">
+<h2>Pandas Idiom 1: Getting subsets of your dataframe<a class="headerlink" href="#pandas-idiom-1-getting-subsets-of-your-dataframe" title="Permalink to this headline">#</a></h2>
+<p>We saw last time how to grab one or several columns of interest from a dataframe, by specifying them individually with a syntax like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="p">[[</span><span class="s1">&#39;adaptation&#39;</span><span class="p">,</span> <span class="s1">&#39;total_volume&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>adaptation</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>2355.765059</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>2962.024123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.044825</td>
+      <td>460.354199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.002303</td>
+      <td>129.985840</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.093492</td>
+      <td>204.115177</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Above, we’ve said: “throw away everything that isn’t ‘adaptation’ or ‘total_volume’”. Sometimes, though, it’s much easier to specify a range of columns without enumerating every single one. Say we were interested in grabbing all of the morphology features from the features dataframe. There are about 30 of them (and they’re the last columns of the dataframe), and it would be a real pain to type each feature out and put it in brackets. Instead, we can use this trick:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;average_bifurcation_angle_local&#39;</span><span class="p">:]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_bifurcation_angle_local</th>
+      <th>average_bifurcation_angle_remote</th>
+      <th>average_contraction</th>
+      <th>average_diameter</th>
+      <th>average_fragmentation</th>
+      <th>average_parent_daughter_ratio</th>
+      <th>hausdorff_dimension</th>
+      <th>id_y</th>
+      <th>max_branch_order</th>
+      <th>max_euclidean_distance</th>
+      <th>...</th>
+      <th>overall_width</th>
+      <th>scale_factor_x</th>
+      <th>scale_factor_y</th>
+      <th>scale_factor_z</th>
+      <th>soma_surface</th>
+      <th>superseded</th>
+      <th>tags</th>
+      <th>total_length</th>
+      <th>total_surface</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>72.604110</td>
+      <td>NaN</td>
+      <td>0.850561</td>
+      <td>0.527213</td>
+      <td>75.133929</td>
+      <td>0.966709</td>
+      <td>NaN</td>
+      <td>668702901</td>
+      <td>11.0</td>
+      <td>496.779715</td>
+      <td>...</td>
+      <td>581.674568</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>444.247484</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>9995.218601</td>
+      <td>16666.213729</td>
+      <td>2355.765059</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>68.499396</td>
+      <td>NaN</td>
+      <td>0.934072</td>
+      <td>0.614133</td>
+      <td>61.172414</td>
+      <td>0.892380</td>
+      <td>NaN</td>
+      <td>680036168</td>
+      <td>13.0</td>
+      <td>474.631942</td>
+      <td>...</td>
+      <td>391.393464</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>1997.534304</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>6533.385774</td>
+      <td>13173.179026</td>
+      <td>2962.024123</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>77.679949</td>
+      <td>NaN</td>
+      <td>0.895664</td>
+      <td>0.488865</td>
+      <td>48.027778</td>
+      <td>0.928510</td>
+      <td>NaN</td>
+      <td>496001072</td>
+      <td>5.0</td>
+      <td>334.170810</td>
+      <td>...</td>
+      <td>236.976305</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>522.952356</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>2067.805445</td>
+      <td>3180.344934</td>
+      <td>460.354199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>73.926537</td>
+      <td>NaN</td>
+      <td>0.896227</td>
+      <td>0.216384</td>
+      <td>62.282609</td>
+      <td>0.993927</td>
+      <td>NaN</td>
+      <td>596792650</td>
+      <td>4.0</td>
+      <td>226.722766</td>
+      <td>...</td>
+      <td>332.948545</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>76.604264</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>3488.103438</td>
+      <td>2371.871389</td>
+      <td>129.985840</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>89.985385</td>
+      <td>NaN</td>
+      <td>0.821116</td>
+      <td>0.289549</td>
+      <td>54.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>599474134</td>
+      <td>7.0</td>
+      <td>228.889283</td>
+      <td>...</td>
+      <td>374.603996</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>77.936062</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>2977.161146</td>
+      <td>2703.134880</td>
+      <td>204.115177</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div></div></div>
+</div>
+<p>The .loc operator lets us do numpy style slicing, were we can specify sets of continuous rows and columns that we want to slice over. The basic syntax is:</p>
+<p>dataframe.loc[row expression, column expression]</p>
+<p>The :, above, in the row expression says, as in numpy “get me all the rows”. The ‘average_bifurcation_angle_local’: expression in the column expression says “get me columns starting from ‘average_bifurcation angle’, and extending to the end of the dataframe.</p>
+<p>If, instead, you wanted to grab all the rows, and columns ranging from ‘average_bifurcation angle’ to ‘average_diameter’, the relevant expression would be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;average_bifurcation_angle_local&#39;</span><span class="p">:</span><span class="s1">&#39;average_diameter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_bifurcation_angle_local</th>
+      <th>average_bifurcation_angle_remote</th>
+      <th>average_contraction</th>
+      <th>average_diameter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>72.604110</td>
+      <td>NaN</td>
+      <td>0.850561</td>
+      <td>0.527213</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>68.499396</td>
+      <td>NaN</td>
+      <td>0.934072</td>
+      <td>0.614133</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>77.679949</td>
+      <td>NaN</td>
+      <td>0.895664</td>
+      <td>0.488865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>73.926537</td>
+      <td>NaN</td>
+      <td>0.896227</td>
+      <td>0.216384</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>89.985385</td>
+      <td>NaN</td>
+      <td>0.821116</td>
+      <td>0.289549</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Recall that .head(5) in the above examples is just telling pandas to show the first 5 rows. It dosn’t have anything to do with the actual query we’re performing.</p>
+</section>
+<section id="pandas-idiom-2-filtering-your-data-on-the-basis-of-a-conditional">
+<h2>Pandas Idiom 2: Filtering your data on the basis of a conditional<a class="headerlink" href="#pandas-idiom-2-filtering-your-data-on-the-basis-of-a-conditional" title="Permalink to this headline">#</a></h2>
+<p>In the .loc example above, we knew in advance what exact subset of our data we were looking for, and how to call it explicitly. A lot of the time, though, we don’t know the exact rows or columns we’d like to grab, just that we’re interested in a set of rows/columns that have something in common, or meet some criterion. For example, we might want rows that correspond only to mouse data, and not human data. Or we might want rows where the average diamater is greater than some certain value.</p>
+<p>That latter query (selecting for diameters above a certain threshold) would look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_morpho</span><span class="p">[</span><span class="n">features_morpho</span><span class="p">[</span><span class="s1">&#39;average_diameter&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_bifurcation_angle_local</th>
+      <th>average_bifurcation_angle_remote</th>
+      <th>average_contraction</th>
+      <th>average_diameter</th>
+      <th>average_fragmentation</th>
+      <th>average_parent_daughter_ratio</th>
+      <th>hausdorff_dimension</th>
+      <th>id_y</th>
+      <th>max_branch_order</th>
+      <th>max_euclidean_distance</th>
+      <th>...</th>
+      <th>overall_width</th>
+      <th>scale_factor_x</th>
+      <th>scale_factor_y</th>
+      <th>scale_factor_z</th>
+      <th>soma_surface</th>
+      <th>superseded</th>
+      <th>tags</th>
+      <th>total_length</th>
+      <th>total_surface</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>47</th>
+      <td>81.578194</td>
+      <td>NaN</td>
+      <td>0.802499</td>
+      <td>1.033745</td>
+      <td>67.100000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>680043920</td>
+      <td>12.0</td>
+      <td>475.663692</td>
+      <td>...</td>
+      <td>518.922373</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>918.551337</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>4006.243938</td>
+      <td>12930.564179</td>
+      <td>4322.984221</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>82.830914</td>
+      <td>NaN</td>
+      <td>0.792147</td>
+      <td>1.156730</td>
+      <td>68.000000</td>
+      <td>0.993137</td>
+      <td>NaN</td>
+      <td>673700971</td>
+      <td>8.0</td>
+      <td>356.752592</td>
+      <td>...</td>
+      <td>370.970282</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>253.123638</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>5784.522053</td>
+      <td>21069.567363</td>
+      <td>6677.460448</td>
+    </tr>
+    <tr>
+      <th>609</th>
+      <td>81.654732</td>
+      <td>NaN</td>
+      <td>0.715295</td>
+      <td>1.003061</td>
+      <td>145.794118</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>603515592</td>
+      <td>6.0</td>
+      <td>516.702575</td>
+      <td>...</td>
+      <td>884.731477</td>
+      <td>0.1144</td>
+      <td>0.1144</td>
+      <td>0.28</td>
+      <td>527.632192</td>
+      <td>False</td>
+      <td>3D Neuron Reconstruction morphology</td>
+      <td>6075.055529</td>
+      <td>19151.512838</td>
+      <td>4986.316997</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 29 columns</p>
+</div></div></div>
+</div>
+<p>Let’s unpack this, because it has a nested structure that can look a bit confusing at first. If we were to run the expression inside the outer bracket, we’d get the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_morpho</span><span class="p">[</span><span class="s1">&#39;average_diameter&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+696    False
+697    False
+698    False
+699    False
+700    False
+Name: average_diameter, Length: 701, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>The expression is basically asking “is it the case that the average diameter is greater than 0.9?”. It evaluates as false just about everywhere, and is true only for 3 rows where the condition is met. When we then feed this long list of ‘True’s and ‘False’s to the dataframe, it knows that you’re asking for the data only where the condition evalues as ‘True’.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="typical-values-and-oddball-values-in-your-dataset">
+<h1>Typical values and oddball values in your dataset<a class="headerlink" href="#typical-values-and-oddball-values-in-your-dataset" title="Permalink to this headline">#</a></h1>
+<p>Pandas makes it easy to get summary statistics for our data table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_morpho</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_bifurcation_angle_local</th>
+      <th>average_bifurcation_angle_remote</th>
+      <th>average_contraction</th>
+      <th>average_diameter</th>
+      <th>average_fragmentation</th>
+      <th>average_parent_daughter_ratio</th>
+      <th>hausdorff_dimension</th>
+      <th>id_y</th>
+      <th>max_branch_order</th>
+      <th>max_euclidean_distance</th>
+      <th>...</th>
+      <th>overall_depth</th>
+      <th>overall_height</th>
+      <th>overall_width</th>
+      <th>scale_factor_x</th>
+      <th>scale_factor_y</th>
+      <th>scale_factor_z</th>
+      <th>soma_surface</th>
+      <th>total_length</th>
+      <th>total_surface</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>701.000000</td>
+      <td>0.0</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>0.0</td>
+      <td>7.010000e+02</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>...</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>7.010000e+02</td>
+      <td>7.010000e+02</td>
+      <td>7.010000e+02</td>
+      <td>7.010000e+02</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>74.460981</td>
+      <td>NaN</td>
+      <td>0.878751</td>
+      <td>0.429317</td>
+      <td>57.034323</td>
+      <td>0.925859</td>
+      <td>NaN</td>
+      <td>5.859577e+08</td>
+      <td>7.723252</td>
+      <td>399.774930</td>
+      <td>...</td>
+      <td>93.769329</td>
+      <td>516.545095</td>
+      <td>325.709312</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>3.677248e+02</td>
+      <td>3832.188239</td>
+      <td>5699.400884</td>
+      <td>860.789884</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.246954</td>
+      <td>NaN</td>
+      <td>0.037041</td>
+      <td>0.160866</td>
+      <td>24.358354</td>
+      <td>0.076322</td>
+      <td>NaN</td>
+      <td>8.154347e+07</td>
+      <td>4.207190</td>
+      <td>227.038369</td>
+      <td>...</td>
+      <td>35.948250</td>
+      <td>281.136395</td>
+      <td>132.166569</td>
+      <td>1.972053e-15</td>
+      <td>1.972053e-15</td>
+      <td>9.999142e-16</td>
+      <td>2.534457e+02</td>
+      <td>2788.219926</td>
+      <td>5992.137552</td>
+      <td>1327.563202</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>49.483210</td>
+      <td>NaN</td>
+      <td>0.656121</td>
+      <td>0.000007</td>
+      <td>15.897436</td>
+      <td>0.622167</td>
+      <td>NaN</td>
+      <td>3.979053e+08</td>
+      <td>1.000000</td>
+      <td>63.020752</td>
+      <td>...</td>
+      <td>21.840000</td>
+      <td>54.607838</td>
+      <td>49.173247</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>7.668893e-08</td>
+      <td>251.987893</td>
+      <td>0.021819</td>
+      <td>-0.000076</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>68.869230</td>
+      <td>NaN</td>
+      <td>0.861384</td>
+      <td>0.323491</td>
+      <td>41.479167</td>
+      <td>0.866617</td>
+      <td>NaN</td>
+      <td>4.961640e+08</td>
+      <td>5.000000</td>
+      <td>231.429096</td>
+      <td>...</td>
+      <td>66.777700</td>
+      <td>318.348333</td>
+      <td>231.013889</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>1.947356e+02</td>
+      <td>2224.234529</td>
+      <td>2373.483208</td>
+      <td>214.074139</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>74.524769</td>
+      <td>NaN</td>
+      <td>0.884663</td>
+      <td>0.427836</td>
+      <td>50.818182</td>
+      <td>0.946812</td>
+      <td>NaN</td>
+      <td>5.874055e+08</td>
+      <td>6.000000</td>
+      <td>357.341058</td>
+      <td>...</td>
+      <td>89.302100</td>
+      <td>470.916212</td>
+      <td>292.386327</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>3.207796e+02</td>
+      <td>2949.286234</td>
+      <td>3748.792341</td>
+      <td>429.377765</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>80.048330</td>
+      <td>NaN</td>
+      <td>0.904748</td>
+      <td>0.525646</td>
+      <td>67.100000</td>
+      <td>0.994360</td>
+      <td>NaN</td>
+      <td>6.528365e+08</td>
+      <td>10.000000</td>
+      <td>488.584760</td>
+      <td>...</td>
+      <td>119.145600</td>
+      <td>646.759680</td>
+      <td>398.576603</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>4.800480e+02</td>
+      <td>4248.902167</td>
+      <td>6182.628143</td>
+      <td>878.339557</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>115.432036</td>
+      <td>NaN</td>
+      <td>0.948915</td>
+      <td>1.156730</td>
+      <td>253.700000</td>
+      <td>1.122363</td>
+      <td>NaN</td>
+      <td>8.460831e+08</td>
+      <td>28.000000</td>
+      <td>1623.575309</td>
+      <td>...</td>
+      <td>183.960000</td>
+      <td>1988.717896</td>
+      <td>1295.286608</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>1.997534e+03</td>
+      <td>21775.359101</td>
+      <td>59086.631128</td>
+      <td>16108.163739</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Let</span><span class="s1">&#39;s </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">Let</span><span class="s1">&#39;s</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: EOL while scanning string literal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">use_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/Week2_Distributions_31_1.png" src="_images/Week2_Distributions_31_1.png" />
+</div>
+</div>
+<p>#.loc and .iloc</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pctile</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">pctile</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2104.69584412496
+</pre></div>
+</div>
+</div>
+</div>
+<section id="questions-we-might-have-about-our-data">
+<h2>Questions we might have about our data:<a class="headerlink" href="#questions-we-might-have-about-our-data" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>I see a cell with 125 branches. Is that unusual? How much of an oddball is it?</p></li>
+<li><p>Calculate the median</p></li>
+<li><p>10th percentile – what is it?  [PERCENTILES]</p></li>
+<li><p>Only 10% of my data have a value that extreme [CDF]</p></li>
+</ul>
+<p>STEPS:</p>
+<ol class="simple">
+<li><p>Sort them in ascending order</p></li>
+<li><p>Blah</p></li>
+</ol>
+</section>
+<section id="leveling-up-our-pandas-game">
+<h2>Leveling up our pandas game<a class="headerlink" href="#leveling-up-our-pandas-game" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Conditionals/queries.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Dropping stuff we don’t want.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Taking care of missing values.</p></li>
+</ol>
+<ol class="simple">
+<li><p>The index</p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="distributions-the-underlying-story-of-your-data">
+<h1>Distributions: The underlying story of your data.<a class="headerlink" href="#distributions-the-underlying-story-of-your-data" title="Permalink to this headline">#</a></h1>
+<p>The variability of our features is trying to tell a story, and typically we want to try to address exactly how variable a given features is, whether that variability has some specific kind of underlying structure, and whether the variability we observe is shared with other variables. We’ll take these issues in turn.</p>
+<ul class="simple">
+<li><p>HOW Variable is it?</p></li>
+<li><p>Does the variability have some structure, and if so, what kind of underlying physical/biological process explains that structure?</p></li>
+<li><p>Is the variability shared with […]</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;average_bifurcation_angle_local&#39;, &#39;average_bifurcation_angle_remote&#39;,
+       &#39;average_contraction&#39;, &#39;average_diameter&#39;, &#39;average_fragmentation&#39;,
+       &#39;average_parent_daughter_ratio&#39;, &#39;hausdorff_dimension&#39;, &#39;id_y&#39;,
+       &#39;max_branch_order&#39;, &#39;max_euclidean_distance&#39;, &#39;max_path_distance&#39;,
+       &#39;number_bifurcations&#39;, &#39;number_branches&#39;, &#39;number_nodes&#39;,
+       &#39;number_stems&#39;, &#39;number_tips&#39;, &#39;overall_depth&#39;, &#39;overall_height&#39;,
+       &#39;overall_width&#39;, &#39;scale_factor_x&#39;, &#39;scale_factor_y&#39;, &#39;scale_factor_z&#39;,
+       &#39;soma_surface&#39;, &#39;total_length&#39;, &#39;total_surface&#39;, &#39;total_volume&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Average Bifurcation Angle: Normal</p>
+<p>Exponential: Typically describes interval data.</p>
+<ul class="simple">
+<li><p>average_bifurcation_angle_local: gaussian</p></li>
+<li><p>number bifurcations (11): exponential</p></li>
+<li><p>number_nodes (13)</p></li>
+<li><p>number tips (15): Exponential</p></li>
+<li><p>overall depth (16): Uniform</p></li>
+</ul>
+<p>Uniform: There’s nothing ‘typical’ about it. No real characteristic value. “Gonna tend to bunch up around”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample from each type of distribution and have a look.</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">data_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">#plt.plot(data_norm,&#39;o&#39;);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_norm</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_47_0.png" src="_images/Week2_Distributions_47_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+<span class="n">data_unif</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+
+<span class="c1">#plt.plot(data_norm,&#39;o&#39;);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_unif</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_48_0.png" src="_images/Week2_Distributions_48_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+<span class="n">data_unif</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+
+<span class="c1">#plt.plot(data_norm,&#39;o&#39;);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_unif</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Castro<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
