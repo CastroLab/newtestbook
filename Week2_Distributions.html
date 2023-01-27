@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Typical values, oddballs &#8212; Exploring cell types in the brain</title>
+    <title>Week 2: Distributions and variability &#8212; Exploring cell types in the brain</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -126,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Typical values, oddballs
+   Week 2: Distributions and variability
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,30 +342,6 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Typical values, oddballs
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variance-and-fano-factor-standardize-data">
-   Variance and Fano factor (standardize data)
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#some-common-distributions">
-   Some common distributions
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-bit-more-w-the-normal-cdf">
-   A bit more w/ the normal (CDF)
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-2-distributions-and-variability">
    Week 2: Distributions and variability
   </a>
  </li>
@@ -373,6 +349,40 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#case-study-neuronal-morphology">
    Case Study: Neuronal morphology
   </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-intuitions-about-distributions">
+   Basic intuitions about distributions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantiles-percentiles-and-standardized-distributions-asking-how-surprised-should-i-be-type-questions">
+     Quantiles, percentiles, and standardized distributions. Asking “how surprised should I be” type questions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#am-i-normal-are-my-data-normal">
+     Am I normal? Are my data normal?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sampling-from-distributions">
+     Sampling from distributions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-sampling-from-a-uniform">
+       Example: Sampling from a uniform
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-sampling-from-a-normal">
+       Example: Sampling from a normal
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#upping-your-pandas-game">
@@ -391,28 +401,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#typical-values-and-oddball-values-in-your-dataset">
-   Typical values and oddball values in your dataset
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions-we-might-have-about-our-data">
-     Questions we might have about our data:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#leveling-up-our-pandas-game">
-     Leveling up our pandas game
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributions-the-underlying-story-of-your-data">
-   Distributions: The underlying story of your data.
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -422,7 +410,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Typical values, oddballs</h1>
+                <h1>Week 2: Distributions and variability</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -434,30 +422,6 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Typical values, oddballs
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variance-and-fano-factor-standardize-data">
-   Variance and Fano factor (standardize data)
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#some-common-distributions">
-   Some common distributions
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-bit-more-w-the-normal-cdf">
-   A bit more w/ the normal (CDF)
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-2-distributions-and-variability">
    Week 2: Distributions and variability
   </a>
  </li>
@@ -465,6 +429,40 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#case-study-neuronal-morphology">
    Case Study: Neuronal morphology
   </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-intuitions-about-distributions">
+   Basic intuitions about distributions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantiles-percentiles-and-standardized-distributions-asking-how-surprised-should-i-be-type-questions">
+     Quantiles, percentiles, and standardized distributions. Asking “how surprised should I be” type questions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#am-i-normal-are-my-data-normal">
+     Am I normal? Are my data normal?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sampling-from-distributions">
+     Sampling from distributions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-sampling-from-a-uniform">
+       Example: Sampling from a uniform
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-sampling-from-a-normal">
+       Example: Sampling from a normal
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#upping-your-pandas-game">
@@ -483,28 +481,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#typical-values-and-oddball-values-in-your-dataset">
-   Typical values and oddball values in your dataset
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions-we-might-have-about-our-data">
-     Questions we might have about our data:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#leveling-up-our-pandas-game">
-     Leveling up our pandas game
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributions-the-underlying-story-of-your-data">
-   Distributions: The underlying story of your data.
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -515,22 +491,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="typical-values-oddballs">
-<h1>Typical values, oddballs<a class="headerlink" href="#typical-values-oddballs" title="Permalink to this headline">#</a></h1>
-</section>
-<section id="variance-and-fano-factor-standardize-data">
-<h1>Variance and Fano factor (standardize data)<a class="headerlink" href="#variance-and-fano-factor-standardize-data" title="Permalink to this headline">#</a></h1>
-</section>
-<section id="some-common-distributions">
-<h1>Some common distributions<a class="headerlink" href="#some-common-distributions" title="Permalink to this headline">#</a></h1>
-</section>
-<section id="a-bit-more-w-the-normal-cdf">
-<h1>A bit more w/ the normal (CDF)<a class="headerlink" href="#a-bit-more-w-the-normal-cdf" title="Permalink to this headline">#</a></h1>
-</section>
-<section id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="week-2-distributions-and-variability">
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-distributions-and-variability">
 <h1>Week 2: Distributions and variability<a class="headerlink" href="#week-2-distributions-and-variability" title="Permalink to this headline">#</a></h1>
 <p>The main goals for this week are to dig a little bit deeper into the idea of a feature’s <strong>distribution</strong>, and understand ways of quantifying variability. For our purposes, we can think of a distribution as something like: “a systematic description of both the rage of values our data can take, and how frequently it takes on each value.” Recognize that this is definitely an operational, ‘intuitive’ definition. There are a lot of nuances we’re not going to worry about.</p>
 <div class="seealso admonition">
@@ -538,7 +499,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Given a dataset and/or a distribution, how do we think about its ‘typical’ and ‘oddball’ values? This will get us thinking about measures of central tendency, like the mean and median, and also quantiles.</p></li>
 <li><p>What are some of the different types of distribution we tend to see, out there in the wild?</p></li>
-<li><p>How do we quantify the ‘typical variation’ of a data set?</p></li>
+<li><p>How do we quantify and visualize the ‘typical variation’ of a data set?</p></li>
 </ul>
 </div>
 </section>
@@ -549,6 +510,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -558,8 +520,6 @@ title="Print to PDF"
 <span class="n">ctc</span> <span class="o">=</span> <span class="n">CellTypesCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="s1">&#39;cell_types/manifest.json&#39;</span><span class="p">)</span>
 <span class="n">cell_specimen_id</span> <span class="o">=</span> <span class="mi">576107598</span>
 <span class="n">morphology</span> <span class="o">=</span> <span class="n">ctc</span><span class="o">.</span><span class="n">get_reconstruction</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">)</span>
-<span class="c1">#markers = ctc.get_reconstruction_markers(cell_specimen_id) </span>
-
 
 <span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">(</span><span class="n">require_reconstruction</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="n">cell_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_cells</span><span class="p">())</span>
@@ -597,144 +557,351 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week2_Distributions_4_0.png" src="_images/Week2_Distributions_4_0.png" />
+<img alt="_images/Week2_Distributions_3_0.png" src="_images/Week2_Distributions_3_0.png" />
 </div>
 </div>
-<p>Quite pretty! At the risk of stating the obvious, you can see that there’s a bit of variability in the branch lengths. Some are tiny, some are long, and one is super-long. Thinking about the branch lengths is actually a nice metaphor for the idea of a <strong>distribution</strong>. Recall from last time that the distribution of a variable (such as branch length) is a sort of bird’s eye description of how frequently we expect to find it in different ranges. If we wanted to give a handwavy, highly non-quantititive description of the distribution of branch lengths for this one neuron, just from eyeballing it, it might be something like: Beans.</p>
-<p>Let’s see if the numbers agree with our intuition.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-intuitions-about-distributions">
+<h1>Basic intuitions about distributions<a class="headerlink" href="#basic-intuitions-about-distributions" title="Permalink to this headline">#</a></h1>
+<p>Quite pretty! At the risk of stating the obvious, you can see that there’s a bit of variability in the branch lengths. Some are tiny, some are long, and one is super-long. Thinking about the branch lengths is actually a nice metaphor for the idea of a <strong>distribution</strong>. Recall from last time that the distribution of a variable (such as branch length) is a sort of bird’s eye description of how frequently we expect to find it in different ranges. If we wanted to give a handwavy, highly non-quantititive description of the distribution of branch lengths for this one neuron, just from eyeballing it, it might be something like: mostly very short branches, a handful of intermediate length branches, and a very small number of very long ones. If we put on our statisticians’ hat, we might hypothesize that branch lengths follow an <strong>exponential distribution</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pd.DataFrame(lens).hist(bins=800)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">lens</span><span class="p">),</span><span class="mi">200</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample from an exponential distribution to generate some synthetic data</span>
+<span class="n">exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;branch length (microns)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;density&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week2_Distributions_6_0.png" src="_images/Week2_Distributions_6_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;density&#39;)
+</pre></div>
+</div>
+<img alt="_images/Week2_Distributions_5_1.png" src="_images/Week2_Distributions_5_1.png" />
 </div>
 </div>
+<p>Let’s look at some examples of how variables are distributed in the morphology dataset.</p>
+<p>Soma size seems to maybe be something like a truncated gaussian (a gaussian where the left part of the distribution is clipped off at zero):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morphology</span><span class="o">.</span><span class="n">compartment_list_by_type</span><span class="p">(</span><span class="s1">&#39;terminal&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">morphology</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;APICAL_DENDRITE&#39;,
- &#39;AXON&#39;,
- &#39;BASAL_DENDRITE&#39;,
- &#39;DENDRITE&#39;,
- &#39;NODE_TYPES&#39;,
- &#39;SOMA&#39;,
- &#39;__class__&#39;,
- &#39;__delattr__&#39;,
- &#39;__dict__&#39;,
- &#39;__dir__&#39;,
- &#39;__doc__&#39;,
- &#39;__eq__&#39;,
- &#39;__format__&#39;,
- &#39;__ge__&#39;,
- &#39;__getattribute__&#39;,
- &#39;__gt__&#39;,
- &#39;__hash__&#39;,
- &#39;__init__&#39;,
- &#39;__init_subclass__&#39;,
- &#39;__le__&#39;,
- &#39;__lt__&#39;,
- &#39;__module__&#39;,
- &#39;__ne__&#39;,
- &#39;__new__&#39;,
- &#39;__reduce__&#39;,
- &#39;__reduce_ex__&#39;,
- &#39;__repr__&#39;,
- &#39;__setattr__&#39;,
- &#39;__sizeof__&#39;,
- &#39;__str__&#39;,
- &#39;__subclasshook__&#39;,
- &#39;__weakref__&#39;,
- &#39;_check_consistency&#39;,
- &#39;_compartment_index&#39;,
- &#39;_compartment_list&#39;,
- &#39;_find_type_boundary&#39;,
- &#39;_print_all_nodes&#39;,
- &#39;_reconstruct&#39;,
- &#39;_reset_tree_ids&#39;,
- &#39;_resolve_node_type&#39;,
- &#39;_separate_trees&#39;,
- &#39;_set_compartments&#39;,
- &#39;_soma&#39;,
- &#39;_tree_list&#39;,
- &#39;append&#39;,
- &#39;apply_affine&#39;,
- &#39;change_parent&#39;,
- &#39;children_of&#39;,
- &#39;compartment_index&#39;,
- &#39;compartment_index_by_type&#39;,
- &#39;compartment_list&#39;,
- &#39;compartment_list_by_type&#39;,
- &#39;convert_type&#39;,
- &#39;delete_tree&#39;,
- &#39;find&#39;,
- &#39;node&#39;,
- &#39;num_nodes&#39;,
- &#39;num_trees&#39;,
- &#39;parent_of&#39;,
- &#39;root&#39;,
- &#39;save&#39;,
- &#39;soma&#39;,
- &#39;sparsify&#39;,
- &#39;strip_all_other_types&#39;,
- &#39;strip_type&#39;,
- &#39;stumpify_axon&#39;,
- &#39;tree&#39;,
- &#39;write&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;average_bifurcation_angle_local&#39;</span><span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab a range of columns corresponding to morphological data (we&#39;re throwing away ephys data for today)</span>
+<span class="n">morpho_features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;average_bifurcation_angle_local&#39;</span><span class="p">:]</span>
+
+<span class="c1"># Retain only numerical columns (i.e. toss categorical data)</span>
+<span class="n">num_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">]</span>
 <span class="n">morpho_features</span> <span class="o">=</span> <span class="n">morpho_features</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">num_types</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;soma_surface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Plot a historgram of morphological features</span>
+<span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;soma_surface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<img alt="_images/Week2_Distributions_7_0.png" src="_images/Week2_Distributions_7_0.png" />
+</div>
+</div>
+<p>Total cell volume looks like it might be exponential…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_9_0.png" src="_images/Week2_Distributions_9_0.png" />
+</div>
+</div>
+<p>But something interesting happens if we take the logarithm of our volume data and then plot the histogram</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/lib/python3.8/site-packages/pandas/core/arraylike.py:397: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre></div>
 </div>
 <img alt="_images/Week2_Distributions_11_1.png" src="_images/Week2_Distributions_11_1.png" />
 </div>
 </div>
+<p>Looks normal! In fact, we would call a distribution like this a <strong>lognormal</strong>. You tend to find it in growth phenomena, as well as a variety of seemingly unrelated places. The distribution of text lengths on internet comment sections, for example, seems to follow a lognormal. It’s very common to perform mathematical <strong>transformations</strong> of your variables like this. Sometimes a distribution will look kind of funky at first, but will look like a much more familiar once we take the log of it, or square it, or take its inverse, etc.</p>
+<section id="quantiles-percentiles-and-standardized-distributions-asking-how-surprised-should-i-be-type-questions">
+<h2>Quantiles, percentiles, and standardized distributions. Asking “how surprised should I be” type questions<a class="headerlink" href="#quantiles-percentiles-and-standardized-distributions-asking-how-surprised-should-i-be-type-questions" title="Permalink to this headline">#</a></h2>
+<p>It’s important to have a good understanding of the percentiles of a distribution. I find the intuition easiest to develop by thinking about a practical example rather than a formal definition. Imagine I line up 11 students, and order them by height, with the shortest student on the left, and the tallest on the right. If I asked you “what’s the 50th percentile for height?” in this group of students, I’m asking you to tell me the height of the sixth person. I know that 50% of the students are that height <em>or shorter</em>. If you’re going to a new school, and I tell you that you’re in the 20th percentile for height, then you know you’re on the short side at that school. 80% of the students will be taller than you.</p>
+<p>Just to make this clear:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some fake height data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">60</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">])</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># We know the middle value is the 50th percentile, last value is the 100th percentile, etc. </span>
+<span class="c1"># But let&#39;s just check that the pandas &#39;quantile&#39; function behaves the way we expect:</span>
+<span class="n">heights</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    74.0
+Name: 0.9, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>In real life use-cases, we often just call upon Pandas’ describe() function to give us some of the standard quantiles of our data set. For example, on the morphology data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_morpho</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_bifurcation_angle_local</th>
+      <th>average_bifurcation_angle_remote</th>
+      <th>average_contraction</th>
+      <th>average_diameter</th>
+      <th>average_fragmentation</th>
+      <th>average_parent_daughter_ratio</th>
+      <th>hausdorff_dimension</th>
+      <th>id_y</th>
+      <th>max_branch_order</th>
+      <th>max_euclidean_distance</th>
+      <th>...</th>
+      <th>overall_depth</th>
+      <th>overall_height</th>
+      <th>overall_width</th>
+      <th>scale_factor_x</th>
+      <th>scale_factor_y</th>
+      <th>scale_factor_z</th>
+      <th>soma_surface</th>
+      <th>total_length</th>
+      <th>total_surface</th>
+      <th>total_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>701.000000</td>
+      <td>0.0</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>0.0</td>
+      <td>7.010000e+02</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>...</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>7.010000e+02</td>
+      <td>7.010000e+02</td>
+      <td>7.010000e+02</td>
+      <td>7.010000e+02</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+      <td>701.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>74.460981</td>
+      <td>NaN</td>
+      <td>0.878751</td>
+      <td>0.429317</td>
+      <td>57.034323</td>
+      <td>0.925859</td>
+      <td>NaN</td>
+      <td>5.859577e+08</td>
+      <td>7.723252</td>
+      <td>399.774930</td>
+      <td>...</td>
+      <td>93.769329</td>
+      <td>516.545095</td>
+      <td>325.709312</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>3.677248e+02</td>
+      <td>3832.188239</td>
+      <td>5699.400884</td>
+      <td>860.789884</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.246954</td>
+      <td>NaN</td>
+      <td>0.037041</td>
+      <td>0.160866</td>
+      <td>24.358354</td>
+      <td>0.076322</td>
+      <td>NaN</td>
+      <td>8.154347e+07</td>
+      <td>4.207190</td>
+      <td>227.038369</td>
+      <td>...</td>
+      <td>35.948250</td>
+      <td>281.136395</td>
+      <td>132.166569</td>
+      <td>1.972053e-15</td>
+      <td>1.972053e-15</td>
+      <td>9.999142e-16</td>
+      <td>2.534457e+02</td>
+      <td>2788.219926</td>
+      <td>5992.137552</td>
+      <td>1327.563202</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>49.483210</td>
+      <td>NaN</td>
+      <td>0.656121</td>
+      <td>0.000007</td>
+      <td>15.897436</td>
+      <td>0.622167</td>
+      <td>NaN</td>
+      <td>3.979053e+08</td>
+      <td>1.000000</td>
+      <td>63.020752</td>
+      <td>...</td>
+      <td>21.840000</td>
+      <td>54.607838</td>
+      <td>49.173247</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>7.668893e-08</td>
+      <td>251.987893</td>
+      <td>0.021819</td>
+      <td>-0.000076</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>68.869230</td>
+      <td>NaN</td>
+      <td>0.861384</td>
+      <td>0.323491</td>
+      <td>41.479167</td>
+      <td>0.866617</td>
+      <td>NaN</td>
+      <td>4.961640e+08</td>
+      <td>5.000000</td>
+      <td>231.429096</td>
+      <td>...</td>
+      <td>66.777700</td>
+      <td>318.348333</td>
+      <td>231.013889</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>1.947356e+02</td>
+      <td>2224.234529</td>
+      <td>2373.483208</td>
+      <td>214.074139</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>74.524769</td>
+      <td>NaN</td>
+      <td>0.884663</td>
+      <td>0.427836</td>
+      <td>50.818182</td>
+      <td>0.946812</td>
+      <td>NaN</td>
+      <td>5.874055e+08</td>
+      <td>6.000000</td>
+      <td>357.341058</td>
+      <td>...</td>
+      <td>89.302100</td>
+      <td>470.916212</td>
+      <td>292.386327</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>3.207796e+02</td>
+      <td>2949.286234</td>
+      <td>3748.792341</td>
+      <td>429.377765</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>80.048330</td>
+      <td>NaN</td>
+      <td>0.904748</td>
+      <td>0.525646</td>
+      <td>67.100000</td>
+      <td>0.994360</td>
+      <td>NaN</td>
+      <td>6.528365e+08</td>
+      <td>10.000000</td>
+      <td>488.584760</td>
+      <td>...</td>
+      <td>119.145600</td>
+      <td>646.759680</td>
+      <td>398.576603</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>4.800480e+02</td>
+      <td>4248.902167</td>
+      <td>6182.628143</td>
+      <td>878.339557</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>115.432036</td>
+      <td>NaN</td>
+      <td>0.948915</td>
+      <td>1.156730</td>
+      <td>253.700000</td>
+      <td>1.122363</td>
+      <td>NaN</td>
+      <td>8.460831e+08</td>
+      <td>28.000000</td>
+      <td>1623.575309</td>
+      <td>...</td>
+      <td>183.960000</td>
+      <td>1988.717896</td>
+      <td>1295.286608</td>
+      <td>1.144000e-01</td>
+      <td>1.144000e-01</td>
+      <td>2.800000e-01</td>
+      <td>1.997534e+03</td>
+      <td>21775.359101</td>
+      <td>59086.631128</td>
+      <td>16108.163739</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 26 columns</p>
+</div></div></div>
+</div>
+<p>A plot type that’s worth getting familar with is the box plot, which is like a souped-up bar graph. Whereas a typical bar graph will just give you information about the mean and standard error of a distribution, a box plot shows you the mean, as well as the 25th and 75th percentiles, which gives a better sense of the spread in our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_morpho</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;total_length&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -742,24 +909,42 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/Week2_Distributions_12_1.png" src="_images/Week2_Distributions_12_1.png" />
+<img alt="_images/Week2_Distributions_19_1.png" src="_images/Week2_Distributions_19_1.png" />
 </div>
 </div>
+<p>The ‘whiskers’ show the extreme ranges of our data (the min and max), and the top and bottom of the box are the third and first quartile of the data, respectively (i.e. 75th and 25th percentile). The individual markers are what pandas is considering outliers (things that are way outside the rest of the distribution, and which are possibly a bit suspect (measurement error, etc)).</p>
+</section>
+<section id="am-i-normal-are-my-data-normal">
+<h2>Am I normal? Are my data normal?<a class="headerlink" href="#am-i-normal-are-my-data-normal" title="Permalink to this headline">#</a></h2>
+<p>Sometimes you want to quickly size up your data and get a sense of whether it’s normally distributed. This is a good thing to know, because if we’re confident our data are normal, there are all kinds of nice theoretical guarantees we have that let us calculate confidence intervals, perform hypothesis tests, etc.</p>
+<p>A look at a distribution is sometimes all you need to rule out pathological cases of “definitely not not normal”, but there can be a lot of subtlety here. A distribution may look bell-shaped, but actually have a lot more probability out on the tails than it ‘should’. A quick way to get a sense of this is by plotting something called a Q-Q plot.</p>
+<p>We went over this in class, so I won’t spend a ton of time on it, but basically you are plotting the percentiles (aka ‘quantiles’) of your ‘test’ distribution against a ‘reference’ (or ‘theoretical’) gaussian distribution. If two datasets have identical distributions, then their various percentiles (quantiles) should be similarly spaced apart.</p>
+<p>For a Gaussian, my 50th percentile will occur smack-dab in the center of my distribution, and my 25th and 75th percentiles will be relatively close to the 50th percentile since the middle is the densest and most probable part of the distribution. If I imagined pushing down on the top of my Gaussian, though, and squeezing some of its probability into the tails, the 25th and 75th percentiles will move further from the mean.</p>
+<p>A QQ plot is a graphical way of seeing whether your quantiles are spaced in the way you’d expect, under the assumptions of a certain distribution. Hopefully an example will help.</p>
+<p>Recall that the logarithm of cell volume was normally distributed:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">py</span>
+
+<span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]))</span>
+<span class="n">py</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/lib/python3.8/site-packages/statsmodels/compat/pandas.py:61: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
   from pandas import Int64Index as NumericIndex
+/Applications/anaconda3/lib/python3.8/site-packages/pandas/core/arraylike.py:397: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre></div>
 </div>
+<img alt="_images/Week2_Distributions_22_1.png" src="_images/Week2_Distributions_22_1.png" />
 </div>
 </div>
+<p>The QQ plot of theoretical vs. test (sample) quantiles falls (roughly) along a diagonal line. That’s telling me that the two distributions bunch up in the same places, and flatten out in the same places.</p>
+<p>Let’s make a QQ plot for the non-transformed data though:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">])</span>
@@ -768,9 +953,91 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week2_Distributions_14_0.png" src="_images/Week2_Distributions_14_0.png" />
+<img alt="_images/Week2_Distributions_24_0.png" src="_images/Week2_Distributions_24_0.png" />
 </div>
 </div>
+<p>Different story! The QQ plot sags toward the right, away from the diagonal. That lets us know that there’s a lot more probability out in right half of our theoretical distribution than our test distribution.</p>
+</section>
+<section id="sampling-from-distributions">
+<h2>Sampling from distributions<a class="headerlink" href="#sampling-from-distributions" title="Permalink to this headline">#</a></h2>
+<p>It can be very useful to generate fake data from a known distribution – a process known as <strong>sampling</strong>. If I asked you to give me 10 numbers sampled from a uniform distribution U(1,10), I’d expect you to give me a range of numbers between 1 and 10, with all numbers between the extremes being equally likely. Here’s how you’d do that in python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+<span class="n">data_unif</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">data_unif</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.53347624, 1.24630086, 5.4994026 , 4.29266006, 8.33055379,
+       3.16659766, 5.41281863, 5.66869197, 1.33187672, 6.42682829])
+</pre></div>
+</div>
+</div>
+</div>
+<p>I’m not terribly surprised to see numbers close to 1 or 10, because all numbers in the range are equally likely. If I ask for 10 numbers sampled from a Normal distribution though, centered at 5 and with S.D.=2, I’d be very surprised to see numbers close to 10 (more than 2 SDs from the mean):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">data_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">data_norm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7.49370434, 6.94461264, 7.78913667, 8.25365381, 7.03901095,
+       1.53144302, 6.78755442, 5.66425097, 7.42821932, 5.71745334])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below, we’ll walk through a few examples of working with distributions in python, just so you have some starter code to draw on.</p>
+<section id="example-sampling-from-a-uniform">
+<h3>Example: Sampling from a uniform<a class="headerlink" href="#example-sampling-from-a-uniform" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+<span class="n">data_unif</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_unif</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_32_0.png" src="_images/Week2_Distributions_32_0.png" />
+</div>
+</div>
+</section>
+<section id="example-sampling-from-a-normal">
+<h3>Example: Sampling from a normal<a class="headerlink" href="#example-sampling-from-a-normal" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">data_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_norm</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week2_Distributions_34_0.png" src="_images/Week2_Distributions_34_0.png" />
+</div>
+</div>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="upping-your-pandas-game">
 <h1>UPPING YOUR PANDAS GAME<a class="headerlink" href="#upping-your-pandas-game" title="Permalink to this headline">#</a></h1>
@@ -1245,428 +1512,6 @@ Name: average_diameter, Length: 701, dtype: bool
 </div>
 <p>The expression is basically asking “is it the case that the average diameter is greater than 0.9?”. It evaluates as false just about everywhere, and is true only for 3 rows where the condition is met. When we then feed this long list of ‘True’s and ‘False’s to the dataframe, it knows that you’re asking for the data only where the condition evalues as ‘True’.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="typical-values-and-oddball-values-in-your-dataset">
-<h1>Typical values and oddball values in your dataset<a class="headerlink" href="#typical-values-and-oddball-values-in-your-dataset" title="Permalink to this headline">#</a></h1>
-<p>Pandas makes it easy to get summary statistics for our data table:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_morpho</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>average_bifurcation_angle_local</th>
-      <th>average_bifurcation_angle_remote</th>
-      <th>average_contraction</th>
-      <th>average_diameter</th>
-      <th>average_fragmentation</th>
-      <th>average_parent_daughter_ratio</th>
-      <th>hausdorff_dimension</th>
-      <th>id_y</th>
-      <th>max_branch_order</th>
-      <th>max_euclidean_distance</th>
-      <th>...</th>
-      <th>overall_depth</th>
-      <th>overall_height</th>
-      <th>overall_width</th>
-      <th>scale_factor_x</th>
-      <th>scale_factor_y</th>
-      <th>scale_factor_z</th>
-      <th>soma_surface</th>
-      <th>total_length</th>
-      <th>total_surface</th>
-      <th>total_volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>701.000000</td>
-      <td>0.0</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>0.0</td>
-      <td>7.010000e+02</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>...</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>7.010000e+02</td>
-      <td>7.010000e+02</td>
-      <td>7.010000e+02</td>
-      <td>7.010000e+02</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-      <td>701.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>74.460981</td>
-      <td>NaN</td>
-      <td>0.878751</td>
-      <td>0.429317</td>
-      <td>57.034323</td>
-      <td>0.925859</td>
-      <td>NaN</td>
-      <td>5.859577e+08</td>
-      <td>7.723252</td>
-      <td>399.774930</td>
-      <td>...</td>
-      <td>93.769329</td>
-      <td>516.545095</td>
-      <td>325.709312</td>
-      <td>1.144000e-01</td>
-      <td>1.144000e-01</td>
-      <td>2.800000e-01</td>
-      <td>3.677248e+02</td>
-      <td>3832.188239</td>
-      <td>5699.400884</td>
-      <td>860.789884</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>8.246954</td>
-      <td>NaN</td>
-      <td>0.037041</td>
-      <td>0.160866</td>
-      <td>24.358354</td>
-      <td>0.076322</td>
-      <td>NaN</td>
-      <td>8.154347e+07</td>
-      <td>4.207190</td>
-      <td>227.038369</td>
-      <td>...</td>
-      <td>35.948250</td>
-      <td>281.136395</td>
-      <td>132.166569</td>
-      <td>1.972053e-15</td>
-      <td>1.972053e-15</td>
-      <td>9.999142e-16</td>
-      <td>2.534457e+02</td>
-      <td>2788.219926</td>
-      <td>5992.137552</td>
-      <td>1327.563202</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>49.483210</td>
-      <td>NaN</td>
-      <td>0.656121</td>
-      <td>0.000007</td>
-      <td>15.897436</td>
-      <td>0.622167</td>
-      <td>NaN</td>
-      <td>3.979053e+08</td>
-      <td>1.000000</td>
-      <td>63.020752</td>
-      <td>...</td>
-      <td>21.840000</td>
-      <td>54.607838</td>
-      <td>49.173247</td>
-      <td>1.144000e-01</td>
-      <td>1.144000e-01</td>
-      <td>2.800000e-01</td>
-      <td>7.668893e-08</td>
-      <td>251.987893</td>
-      <td>0.021819</td>
-      <td>-0.000076</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>68.869230</td>
-      <td>NaN</td>
-      <td>0.861384</td>
-      <td>0.323491</td>
-      <td>41.479167</td>
-      <td>0.866617</td>
-      <td>NaN</td>
-      <td>4.961640e+08</td>
-      <td>5.000000</td>
-      <td>231.429096</td>
-      <td>...</td>
-      <td>66.777700</td>
-      <td>318.348333</td>
-      <td>231.013889</td>
-      <td>1.144000e-01</td>
-      <td>1.144000e-01</td>
-      <td>2.800000e-01</td>
-      <td>1.947356e+02</td>
-      <td>2224.234529</td>
-      <td>2373.483208</td>
-      <td>214.074139</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>74.524769</td>
-      <td>NaN</td>
-      <td>0.884663</td>
-      <td>0.427836</td>
-      <td>50.818182</td>
-      <td>0.946812</td>
-      <td>NaN</td>
-      <td>5.874055e+08</td>
-      <td>6.000000</td>
-      <td>357.341058</td>
-      <td>...</td>
-      <td>89.302100</td>
-      <td>470.916212</td>
-      <td>292.386327</td>
-      <td>1.144000e-01</td>
-      <td>1.144000e-01</td>
-      <td>2.800000e-01</td>
-      <td>3.207796e+02</td>
-      <td>2949.286234</td>
-      <td>3748.792341</td>
-      <td>429.377765</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>80.048330</td>
-      <td>NaN</td>
-      <td>0.904748</td>
-      <td>0.525646</td>
-      <td>67.100000</td>
-      <td>0.994360</td>
-      <td>NaN</td>
-      <td>6.528365e+08</td>
-      <td>10.000000</td>
-      <td>488.584760</td>
-      <td>...</td>
-      <td>119.145600</td>
-      <td>646.759680</td>
-      <td>398.576603</td>
-      <td>1.144000e-01</td>
-      <td>1.144000e-01</td>
-      <td>2.800000e-01</td>
-      <td>4.800480e+02</td>
-      <td>4248.902167</td>
-      <td>6182.628143</td>
-      <td>878.339557</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>115.432036</td>
-      <td>NaN</td>
-      <td>0.948915</td>
-      <td>1.156730</td>
-      <td>253.700000</td>
-      <td>1.122363</td>
-      <td>NaN</td>
-      <td>8.460831e+08</td>
-      <td>28.000000</td>
-      <td>1623.575309</td>
-      <td>...</td>
-      <td>183.960000</td>
-      <td>1988.717896</td>
-      <td>1295.286608</td>
-      <td>1.144000e-01</td>
-      <td>1.144000e-01</td>
-      <td>2.800000e-01</td>
-      <td>1.997534e+03</td>
-      <td>21775.359101</td>
-      <td>59086.631128</td>
-      <td>16108.163739</td>
-    </tr>
-  </tbody>
-</table>
-<p>8 rows × 26 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Let</span><span class="s1">&#39;s </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="n">Let</span><span class="s1">&#39;s</span>
-          <span class="o">^</span>
-<span class="ne">SyntaxError</span>: EOL while scanning string literal
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">use_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/Week2_Distributions_31_1.png" src="_images/Week2_Distributions_31_1.png" />
-</div>
-</div>
-<p>#.loc and .iloc</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">pctile</span> <span class="o">=</span> <span class="mi">90</span>
-
-<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">pctile</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">morpho_features</span><span class="p">[</span><span class="s1">&#39;total_volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2104.69584412496
-</pre></div>
-</div>
-</div>
-</div>
-<section id="questions-we-might-have-about-our-data">
-<h2>Questions we might have about our data:<a class="headerlink" href="#questions-we-might-have-about-our-data" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>I see a cell with 125 branches. Is that unusual? How much of an oddball is it?</p></li>
-<li><p>Calculate the median</p></li>
-<li><p>10th percentile – what is it?  [PERCENTILES]</p></li>
-<li><p>Only 10% of my data have a value that extreme [CDF]</p></li>
-</ul>
-<p>STEPS:</p>
-<ol class="simple">
-<li><p>Sort them in ascending order</p></li>
-<li><p>Blah</p></li>
-</ol>
-</section>
-<section id="leveling-up-our-pandas-game">
-<h2>Leveling up our pandas game<a class="headerlink" href="#leveling-up-our-pandas-game" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p>Conditionals/queries.</p></li>
-</ol>
-<ol class="simple">
-<li><p>Dropping stuff we don’t want.</p></li>
-</ol>
-<ol class="simple">
-<li><p>Taking care of missing values.</p></li>
-</ol>
-<ol class="simple">
-<li><p>The index</p></li>
-</ol>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="distributions-the-underlying-story-of-your-data">
-<h1>Distributions: The underlying story of your data.<a class="headerlink" href="#distributions-the-underlying-story-of-your-data" title="Permalink to this headline">#</a></h1>
-<p>The variability of our features is trying to tell a story, and typically we want to try to address exactly how variable a given features is, whether that variability has some specific kind of underlying structure, and whether the variability we observe is shared with other variables. We’ll take these issues in turn.</p>
-<ul class="simple">
-<li><p>HOW Variable is it?</p></li>
-<li><p>Does the variability have some structure, and if so, what kind of underlying physical/biological process explains that structure?</p></li>
-<li><p>Is the variability shared with […]</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morpho_features</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;average_bifurcation_angle_local&#39;, &#39;average_bifurcation_angle_remote&#39;,
-       &#39;average_contraction&#39;, &#39;average_diameter&#39;, &#39;average_fragmentation&#39;,
-       &#39;average_parent_daughter_ratio&#39;, &#39;hausdorff_dimension&#39;, &#39;id_y&#39;,
-       &#39;max_branch_order&#39;, &#39;max_euclidean_distance&#39;, &#39;max_path_distance&#39;,
-       &#39;number_bifurcations&#39;, &#39;number_branches&#39;, &#39;number_nodes&#39;,
-       &#39;number_stems&#39;, &#39;number_tips&#39;, &#39;overall_depth&#39;, &#39;overall_height&#39;,
-       &#39;overall_width&#39;, &#39;scale_factor_x&#39;, &#39;scale_factor_y&#39;, &#39;scale_factor_z&#39;,
-       &#39;soma_surface&#39;, &#39;total_length&#39;, &#39;total_surface&#39;, &#39;total_volume&#39;],
-      dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Average Bifurcation Angle: Normal</p>
-<p>Exponential: Typically describes interval data.</p>
-<ul class="simple">
-<li><p>average_bifurcation_angle_local: gaussian</p></li>
-<li><p>number bifurcations (11): exponential</p></li>
-<li><p>number_nodes (13)</p></li>
-<li><p>number tips (15): Exponential</p></li>
-<li><p>overall depth (16): Uniform</p></li>
-</ul>
-<p>Uniform: There’s nothing ‘typical’ about it. No real characteristic value. “Gonna tend to bunch up around”</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample from each type of distribution and have a look.</span>
-
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="n">data_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-
-<span class="c1">#plt.plot(data_norm,&#39;o&#39;);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_norm</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
-<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Week2_Distributions_47_0.png" src="_images/Week2_Distributions_47_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
-<span class="n">data_unif</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-
-<span class="c1">#plt.plot(data_norm,&#39;o&#39;);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_unif</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
-<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Week2_Distributions_48_0.png" src="_images/Week2_Distributions_48_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
-<span class="n">data_unif</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-
-<span class="c1">#plt.plot(data_norm,&#39;o&#39;);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_unif</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">);</span>
-<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_norm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
