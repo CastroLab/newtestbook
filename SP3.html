@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Simulating data &#8212; Exploring cell types in the brain</title>
+    <title>Strategic Practice 2 (SP2) &#8212; Exploring cell types in the brain</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Strategic Practice 2 (SP2)" href="SP2.html" />
+    <link rel="prev" title="Covariance" href="Week3_Correlation_Regression.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -133,9 +133,14 @@ const thebe_selector_output = ".output, .cell_output"
    Strategic Practice 2 (SP2)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week3_Correlation_Regression.html">
+   Covariance
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Simulating data
+   Strategic Practice 2 (SP2)
   </a>
  </li>
 </ul>
@@ -346,6 +351,11 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   Strategic Practice 2 (SP2)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-data">
    Simulating data
   </a>
  </li>
@@ -368,7 +378,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Simulating data</h1>
+                <h1>Strategic Practice 2 (SP2)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -380,6 +390,11 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   Strategic Practice 2 (SP2)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-data">
    Simulating data
   </a>
  </li>
@@ -403,7 +418,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="strategic-practice-2-sp2">
+<h1>Strategic Practice 2 (SP2)<a class="headerlink" href="#strategic-practice-2-sp2" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -413,12 +430,13 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="simulating-data">
 <h1>Simulating data<a class="headerlink" href="#simulating-data" title="Permalink to this headline">#</a></h1>
 <p>Simulating data is a very useful skill. Often, you’ll find yourself wanting to test an analysis method on a known base case (i.e. where you know data the are normally distributed, or have a linear relationship of known magnitude, etc). In the next two problems, you’ll get a chance to practice cooking up some random data, as well as cooking up some data were a simple linear relationship holds. You’ll then use these data for some basic fitting procedures.</p>
 <div class="seealso admonition">
-<p class="admonition-title">Question 2</p>
-<p>Problem 1: Create a 1D numpy array called vrest that simulates resting potentials recorded from 200 cells. Assume that the population the cells come from has a resting potential of -50 (mV), and a standard deviation of 5 mV. Create a histogram of vrest to check that you did the simulation correctly.</p>
+<p class="admonition-title">Question 1</p>
+<p>Create a 1D numpy array called vrest that simulates resting potentials recorded from 200 cells. Assume that the population the cells come from has a resting potential of -50 (mV), and a standard deviation of 5 mV. Create a histogram of vrest to check that you did the simulation correctly.</p>
 </div>
 <p>Suppose that neruons’ peak firing rates are related to their resting potential through a simple linear relationship:</p>
 <p>Firing rate (in Hz) = -1 * resting potential + 20 + Noise</p>
@@ -429,19 +447,22 @@ title="Print to PDF"
 </div>
 <p>Now that you’ve created a pair of (x,y) points where a simple (but noisy) linear relationship holds, we can start trying to fit statistical models to it. Naturally, we <em>know</em> that the relationship really is linear, but in the real world, you will have to do some tinkering to converge on a good model.</p>
 <div class="seealso admonition">
-<p class="admonition-title">Question 2</p>
-<p>Problem 3: Fit a linear relationship between vrest and FR using scikit learn. List the coefficients of the fit, as well as the intercept. You may need to reshape your array to force it to 1D using .reshape(-1,1). See the previous notebook for a template on doing linear regression in python.</p>
+<p class="admonition-title">Question 3</p>
+<p>Fit a linear relationship between vrest and FR using scikit learn. List the coefficients of the fit, as well as the intercept. You may need to reshape your array to force it to 1D using .reshape(-1,1). See the previous notebook for a template on doing linear regression in python.</p>
 </div>
+<div class="seealso admonition">
+<p class="admonition-title">Question 4</p>
 <p>Problem 4: Re-run your analysis from above, but swap the variables such that firing rate is now the <em>independent variable</em> and resting potential is the <em>dependent variable</em>. As above, report the coefficients and intercept from your fit. What do you observe, and does this make sense?</p>
+</div>
 <p>Linear regression is hardly the only game in town, when it comes to models. There’s a whole zoo of models you can throw at a dataset, each of which will have their own ‘philosophical stance’ toward the world. Scikit-learn makes it easy to pull different models off the shelf, try them out on datasets, and assess their relative merits. This is an iterative process that involves fitting a variety of models, and testing their performance.</p>
 <div class="seealso admonition">
-<p class="admonition-title">Question 2</p>
-<p>Problem 5: Perform a KNN regression on the same dataset (where vrest is the independent variable, and FR is the dependent variable). Run this for the 5 different choices of the parameter n_neighbors shown below, which specifies the number of neighbors to use for prediction. For each run of KNN, report the score. What do you notice about the relationship between score values and number of neighbors?</p>
+<p class="admonition-title">Question 5</p>
+<p>Perform a KNN regression on the same dataset (where vrest is the independent variable, and FR is the dependent variable). Run this for the 5 different choices of the parameter n_neighbors shown below, which specifies the number of neighbors to use for prediction. For each run of KNN, report the score. What do you notice about the relationship between score values and number of neighbors?</p>
 <p>n_neighbors: [1, 2, 5, 10, 20, 50]</p>
 </div>
 <div class="seealso admonition">
-<p class="admonition-title">Question 2</p>
-<p>Problem 6: A follow-up to the above. You’ll note that some of the model scores above are quite high. In fact, you’ll basically always do better on KNN regression if you use a smaller neighborhood. Why wouldn’t you always use a neighbohood of one on every prediction task? You’ll probably want to look a bit into the concept of <strong>overfitting</strong></p>
+<p class="admonition-title">Question 6</p>
+<p>A follow-up to the above. You’ll note that some of the model scores above are quite high. In fact, you’ll basically always do better on KNN regression if you use a smaller neighborhood. Why wouldn’t you always use a neighbohood of one on every prediction task? You’ll probably want to look a bit into the concept of <strong>overfitting</strong></p>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="covariance-and-correlation">
@@ -459,12 +480,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/SP3_13_0.png" src="_images/SP3_13_0.png" />
+<img alt="_images/SP3_14_0.png" src="_images/SP3_14_0.png" />
 </div>
 </div>
 <div class="seealso admonition">
-<p class="admonition-title">Question 2</p>
-<p>Problem 7: Calculate the covariance between d1 and d3 using the numpy expression np.dot(). Note that you don’t need to subtract the mean from anything, because all the data we created have zero mean (verify in the histograms above).</p>
+<p class="admonition-title">Question 7</p>
+<p>Calculate the covariance between d1 and d3 using the numpy expression np.dot(). Note that you don’t need to subtract the mean from anything, because all the data we created have zero mean (verify in the histograms above).</p>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="intuitions-about-the-f-statistic">
@@ -486,15 +507,15 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F= 1.0108214398190338
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F= 1.3965581908413984
 </pre></div>
 </div>
-<img alt="_images/SP3_17_1.png" src="_images/SP3_17_1.png" />
+<img alt="_images/SP3_18_1.png" src="_images/SP3_18_1.png" />
 </div>
 </div>
 <div class="seealso admonition">
-<p class="admonition-title">Question 2</p>
-<p>Problem 8: Run the snippet of code above 10 times for a choice of numpts =3, 10 times for a choice of numpts=30, and 10 times for a choice of numpts=300. Report the F statistic on each run. What do you notice? How does “collecting more data” (i.e. having more points) affect the behavior of your F values?</p>
+<p class="admonition-title">Question 8</p>
+<p>Run the snippet of code above 10 times for a choice of numpts =3, 10 times for a choice of numpts=30, and 10 times for a choice of numpts=300. Report the F statistic on each run. What do you notice? How does “collecting more data” (i.e. having more points) affect the behavior of your F values?</p>
 </div>
 </section>
 
@@ -525,11 +546,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="SP2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Week3_Correlation_Regression.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Strategic Practice 2 (SP2)</p>
+            <p class="prev-next-title">Covariance</p>
         </div>
     </a>
 </div>

@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strategic Practice 2 (SP2)" href="SP3.html" />
+    <link rel="prev" title="Strategic Practice 2 (SP2)" href="SP2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Allen_Intro.html">
    Week 1: A data science safari
@@ -132,9 +134,14 @@ const thebe_selector_output = ".output, .cell_output"
    Strategic Practice 2 (SP2)
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Covariance
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SP3.html">
-   Simulating data
+   Strategic Practice 2 (SP2)
   </a>
  </li>
 </ul>
@@ -806,7 +813,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.87856503]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.89988013]])
 </pre></div>
 </div>
 </div>
@@ -818,7 +825,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([13.57977121])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14.80532487])
 </pre></div>
 </div>
 </div>
@@ -851,7 +858,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-25.95565511]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-25.68928081]])
 </pre></div>
 </div>
 </div>
@@ -865,7 +872,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6816709291861995
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6974288322858986
 </pre></div>
 </div>
 </div>
@@ -922,7 +929,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-58.60435174]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-58.30191394]])
 </pre></div>
 </div>
 </div>
@@ -935,7 +942,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6765523291551728
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6764781357400336
 </pre></div>
 </div>
 </div>
@@ -960,15 +967,12 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 <span class="n">knn_predictions</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span> <span class="n">vthresh</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">knn_predictions</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">knn_predictions</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd8d0c56d60&gt;]
-</pre></div>
-</div>
-<img alt="_images/Week3_Correlation_Regression_59_1.png" src="_images/Week3_Correlation_Regression_59_1.png" />
+<img alt="_images/Week3_Correlation_Regression_59_0.png" src="_images/Week3_Correlation_Regression_59_0.png" />
 </div>
 </div>
 <p>When we look at the score this time we see that it’s doing quite well:</p>
@@ -979,7 +983,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9207477046040418
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9433072352389252
 </pre></div>
 </div>
 </div>
@@ -1078,7 +1082,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd900e45c70&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7fa16073a0&gt;]
 </pre></div>
 </div>
 <img alt="_images/Week3_Correlation_Regression_74_1.png" src="_images/Week3_Correlation_Regression_74_1.png" />
@@ -1093,143 +1097,6 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22215495618463266
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;adaptation&#39;, &#39;avg_isi&#39;, &#39;electrode_0_pa&#39;, &#39;f_i_curve_slope&#39;,
-       &#39;fast_trough_t_long_square&#39;, &#39;fast_trough_t_ramp&#39;,
-       &#39;fast_trough_t_short_square&#39;, &#39;fast_trough_v_long_square&#39;,
-       &#39;fast_trough_v_ramp&#39;, &#39;fast_trough_v_short_square&#39;, &#39;has_burst&#39;,
-       &#39;has_delay&#39;, &#39;has_pause&#39;, &#39;id_x&#39;, &#39;input_resistance_mohm&#39;, &#39;latency&#39;,
-       &#39;peak_t_long_square&#39;, &#39;peak_t_ramp&#39;, &#39;peak_t_short_square&#39;,
-       &#39;peak_v_long_square&#39;, &#39;peak_v_ramp&#39;, &#39;peak_v_short_square&#39;,
-       &#39;rheobase_sweep_id&#39;, &#39;rheobase_sweep_number&#39;, &#39;ri&#39;, &#39;sag&#39;, &#39;seal_gohm&#39;,
-       &#39;slow_trough_t_long_square&#39;, &#39;slow_trough_t_ramp&#39;,
-       &#39;slow_trough_t_short_square&#39;, &#39;slow_trough_v_long_square&#39;,
-       &#39;slow_trough_v_ramp&#39;, &#39;slow_trough_v_short_square&#39;, &#39;specimen_id&#39;,
-       &#39;tau&#39;, &#39;threshold_i_long_square&#39;, &#39;threshold_i_ramp&#39;,
-       &#39;threshold_i_short_square&#39;, &#39;threshold_t_long_square&#39;,
-       &#39;threshold_t_ramp&#39;, &#39;threshold_t_short_square&#39;,
-       &#39;threshold_v_long_square&#39;, &#39;threshold_v_ramp&#39;,
-       &#39;threshold_v_short_square&#39;, &#39;thumbnail_sweep_id&#39;,
-       &#39;trough_t_long_square&#39;, &#39;trough_t_ramp&#39;, &#39;trough_t_short_square&#39;,
-       &#39;trough_v_long_square&#39;, &#39;trough_v_ramp&#39;, &#39;trough_v_short_square&#39;,
-       &#39;upstroke_downstroke_ratio_long_square&#39;,
-       &#39;upstroke_downstroke_ratio_ramp&#39;,
-       &#39;upstroke_downstroke_ratio_short_square&#39;, &#39;vm_for_sag&#39;, &#39;vrest&#39;],
-      dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;f_i_curve_slope&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;fast_trough_t_long_square&#39;</span><span class="p">:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
-<span class="c1"># The template is exactly the same, that&#39;s what makes it so powerful. </span>
-<span class="n">regr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-
-<span class="c1"># If we ask for the coefficients, note that it spits back 4 numbers to us this time. That&#39;s because we have 4</span>
-<span class="c1"># variables that we&#39;re asking to explain adaptation. The sizes of the coefficients are telling us the relative </span>
-<span class="c1"># importance of variable. Looks like the sag current shows the strongest correlation with adaptation. </span>
-
-<span class="n">regr</span><span class="o">.</span><span class="n">coef_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.90139614e-08,  2.75506650e-11, -1.58262919e-11,
-         9.99999998e-01, -2.61483525e-07,  7.92827811e-08,
-        -1.38995483e-05, -2.63180516e-09,  2.31439226e-09,
-         2.14186295e-09,  2.30689658e-08, -2.79027186e-08,
-        -6.67032400e-09,  3.33066907e-16, -1.25353677e-12,
-         2.48153045e-08,  8.32864214e-07,  7.31739331e-08,
-        -1.47985911e-06,  1.38153392e-10, -2.94854622e-11,
-         1.01986526e-10, -6.93753943e-11, -7.79105784e-11,
-        -1.16879076e-10,  6.49255098e-10,  2.07757911e-10,
-        -3.20163382e-11, -7.09313862e-11,  5.40649605e-10,
-         2.88702475e-10, -1.77104325e-11,  7.28648144e-11,
-         5.55111512e-17,  3.47306814e-10,  3.62733498e-11,
-         1.61930758e-09, -2.98159136e-11, -5.42700276e-07,
-        -1.89189132e-07,  1.70591440e-06, -5.97073974e-12,
-        -2.20204833e-11, -3.31853156e-11,  6.93752278e-11,
-        -3.66250582e-10, -3.21236664e-09, -6.75774316e-10,
-         1.50478224e-10,  1.49122117e-10,  3.07404687e-10,
-         4.05215981e-10, -1.61999104e-11, -2.25937274e-10,
-         8.78960002e-12,  1.82782504e-10]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-
-<span class="n">d</span> <span class="o">=</span> <span class="n">features_imputed</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/lib/python3.8/site-packages/statsmodels/compat/pandas.py:61: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
-  from pandas import Int64Index as NumericIndex
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_imputed</span>
-
-<span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;f_i_curve_slope ~ f_i_curve_slope + sag + tau&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">features_imputed</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:        f_i_curve_slope   R-squared:                       1.000
-Model:                            OLS   Adj. R-squared:                  1.000
-Method:                 Least Squares   F-statistic:                 4.341e+29
-Date:                Wed, 08 Feb 2023   Prob (F-statistic):               0.00
-Time:                        16:35:46   Log-Likelihood:                 21797.
-No. Observations:                 701   AIC:                        -4.359e+04
-Df Residuals:                     697   BIC:                        -4.357e+04
-Df Model:                           3                                         
-Covariance Type:            nonrobust                                         
-===================================================================================
-                      coef    std err          t      P&gt;|t|      [0.025      0.975]
------------------------------------------------------------------------------------
-Intercept        5.274e-15   8.95e-16      5.889      0.000    3.52e-15    7.03e-15
-f_i_curve_slope     1.0000   9.73e-16   1.03e+15      0.000       1.000       1.000
-sag             -1.027e-15   4.18e-15     -0.246      0.806   -9.23e-15    7.18e-15
-tau              1.184e-16      3e-17      3.946      0.000    5.95e-17    1.77e-16
-==============================================================================
-Omnibus:                      153.054   Durbin-Watson:                   0.052
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              317.426
-Skew:                          -1.208   Prob(JB):                     1.18e-69
-Kurtosis:                       5.244   Cond. No.                         323.
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </pre></div>
 </div>
 </div>
@@ -1263,6 +1130,20 @@ Notes:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="SP2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Strategic Practice 2 (SP2)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SP3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Strategic Practice 2 (SP2)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
