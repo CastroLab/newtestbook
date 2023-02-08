@@ -1,0 +1,1291 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Covariance &#8212; Exploring cell types in the brain</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Exploring cell types in the brain</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Allen_Intro.html">
+   Week 1: A data science safari
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SP1.html">
+   Strategic practice 1 (SP1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week2_Distributions.html">
+   Week 2: Distributions and variability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SP2.html">
+   Strategic Practice 2 (SP2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SP3.html">
+   Simulating data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Week3_Correlation_Regression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWeek3_Correlation_Regression.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Week3_Correlation_Regression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Covariance
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-fake-data">
+   Making Fake Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   Linear Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-more-complex-and-more-typical-example">
+   A more complex (and more typical) example
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-another-model">
+   Fitting another model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-it-more-real">
+   Making it more real:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Covariance</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Covariance
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-fake-data">
+   Making Fake Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   Linear Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-more-complex-and-more-typical-example">
+   A more complex (and more typical) example
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-another-model">
+   Fitting another model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-it-more-real">
+   Making it more real:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="covariance">
+<h1>Covariance<a class="headerlink" href="#covariance" title="Permalink to this headline">#</a></h1>
+<p>Calculating a covariance matrix from scratch is a useful exercise, and is a good test for whether you really understand what you’re doing. Let’s create some toy data, which we’ll imagine is levels of gene expression for 4 different genes (in the rows) across 3 different brain areas (in the columns). The units aren’t terribly important, but if you want to feel like this is plausible, we could imagine that we’re charting fold enrichment relative to some baseline.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hipp&#39;</span><span class="p">,</span> <span class="s1">&#39;ctx&#39;</span><span class="p">,</span> <span class="s1">&#39;cblm&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gene1&#39;</span><span class="p">,</span> <span class="s1">&#39;gene2&#39;</span><span class="p">,</span> <span class="s1">&#39;gene3&#39;</span><span class="p">,</span> <span class="s1">&#39;gene4&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hipp</th>
+      <th>ctx</th>
+      <th>cblm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>gene1</th>
+      <td>5</td>
+      <td>2</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>gene2</th>
+      <td>2</td>
+      <td>12</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>gene3</th>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>gene4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas makes it almost too easy to calculate the covariance matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hipp</th>
+      <th>ctx</th>
+      <th>cblm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hipp</th>
+      <td>6.000000</td>
+      <td>-3.666667</td>
+      <td>-1.666667</td>
+    </tr>
+    <tr>
+      <th>ctx</th>
+      <td>-3.666667</td>
+      <td>30.916667</td>
+      <td>31.166667</td>
+    </tr>
+    <tr>
+      <th>cblm</th>
+      <td>-1.666667</td>
+      <td>31.166667</td>
+      <td>45.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can also calculate the correlation matrix just as easily. The code below shows the correlation matrix as a heatmap.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/Week3_Correlation_Regression_6_1.png" src="_images/Week3_Correlation_Regression_6_1.png" />
+</div>
+</div>
+<p>Recall that for a dataset with n features, the covariance matrix will be n x n. The (i,j)th entry of the matrix will be the covariance between features i and j, which is just the dot product of the two features, with the mean subtracted. The recipe for computing the covariance of a dataset is as follows:</p>
+<ol class="simple">
+<li><p>subtract the mean from each column</p></li>
+<li><p>multiply the data matrix by its transpose</p></li>
+<li><p>divide by the total number of data points</p></li>
+</ol>
+<p>Let’s do this in code. First up, calculate the means:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.  , 3.75, 8.5 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to subtract 3 from all the rows of the first column, subtract 3.75 from all the rows of the second column, etc. We have to coax numpy a little bit to do that by ‘tiling’ the array so it can easily be subtracted from the original array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mn</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">mn</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The syntax is basically saying: “take that original 1 x 3 array, and stack it on itself. We want to stack it as many times as we have data points” (that’s what data.shape[0] gives us)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3.  , 3.75, 8.5 ],
+       [3.  , 3.75, 8.5 ],
+       [3.  , 3.75, 8.5 ],
+       [3.  , 3.75, 8.5 ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>let’s then subtract off the mean, and multiply the matrix by its transpose.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">data</span> <span class="o">-</span> <span class="n">data_mean</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">cov</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 6.        , -3.66666667, -1.66666667],
+       [-3.66666667, 30.91666667, 31.16666667],
+       [-1.66666667, 31.16666667, 45.66666667]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Should look pretty familiar!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hipp</th>
+      <th>ctx</th>
+      <th>cblm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hipp</th>
+      <td>6.000000</td>
+      <td>-3.666667</td>
+      <td>-1.666667</td>
+    </tr>
+    <tr>
+      <th>ctx</th>
+      <td>-3.666667</td>
+      <td>30.916667</td>
+      <td>31.166667</td>
+    </tr>
+    <tr>
+      <th>cblm</th>
+      <td>-1.666667</td>
+      <td>31.166667</td>
+      <td>45.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="making-fake-data">
+<h1>Making Fake Data<a class="headerlink" href="#making-fake-data" title="Permalink to this headline">#</a></h1>
+<p>Generating fake data is a useful skill. Not for reasons of sneakiness or deception, but for generating noisy, probabilistic data with some kind of ‘typical’ behavior. We use probability to generate ‘fake’ data from <em>known</em> underlying processes, and then use stats to ‘recover’ an appropriate, probabilistic description of our data. Obviously, in the real work, we’re using stats to recover a probabilistic description of our data generating process when we’re in the dark about how the data were actually generated.</p>
+<p>To make this concrete, let’s think about generating a distribution of resting potentials for a group of 200 neurons. They might have a typical resting potential of around -65mV, and shown normally distributed fluctuations around that value with a standard deviation of ~5 mv. In other words, we’d be not terribly surprised to see values as large as -60 mV, or as small as -70 mV, but we’d be quite surprised to something like -50 mV, or -80 mV.</p>
+<p>We’ll create an array, X, with our resting potential values, and initialize it to -65 mV:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">65</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The cell above creates an array of 100 ones, and then multiplies it by -65 to give us a 100 dimensional array of -65s. Let’s next make some noisy fluctuations with the properties we desire (i.e. mean of zero and standard deviation of 5 mV)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our ‘fake data’ is then just the sum of the deterministic part (-65 mV) + the random part:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vrest</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week3_Correlation_Regression_24_0.png" src="_images/Week3_Correlation_Regression_24_0.png" />
+</div>
+</div>
+<p>Let’s now assume that a neuron’s threshold is described by a relatively simple relationship such that the threshold is 90% the resting potential, plus 15 mV. Or, mathematically:</p>
+<p>V_thresh = 0.9 x V_rest + 15</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vthresh</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">vrest</span> <span class="o">+</span> <span class="mi">15</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we plot vthresh vs. vrest, we get a line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span><span class="n">vthresh</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;resting potential&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;threshold&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week3_Correlation_Regression_28_0.png" src="_images/Week3_Correlation_Regression_28_0.png" />
+</div>
+</div>
+<p>You will pretty much never see data that look like that in the wild, unless your two variables just differ by a simple conversion factor (temp in degrees vs. temp in celsius, for example). Instead, the data will <em>imply</em> a lawful relationship, but not give it to you for free. You’ll observe “basically a line”, or “basically a parabola”, only with some noisy fluctuation.</p>
+<p>Let’s give our data some noisy fluctuations to make it more realistic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vthresh</span> <span class="o">=</span> <span class="n">vthresh</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span><span class="n">vthresh</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;resting potential&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;threshold&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week3_Correlation_Regression_30_0.png" src="_images/Week3_Correlation_Regression_30_0.png" />
+</div>
+</div>
+<p>That’s better! (Well.. I guess technically ‘worse’ ;-). Now, please go along with me on following pretense: let’s imagine that knew nothing about how those data were generated, and that all we have at our disposal are a list noisy resting potentials, and a list of corresopnding noisy thresholds. We can plot them, and intuit that there’s some relationship, but we wish to learn what this is. That’s the <em>statistical</em> problem that life actually hands us: “Here are some noisy measurements: make some assumptions and try to work your way backwards to an understanding of the true relationship that holds underneath all the noisy fluctuations.”</p>
+<p>Remember that of course, we secretly know that the real realtionship is vthresh = 0.9 x vrest + 15.</p>
+<p>If our statistical procedure is able to spit back the numbers 0.9 and 15, that would be pretty cool.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="linear-regression">
+<h1>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h1>
+<p>Hidden under all that noise is a line, waiting to be freed! In principle, we could select any of a whole variety of models. Maybe there’s some super ‘wiggly’ relationship that tracks every contour in the data. Maybe a line with a slight bow to it is the best description, etc. Our first job is to pick a magical box. We will create a magical box called LR:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">LR</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The way to think about LR is that it is an object which is all about fitting straight lines to data. All we’ve done is initialize, or instantiate it. You could think of us as having just created an empty array in numpy, or an empty dataframe in pandas. To breathe life into
+LR, we need to feed it some data. When feeding it data, we typically make a distinction between dependent and independent variables. A few terms are worth noting:</p>
+<p>‘features’
+‘targets’
+‘independent variable’
+‘dependent variable’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">vrest</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">vthresh</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr</span> <span class="o">=</span> <span class="n">LR</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, it’s not just some generic object, but a special one that has been custom-fitted to our very own data! It has gone through some process which we’re not going to worry a ton about (but which we discussed in class a bit) to identify <em>parameters</em>.</p>
+<p>We can now think of regr as a kind of oracle. We can peek in side and ask, what are the parameters?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.87856503]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([13.57977121])
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is this telling us? It’s saying: “I did the best I can do, and I think what’s going on here is that the data were generated by a process that multiplies X by 0.92, and then adds 16.613.”</p>
+<p>Not a bad job, considering we <strong>know</strong> the data were created by a process that multiplied X by 0.9, and then added 15. We can inspect the model’s prediciton by plotting the fitted line on the original graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span>
+
+<span class="c1"># our linear prediction</span>
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">vrest</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># original data w/ linear fit superimposed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span> <span class="n">vthresh</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vrest</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">y_predicted</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week3_Correlation_Regression_42_0.png" src="_images/Week3_Correlation_Regression_42_0.png" />
+</div>
+</div>
+<p>One of the big virtues of having a fitted model is that we can now use it to do <em>prediction</em>. Say someone comes along with a measured membrane voltage of -45mV and they wanted to estimate what that neuron’s threshold is likely to be. With your formula, this is an easy prediction to do. The regression object we created has a handy syntax for this as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">45</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-25.95565511]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you look at the red line in the plot above, it certainly seems plausible that at -45 mV, we’d have a y value of ~-25, as predicted. The reshape() command above is just a little bit of hocus-pocus because the predict() function expects arrays to be formatted a certain way. The important thing is that we fed it the number -45, and the model spat back a prediction of around -25.</p>
+<p>We can also ask our model to tell us how good of a job it did by giving us a ‘score’:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LR</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6816709291861995
+</pre></div>
+</div>
+</div>
+</div>
+<p>The exact metric being used as a score varies with the choice of model, but in this case the score is the familiar correlation coefficient. Good scores are close to ‘1’.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-more-complex-and-more-typical-example">
+<h1>A more complex (and more typical) example<a class="headerlink" href="#a-more-complex-and-more-typical-example" title="Permalink to this headline">#</a></h1>
+<p>There are some intersting phenomena out there that show linear behavior, but life would be pretty boring if we were limited to linearity. Suppose that the threshold actually had a slightly more complicated dependence on resting potential.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vthresh</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="n">vrest</span> <span class="o">+</span> <span class="mf">.09</span> <span class="o">*</span> <span class="p">(</span><span class="n">vrest</span> <span class="o">+</span> <span class="mi">65</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span> <span class="n">vthresh</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week3_Correlation_Regression_49_0.png" src="_images/Week3_Correlation_Regression_49_0.png" />
+</div>
+</div>
+<p>Let’s just do our analysis all over again and see how we do with a linear fit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">vrest</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">vthresh</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Initialize a new regression object</span>
+<span class="n">LR</span>  <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Fit </span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">LR</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Get the model coefficients and use them to predict</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span>
+
+<span class="c1"># Get a predicted value for the threshold, based on our fitted model</span>
+<span class="n">vthresh_predicted</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">vrest</span> <span class="o">+</span> <span class="n">b</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span> <span class="n">vthresh</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vrest</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">vthresh_predicted</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Week3_Correlation_Regression_51_0.png" src="_images/Week3_Correlation_Regression_51_0.png" />
+</div>
+</div>
+<p>Ick. If we ask our model to tell us what we think the threshold is for a neuron with a resting potential of -85, it’s going to be disastrously off:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">80</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-58.60435174]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And our overall score is crummy now too….</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LR</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6765523291551728
+</pre></div>
+</div>
+</div>
+</div>
+<p>This should be pretty unsurprising. I mean, there’s only so well a line is going to fit the data if the data aren’t linear.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fitting-another-model">
+<h1>Fitting another model<a class="headerlink" href="#fitting-another-model" title="Permalink to this headline">#</a></h1>
+<p>So let’s try again. We’re going to use a model with a lot more flexibility. Something called K-nearest-neighbors (called ‘KNN’ for short, sometimes). If linear regression was a toy version of the universe that says “I think there’s a simple multiplicative and additive relationship between features”, then KNN says: “I think everything can be explained by what my neighbors are doing.” We won’t go too much into this. I just want to make the important larger point that we can throw lots of different models at the data, and the syntax and procedure is all very similar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the new model</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+
+<span class="c1"># Create an Instance of the model</span>
+<span class="n">KNN</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Fit the model</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNN</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Make predictions based on the model</span>
+<span class="n">knn_predictions</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span> <span class="n">vthresh</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">vrest</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">knn_predictions</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd8d0c56d60&gt;]
+</pre></div>
+</div>
+<img alt="_images/Week3_Correlation_Regression_59_1.png" src="_images/Week3_Correlation_Regression_59_1.png" />
+</div>
+</div>
+<p>When we look at the score this time we see that it’s doing quite well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9207477046040418
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="making-it-more-real">
+<h1>Making it more real:<a class="headerlink" href="#making-it-more-real" title="Permalink to this headline">#</a></h1>
+<p>Here we do some model-fitting on a real dataset: the ephys data from the Allen Institute. It’s illustrative of some of the practical issues you’re likely to encounter in the wild.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.core.cell_types_cache</span> <span class="kn">import</span> <span class="n">CellTypesCache</span>
+
+<span class="n">ctc</span> <span class="o">=</span> <span class="n">CellTypesCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="s1">&#39;cell_types/manifest.json&#39;</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ctc</span><span class="o">.</span><span class="n">get_all_features</span><span class="p">())</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;adaptation&#39;</span><span class="p">:</span><span class="s1">&#39;vrest&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Right off the bat, you’ll note that we have a decent number of entries where we see NaN instead of an expected numerical value. NaN stands or “not a number”, and basically just means that data are missing at that particular entry. Most fitting procedures will yell at you if you try to feed them Nans, so we have to deal with them somehow. There are two basic approaches.</p>
+<p>The first is you can just drop any row that has Nans in it. Let’s take a peek at how much data we have in our features dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(701, 56)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like 701 cells. Pandas has a handy function that drop Nans for us, which we can use to aggresively kill all Nans:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(200, 56)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yikes! that dropped an awful lot of data. Perhaps that’s a bit over the top. If a cell is missing one entry for one feature it’s going to get dropped using this method. We’ve thrown away about 500 cells doing this, which is tossing an awful lot of data. Another tool at our disposal is <strong>imputation</strong>, which refers to a set of procedures for trying to fill in nans with some fixed value, or taking a best guess as to what value it should have. Scikit learn has a function called an imputer to help us with this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">()</span>
+<span class="n">features_imputed</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">features_imputed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">features_imputed</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_imputed</span> <span class="o">=</span> <span class="n">features_imputed</span><span class="p">[[</span><span class="s1">&#39;f_i_curve_slope&#39;</span><span class="p">,</span> <span class="s1">&#39;input_resistance_mohm&#39;</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="s1">&#39;vrest&#39;</span><span class="p">,</span> <span class="s1">&#39;sag&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s say we want to try to predict adaptation from the other variables: </span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">features_imputed</span><span class="p">[</span><span class="s1">&#39;f_i_curve_slope&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">features_imputed</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;input_resistance_mohm&#39;</span><span class="p">:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># The template is exactly the same, that&#39;s what makes it so powerful. </span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># If we ask for the coefficients, note that it spits back 4 numbers to us this time. That&#39;s because we have 4</span>
+<span class="c1"># variables that we&#39;re asking to explain adaptation. The sizes of the coefficients are telling us the relative </span>
+<span class="c1"># importance of variable. Looks like the sag current shows the strongest correlation with adaptation. </span>
+
+<span class="n">regr</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3.73168201e-04, -1.42311268e-02,  6.66147023e-03,
+        -7.13264195e-01]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s have a look at the relative contributions of each variable (as indicated by the size of the coefficent from the regression)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">features_imputed</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd900e45c70&gt;]
+</pre></div>
+</div>
+<img alt="_images/Week3_Correlation_Regression_74_1.png" src="_images/Week3_Correlation_Regression_74_1.png" />
+</div>
+</div>
+<p>It’s fair to ask whether some of those smaller coefficients really matter at all.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22215495618463266
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;adaptation&#39;, &#39;avg_isi&#39;, &#39;electrode_0_pa&#39;, &#39;f_i_curve_slope&#39;,
+       &#39;fast_trough_t_long_square&#39;, &#39;fast_trough_t_ramp&#39;,
+       &#39;fast_trough_t_short_square&#39;, &#39;fast_trough_v_long_square&#39;,
+       &#39;fast_trough_v_ramp&#39;, &#39;fast_trough_v_short_square&#39;, &#39;has_burst&#39;,
+       &#39;has_delay&#39;, &#39;has_pause&#39;, &#39;id_x&#39;, &#39;input_resistance_mohm&#39;, &#39;latency&#39;,
+       &#39;peak_t_long_square&#39;, &#39;peak_t_ramp&#39;, &#39;peak_t_short_square&#39;,
+       &#39;peak_v_long_square&#39;, &#39;peak_v_ramp&#39;, &#39;peak_v_short_square&#39;,
+       &#39;rheobase_sweep_id&#39;, &#39;rheobase_sweep_number&#39;, &#39;ri&#39;, &#39;sag&#39;, &#39;seal_gohm&#39;,
+       &#39;slow_trough_t_long_square&#39;, &#39;slow_trough_t_ramp&#39;,
+       &#39;slow_trough_t_short_square&#39;, &#39;slow_trough_v_long_square&#39;,
+       &#39;slow_trough_v_ramp&#39;, &#39;slow_trough_v_short_square&#39;, &#39;specimen_id&#39;,
+       &#39;tau&#39;, &#39;threshold_i_long_square&#39;, &#39;threshold_i_ramp&#39;,
+       &#39;threshold_i_short_square&#39;, &#39;threshold_t_long_square&#39;,
+       &#39;threshold_t_ramp&#39;, &#39;threshold_t_short_square&#39;,
+       &#39;threshold_v_long_square&#39;, &#39;threshold_v_ramp&#39;,
+       &#39;threshold_v_short_square&#39;, &#39;thumbnail_sweep_id&#39;,
+       &#39;trough_t_long_square&#39;, &#39;trough_t_ramp&#39;, &#39;trough_t_short_square&#39;,
+       &#39;trough_v_long_square&#39;, &#39;trough_v_ramp&#39;, &#39;trough_v_short_square&#39;,
+       &#39;upstroke_downstroke_ratio_long_square&#39;,
+       &#39;upstroke_downstroke_ratio_ramp&#39;,
+       &#39;upstroke_downstroke_ratio_short_square&#39;, &#39;vm_for_sag&#39;, &#39;vrest&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;f_i_curve_slope&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;fast_trough_t_long_square&#39;</span><span class="p">:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="c1"># The template is exactly the same, that&#39;s what makes it so powerful. </span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># If we ask for the coefficients, note that it spits back 4 numbers to us this time. That&#39;s because we have 4</span>
+<span class="c1"># variables that we&#39;re asking to explain adaptation. The sizes of the coefficients are telling us the relative </span>
+<span class="c1"># importance of variable. Looks like the sag current shows the strongest correlation with adaptation. </span>
+
+<span class="n">regr</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.90139614e-08,  2.75506650e-11, -1.58262919e-11,
+         9.99999998e-01, -2.61483525e-07,  7.92827811e-08,
+        -1.38995483e-05, -2.63180516e-09,  2.31439226e-09,
+         2.14186295e-09,  2.30689658e-08, -2.79027186e-08,
+        -6.67032400e-09,  3.33066907e-16, -1.25353677e-12,
+         2.48153045e-08,  8.32864214e-07,  7.31739331e-08,
+        -1.47985911e-06,  1.38153392e-10, -2.94854622e-11,
+         1.01986526e-10, -6.93753943e-11, -7.79105784e-11,
+        -1.16879076e-10,  6.49255098e-10,  2.07757911e-10,
+        -3.20163382e-11, -7.09313862e-11,  5.40649605e-10,
+         2.88702475e-10, -1.77104325e-11,  7.28648144e-11,
+         5.55111512e-17,  3.47306814e-10,  3.62733498e-11,
+         1.61930758e-09, -2.98159136e-11, -5.42700276e-07,
+        -1.89189132e-07,  1.70591440e-06, -5.97073974e-12,
+        -2.20204833e-11, -3.31853156e-11,  6.93752278e-11,
+        -3.66250582e-10, -3.21236664e-09, -6.75774316e-10,
+         1.50478224e-10,  1.49122117e-10,  3.07404687e-10,
+         4.05215981e-10, -1.61999104e-11, -2.25937274e-10,
+         8.78960002e-12,  1.82782504e-10]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">features_imputed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/lib/python3.8/site-packages/statsmodels/compat/pandas.py:61: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  from pandas import Int64Index as NumericIndex
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_imputed</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;f_i_curve_slope ~ f_i_curve_slope + sag + tau&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">features_imputed</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        f_i_curve_slope   R-squared:                       1.000
+Model:                            OLS   Adj. R-squared:                  1.000
+Method:                 Least Squares   F-statistic:                 4.341e+29
+Date:                Wed, 08 Feb 2023   Prob (F-statistic):               0.00
+Time:                        16:35:46   Log-Likelihood:                 21797.
+No. Observations:                 701   AIC:                        -4.359e+04
+Df Residuals:                     697   BIC:                        -4.357e+04
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P&gt;|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+Intercept        5.274e-15   8.95e-16      5.889      0.000    3.52e-15    7.03e-15
+f_i_curve_slope     1.0000   9.73e-16   1.03e+15      0.000       1.000       1.000
+sag             -1.027e-15   4.18e-15     -0.246      0.806   -9.23e-15    7.18e-15
+tau              1.184e-16      3e-17      3.946      0.000    5.95e-17    1.77e-16
+==============================================================================
+Omnibus:                      153.054   Durbin-Watson:                   0.052
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              317.426
+Skew:                          -1.208   Prob(JB):                     1.18e-69
+Kurtosis:                       5.244   Cond. No.                         323.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Castro<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
