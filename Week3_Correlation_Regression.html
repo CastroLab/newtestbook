@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Covariance &#8212; Exploring cell types in the brain</title>
+    <title>Week 3: Correlation and Regression &#8212; Exploring cell types in the brain</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -136,7 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Covariance
+   Week 3: Correlation and Regression
   </a>
  </li>
  <li class="toctree-l1">
@@ -352,6 +352,11 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   Week 3: Correlation and Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#covariance">
    Covariance
   </a>
  </li>
@@ -389,7 +394,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Covariance</h1>
+                <h1>Week 3: Correlation and Regression</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -401,6 +406,11 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   Week 3: Correlation and Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#covariance">
    Covariance
   </a>
  </li>
@@ -439,7 +449,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="week-3-correlation-and-regression">
+<h1>Week 3: Correlation and Regression<a class="headerlink" href="#week-3-correlation-and-regression" title="Permalink to this headline">#</a></h1>
+<p>This week we’re going to start thinking more systematically about <em>relationships</em> between variables. We’ve made scatterplots between variables and used those to intuit relationships, but it’s time to roll up our sleeves a bit more and start <em>fitting models</em> to our data. The basic idea is that we believe our data to be behaving lawfully, such that some kind of model/mathematical relationship explains its behavior. Here we’ll mostly be thinking about linear regression, which is about as basic as a model can get, but which is super important to have strong intuitions about. As we discussed in class, when you fit a model to data, you are generally trying to find model <em>parameters</em> (the slope and intercept, in the specific case of linear regression). But first, we’ll explore the concept of covariance, which is central.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -449,6 +462,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="covariance">
 <h1>Covariance<a class="headerlink" href="#covariance" title="Permalink to this headline">#</a></h1>
 <p>Calculating a covariance matrix from scratch is a useful exercise, and is a good test for whether you really understand what you’re doing. Let’s create some toy data, which we’ll imagine is levels of gene expression for 4 different genes (in the rows) across 3 different brain areas (in the columns). The units aren’t terribly important, but if you want to feel like this is plausible, we could imagine that we’re charting fold enrichment relative to some baseline.</p>
@@ -579,7 +593,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/Week3_Correlation_Regression_6_1.png" src="_images/Week3_Correlation_Regression_6_1.png" />
+<img alt="_images/Week3_Correlation_Regression_7_1.png" src="_images/Week3_Correlation_Regression_7_1.png" />
 </div>
 </div>
 <p>Recall that for a dataset with n features, the covariance matrix will be n x n. The (i,j)th entry of the matrix will be the covariance between features i and j, which is just the dot product of the two features, with the mean subtracted. The recipe for computing the covariance of a dataset is as follows:</p>
@@ -727,7 +741,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_24_0.png" src="_images/Week3_Correlation_Regression_24_0.png" />
+<img alt="_images/Week3_Correlation_Regression_25_0.png" src="_images/Week3_Correlation_Regression_25_0.png" />
 </div>
 </div>
 <p>Let’s now assume that a neuron’s threshold is described by a relatively simple relationship such that the threshold is 90% the resting potential, plus 15 mV. Or, mathematically:</p>
@@ -749,7 +763,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_28_0.png" src="_images/Week3_Correlation_Regression_28_0.png" />
+<img alt="_images/Week3_Correlation_Regression_29_0.png" src="_images/Week3_Correlation_Regression_29_0.png" />
 </div>
 </div>
 <p>You will pretty much never see data that look like that in the wild, unless your two variables just differ by a simple conversion factor (temp in degrees vs. temp in celsius, for example). Instead, the data will <em>imply</em> a lawful relationship, but not give it to you for free. You’ll observe “basically a line”, or “basically a parabola”, only with some noisy fluctuation.</p>
@@ -764,7 +778,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_30_0.png" src="_images/Week3_Correlation_Regression_30_0.png" />
+<img alt="_images/Week3_Correlation_Regression_31_0.png" src="_images/Week3_Correlation_Regression_31_0.png" />
 </div>
 </div>
 <p>That’s better! (Well.. I guess technically ‘worse’ ;-). Now, please go along with me on following pretense: let’s imagine that knew nothing about how those data were generated, and that all we have at our disposal are a list noisy resting potentials, and a list of corresopnding noisy thresholds. We can plot them, and intuit that there’s some relationship, but we wish to learn what this is. That’s the <em>statistical</em> problem that life actually hands us: “Here are some noisy measurements: make some assumptions and try to work your way backwards to an understanding of the true relationship that holds underneath all the noisy fluctuations.”</p>
@@ -813,7 +827,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.89988013]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.91854941]])
 </pre></div>
 </div>
 </div>
@@ -825,7 +839,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14.80532487])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([16.16398659])
 </pre></div>
 </div>
 </div>
@@ -847,7 +861,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_42_0.png" src="_images/Week3_Correlation_Regression_42_0.png" />
+<img alt="_images/Week3_Correlation_Regression_43_0.png" src="_images/Week3_Correlation_Regression_43_0.png" />
 </div>
 </div>
 <p>One of the big virtues of having a fitted model is that we can now use it to do <em>prediction</em>. Say someone comes along with a measured membrane voltage of -45mV and they wanted to estimate what that neuron’s threshold is likely to be. With your formula, this is an easy prediction to do. The regression object we created has a handy syntax for this as well:</p>
@@ -858,7 +872,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-25.68928081]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-25.17073664]])
 </pre></div>
 </div>
 </div>
@@ -872,7 +886,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6974288322858986
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7119424976579445
 </pre></div>
 </div>
 </div>
@@ -890,7 +904,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_49_0.png" src="_images/Week3_Correlation_Regression_49_0.png" />
+<img alt="_images/Week3_Correlation_Regression_50_0.png" src="_images/Week3_Correlation_Regression_50_0.png" />
 </div>
 </div>
 <p>Let’s just do our analysis all over again and see how we do with a linear fit:</p>
@@ -918,7 +932,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_51_0.png" src="_images/Week3_Correlation_Regression_51_0.png" />
+<img alt="_images/Week3_Correlation_Regression_52_0.png" src="_images/Week3_Correlation_Regression_52_0.png" />
 </div>
 </div>
 <p>Ick. If we ask our model to tell us what we think the threshold is for a neuron with a resting potential of -85, it’s going to be disastrously off:</p>
@@ -929,7 +943,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-58.30191394]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-57.16289751]])
 </pre></div>
 </div>
 </div>
@@ -942,7 +956,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6764781357400336
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6492660776788957
 </pre></div>
 </div>
 </div>
@@ -972,7 +986,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Week3_Correlation_Regression_59_0.png" src="_images/Week3_Correlation_Regression_59_0.png" />
+<img alt="_images/Week3_Correlation_Regression_60_0.png" src="_images/Week3_Correlation_Regression_60_0.png" />
 </div>
 </div>
 <p>When we look at the score this time we see that it’s doing quite well:</p>
@@ -983,7 +997,7 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9433072352389252
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9403176175262739
 </pre></div>
 </div>
 </div>
@@ -1082,10 +1096,10 @@ LR, we need to feed it some data. When feeding it data, we typically make a dist
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7fa16073a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcc865ef3a0&gt;]
 </pre></div>
 </div>
-<img alt="_images/Week3_Correlation_Regression_74_1.png" src="_images/Week3_Correlation_Regression_74_1.png" />
+<img alt="_images/Week3_Correlation_Regression_75_1.png" src="_images/Week3_Correlation_Regression_75_1.png" />
 </div>
 </div>
 <p>It’s fair to ask whether some of those smaller coefficients really matter at all.</p>
